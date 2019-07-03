@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-96,0,0,2,-106"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="Center"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="ICMP-Ping">
+                <Property name="tabTitle" type="java.lang.String" value="ICMP-Ping"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/ping-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Pinger"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Result:"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taPingResult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar2">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Input:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="North"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator13">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Enter IP/DNS:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator1">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfPingInput">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfPingInputKeyPressed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator2">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="TimeOut, ms: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboPingTimeouts">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator17">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel7">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Count: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboPingCounts">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator18">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar3">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="actions:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="South"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator3">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnPingRun">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/get-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Run Pinger "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPingRunActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator4">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSavePing">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/save-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save Result "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePingActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator26">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnPingReset">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/edit_clear-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Clear "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPingResetActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="TCP-scan">
+                <Property name="tabTitle" type="java.lang.String" value="TCP-scan"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/radiolocator-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="TCP-scaner"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Result:"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taTcpResult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar5">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Input:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="North"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator22">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Enter IP-address:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator5">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfTcpInput">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfTcpInputKeyPressed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator6">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar6">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="actions:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="South"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator7">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnTcpRun">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/get-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Run TCP-scaner "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTcpRunActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator8">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSaveTcp">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/save-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save Result "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveTcpActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator30">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnTcpReset">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/edit_clear-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Clear "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTcpResetActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="DNS-check">
+                <Property name="tabTitle" type="java.lang.String" value="DNS-check"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/dns-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="DNS-checker"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Result:"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taDnsResult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar7">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Input:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="North"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator21">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Enter IP-address/DNS-name:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator9">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfDnsInput">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfDnsInputKeyPressed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator10">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar8">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="actions:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="South"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator11">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnDnsRun">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/get-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Check DNS "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDnsRunActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator12">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSaveDns">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/save-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save Result "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveDnsActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator31">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnDnsReset">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/edit_clear-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Clear  "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDnsResetActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="IP-calculator">
+                <Property name="tabTitle" type="java.lang.String" value="IP-calculator"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/ip-blue-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel4">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="IP-calculator"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Result:"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taCalcResult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar9">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Input:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="North"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator20">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Enter IP-address: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfCalcInput">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfCalcInputKeyPressed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator19">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel8">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Prefix/Mask: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboCalcMasks">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboCalcMasksActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator14">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar10">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="actions:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="South"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator15">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnCalcRun">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/get-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Calculate IP "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcRunActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator16">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSaveCalc">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/save-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save Result "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveCalcActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator32">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnCalcReset">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/edit_clear-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Clear "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcResetActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Syslog">
+                <Property name="tabTitle" type="java.lang.String" value="Syslog"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/syslog-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Syslog-Server"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Received messages:"/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taSyslogResult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar11">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="UDP-port:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="North"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator24">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel10">
+                      <Properties>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Select syslog-server UDP-port:  "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfSyslogInput">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator29">
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JToolBar" name="jToolBar12">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="actions:"/>
+                      </Border>
+                    </Property>
+                    <Property name="rollover" type="boolean" value="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="South"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator27">
+                    </Component>
+                    <Component class="javax.swing.JToggleButton" name="btnBooleanSyslog">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/get-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Run Syslog-server "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="btnBooleanSyslogItemStateChanged"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator28">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSyslogReset">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/edit_clear-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Clear Messages "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSyslogResetActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator25">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSyslogSave">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/img/save-16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Save Log "/>
+                        <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="horizontalTextPosition" type="int" value="4"/>
+                        <Property name="verticalTextPosition" type="int" value="3"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSyslogSaveActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Local IP">
+                <Property name="tabTitle" type="java.lang.String" value="Local IP"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/pc-net-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane12">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="taLocalResult">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane13">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Info">
+                <Property name="tabTitle" type="java.lang.String" value="Info"/>
+                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/img/info-cyan-16.png"/>
+                </Property>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JEditorPane" name="epAbout">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JToolBar" name="jToolBar1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Tools"/>
+          </Border>
+        </Property>
+        <Property name="floatable" type="boolean" value="false"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="North"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator23">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/select-color-24.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cange Skin"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator33">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnExit">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/exit-24.png"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JToolBar" name="jToolBar4">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Info:"/>
+          </Border>
+        </Property>
+        <Property name="rollover" type="boolean" value="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="South"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator34">
+        </Component>
+        <Component class="javax.swing.JLabel" name="nizInfoLabel">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/globe-net-16.png"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
