@@ -39,7 +39,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText("Version 1.0, build 03-07-2019.");
+        this.nizInfoLabel.setText(" Version 1.0.1, build 03-07-2019.");
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
@@ -798,6 +798,7 @@ public class PjFrame extends javax.swing.JFrame {
     private void btnBooleanSyslogItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanSyslogItemStateChanged
         if (!StringUtils.isNumeric(frame.tfSyslogInput.getText())) {
             JOptionPane.showMessageDialog(frame, "Wrong Port !", "Error", JOptionPane.ERROR_MESSAGE);
+            btnBooleanSyslog.setSelected(false);
             return;
         }
         ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
