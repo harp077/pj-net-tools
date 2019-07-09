@@ -39,7 +39,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText(" Version 1.0.1, build 03-07-2019.");
+        this.nizInfoLabel.setText(" Version 1.0.2, build 10-07-2019.");
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
@@ -662,6 +662,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
+        taLocalResult.setEditable(false);
         taLocalResult.setColumns(20);
         taLocalResult.setRows(5);
         jScrollPane12.setViewportView(taLocalResult);
