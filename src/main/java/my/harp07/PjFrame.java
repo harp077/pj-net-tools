@@ -252,6 +252,8 @@ public class PjFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pinger"));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
