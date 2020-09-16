@@ -3,6 +3,7 @@ package my.harp07;
 import java.awt.Desktop;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,10 +28,15 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
+    public static int FW = 700;
+    public static int FH = 540;    
     private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
+    public static String currentLAF="net.sf.tinylaf.TinyLookAndFeel";
+    public static String currentTheme="lib/themes/My_Cyan.theme";
+    public static List<String> tinyTemes = new ArrayList<>();
+    //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
     public PjFrame() {
@@ -41,7 +47,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText(" Version 1.0.4, build 16-09-2020.");
+        this.nizInfoLabel.setText(" Version 1.0.10, build 16-09-2020.");
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
@@ -86,14 +92,27 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     public static void InstallLF() {
+        tinyTemes.add("lib/themes/Default.theme");
+        tinyTemes.add("lib/themes/Forest.theme");
+        tinyTemes.add("lib/themes/Golden.theme");
+        tinyTemes.add("lib/themes/Plastic.theme");
+        tinyTemes.add("lib/themes/Silver.theme");
+        tinyTemes.add("lib/themes/Nightly.theme");
+        //tinyTemes.add("lib/themes/Unicode.theme");
+        tinyTemes.add("lib/themes/My_Cyan.theme");
+        tinyTemes.add("lib/themes/My_Yellow.theme");  
+        tinyTemes.add("lib/themes/My_AquaMarine.theme"); 
+        tinyTemes.add("lib/themes/My_Magenta.theme");  
+        tinyTemes.add("lib/themes/My_Green.theme"); 
+        MyInstLF("net.sf.tinylaf.TinyLookAndFeel"); 
         MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         ///////////////////////        
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
+        /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceAutumnLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeCoffeeLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceModerateLookAndFeel");
-        //MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMagellanLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMagellanLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistSilverLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeBlue2007LookAndFeel");
@@ -113,10 +132,46 @@ public class PjFrame extends javax.swing.JFrame {
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMarinerLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCeruleanLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");*/
+    }
+    
+    public static void setLF() {
+        if (currentLAF.contains("tinylaf")) {
+            net.sf.tinylaf.Theme.loadTheme(new File(currentTheme));
+        }
+        try {
+            UIManager.setLookAndFeel(currentLAF);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PjFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        SwingUtilities.updateComponentTreeUI(frame);
+        //frame.pack();
+        //frame.setSize(FW, FH);
     }
 
     public void changeLF() {
+        //Actions.currentTheme="";
+        //for (UIManager.LookAndFeelInfo each : UIManager.getInstalledLookAndFeels()) {
+        //lookAndFeelsDisplay.add(each.getName());
+        //lookAndFeelsRealNames.add(each.getClassName());
+        //}
+        //String changeLook = (String) JOptionPane.showInputDialog(this, "Choose Look and Feel Here:", "Select Look and Feel", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/JSK/img/color_swatch.png")), lookAndFeelsDisplay.toArray(), null);
+        String changeLook = "net.sf.tinylaf.TinyLookAndFeel";
+        if (changeLook.contains("net.sf.tinylaf")) {
+            currentTheme = (String) JOptionPane.showInputDialog(this, "Set TinyLF Theme:", "Select TinyLF Theme", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/img/color_swatch.png")), tinyTemes.toArray(), null);
+        }
+        if (changeLook != null) {
+            for (int a = 0; a < lookAndFeelsDisplay.size(); a++) {
+                if (changeLook.equals(lookAndFeelsDisplay.get(a))) {
+                    currentLAF = lookAndFeelsRealNames.get(a);
+                    setLF();
+                    break;
+                }
+            }
+        }
+    }    
+
+    /*public void changeLF() {
         String changeLook = (String) JOptionPane.showInputDialog(frame, "Choose Look and Feel Here:", "Select Look and Feel", JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource("/img/color_swatch.png")), lookAndFeelsDisplay.toArray(), null);
         if (changeLook != null) {
             for (int a = 0; a < lookAndFeelsDisplay.size(); a++) {
@@ -127,9 +182,9 @@ public class PjFrame extends javax.swing.JFrame {
                 }
             }
         }
-    }
+    }*/
 
-    public void setLF(JFrame frame) {
+    /*public void setLF(JFrame frame) {
         try {
             UIManager.setLookAndFeel(currentLAF);
         } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
@@ -139,7 +194,7 @@ public class PjFrame extends javax.swing.JFrame {
         }
         SwingUtilities.updateComponentTreeUI(frame);
         //frame.pack();
-    }
+    }*/
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1048,10 +1103,11 @@ public class PjFrame extends javax.swing.JFrame {
             frame = new PjFrame();
             frame.InstallLF();
             frame.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
-            frame.setLF(frame);
+            //frame.setLF(frame);
+            frame.setLF();
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-            frame.setSize(700, 540);
+            frame.setSize(FW, FH);
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
             frame.setVisible(true);

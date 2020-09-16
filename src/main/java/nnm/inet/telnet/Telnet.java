@@ -16,7 +16,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.net.UnknownHostException;
 
 /**
@@ -279,12 +281,16 @@ public class Telnet implements Runnable {
                 locopts[i] = remopts[i] = false;
             try { /* Get host name */
                // context.printlog("Getting host by name: " + server);
-                InetAddress addr = InetAddress.getByName(server);
+                //InetAddress addr = InetAddress.getByName(server);
+                SocketAddress addr = new InetSocketAddress(server, port);
+                Socket control = new Socket();
+                int timeout = 333;
+                control.connect(addr, timeout);                
 
                 /* Connect to host */
-                context.printlog("Connecting to host: " + addr.getHostAddress());
-                control = new Socket(addr, port);
-                //control.setSoTimeout(20000);
+                context.printlog("Connecting to host: " + server);
+                //control = new Socket(addr, port);
+                //control.setSoTimeout(500);
 
                 /* Open input / output streams */
                 in = new BufferedInputStream(control.getInputStream());

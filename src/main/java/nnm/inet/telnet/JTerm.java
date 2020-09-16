@@ -75,11 +75,15 @@ public class JTerm {
         frame.pack();
         frame.setVisible(true);
 
-        if(server==null) {
+        /*if(server==null) {
             server = JOptionPane.showInputDialog(frame, "Connect To: ");
+        }*/
+        try {
+            telnet.connect(server, port);
+        } catch (Exception e) {
+            frame.dispose();
+            JOptionPane.showMessageDialog(frame, "Can't connect", "Connect error", JOptionPane.ERROR_MESSAGE);
         }
-
-        telnet.connect(server, port);
     }
 
     static void parse(String[] args) {
