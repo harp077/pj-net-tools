@@ -39,16 +39,17 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText(" Version 1.0.2, build 10-07-2019.");
+        this.nizInfoLabel.setText(" Version 1.0.3, build 16-09-2020.");
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
                 + "\nPure Java Network Tools. <br>Include:<br>"
-                + "\n1. ICMP-pinger;<br>"
-                + "\n2. DNS-checker.<br>"
-                + "\n3. TCP-scaner.<br>"
-                + "\n4. IP-calculator.<br>"
-                + "\n5. Syslog-server.<br>"
+                + "\n1. ICMP-ping;<br>"
+                + "\n2. ICMP-trace;<br>"                
+                + "\n3. DNS-checker.<br>"
+                + "\n4. TCP-scaner.<br>"
+                + "\n5. IP-calculator.<br>"
+                + "\n6. Syslog-server.<br>"
                 + "\nCreate by Roman Koldaev,<br>"
                 + "\nSaratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
@@ -165,6 +166,23 @@ public class PjFrame extends javax.swing.JFrame {
         btnSavePing = new javax.swing.JButton();
         jSeparator26 = new javax.swing.JToolBar.Separator();
         btnPingReset = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        taTraceResult = new javax.swing.JTextArea();
+        jToolBar13 = new javax.swing.JToolBar();
+        jSeparator35 = new javax.swing.JToolBar.Separator();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator36 = new javax.swing.JToolBar.Separator();
+        tfTraceInput = new javax.swing.JTextField();
+        jSeparator37 = new javax.swing.JToolBar.Separator();
+        jToolBar14 = new javax.swing.JToolBar();
+        jSeparator38 = new javax.swing.JToolBar.Separator();
+        btnTraceRun = new javax.swing.JButton();
+        jSeparator39 = new javax.swing.JToolBar.Separator();
+        btnSaveTrace = new javax.swing.JButton();
+        jSeparator40 = new javax.swing.JToolBar.Separator();
+        btnTraceReset = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -345,6 +363,88 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel1);
 
         jTabbedPane1.addTab("ICMP-Ping", new javax.swing.ImageIcon(getClass().getResource("/img/ping-16.png")), jScrollPane1); // NOI18N
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Traceroute"));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane15.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taTraceResult.setEditable(false);
+        taTraceResult.setColumns(20);
+        taTraceResult.setRows(5);
+        jScrollPane15.setViewportView(taTraceResult);
+
+        jPanel7.add(jScrollPane15, java.awt.BorderLayout.CENTER);
+
+        jToolBar13.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar13.setRollover(true);
+        jToolBar13.add(jSeparator35);
+
+        jLabel9.setText("Enter IP-address/DNS-name:");
+        jToolBar13.add(jLabel9);
+        jToolBar13.add(jSeparator36);
+
+        tfTraceInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfTraceInputKeyPressed(evt);
+            }
+        });
+        jToolBar13.add(tfTraceInput);
+        jToolBar13.add(jSeparator37);
+
+        jPanel7.add(jToolBar13, java.awt.BorderLayout.NORTH);
+
+        jToolBar14.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar14.setRollover(true);
+        jToolBar14.add(jSeparator38);
+
+        btnTraceRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnTraceRun.setText("Trace run ");
+        btnTraceRun.setToolTipText("");
+        btnTraceRun.setFocusable(false);
+        btnTraceRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnTraceRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTraceRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTraceRunActionPerformed(evt);
+            }
+        });
+        jToolBar14.add(btnTraceRun);
+        btnTraceRun.getAccessibleContext().setAccessibleName("Trace");
+
+        jToolBar14.add(jSeparator39);
+
+        btnSaveTrace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
+        btnSaveTrace.setText("Save Result ");
+        btnSaveTrace.setFocusable(false);
+        btnSaveTrace.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSaveTrace.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaveTrace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveTraceActionPerformed(evt);
+            }
+        });
+        jToolBar14.add(btnSaveTrace);
+        jToolBar14.add(jSeparator40);
+
+        btnTraceReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
+        btnTraceReset.setText("Clear  ");
+        btnTraceReset.setFocusable(false);
+        btnTraceReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnTraceReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTraceReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTraceResetActionPerformed(evt);
+            }
+        });
+        jToolBar14.add(btnTraceReset);
+
+        jPanel7.add(jToolBar14, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane14.setViewportView(jPanel7);
+        jPanel7.getAccessibleContext().setAccessibleName("Traceroute");
+
+        jTabbedPane1.addTab("ICMP-Trace", new javax.swing.ImageIcon(getClass().getResource("/img/trace-16.png")), jScrollPane14, ""); // NOI18N
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP-scaner"));
         jPanel2.setLayout(new java.awt.BorderLayout());
@@ -848,6 +948,25 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void tfTraceInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTraceInputKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            PjTrace.trace(tfTraceInput, taTraceResult);
+        }
+    }//GEN-LAST:event_tfTraceInputKeyPressed
+
+    private void btnTraceRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraceRunActionPerformed
+        PjTrace.trace(tfTraceInput, taTraceResult);
+    }//GEN-LAST:event_btnTraceRunActionPerformed
+
+    private void btnSaveTraceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveTraceActionPerformed
+        PjSaveResult.Save(taTraceResult);
+    }//GEN-LAST:event_btnSaveTraceActionPerformed
+
+    private void btnTraceResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraceResetActionPerformed
+        tfTraceInput.setText("");
+        taTraceResult.setText("");
+    }//GEN-LAST:event_btnTraceResetActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -877,10 +996,13 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveDns;
     private javax.swing.JButton btnSavePing;
     private javax.swing.JButton btnSaveTcp;
+    private javax.swing.JButton btnSaveTrace;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
     private javax.swing.JButton btnTcpRun;
+    private javax.swing.JButton btnTraceReset;
+    private javax.swing.JButton btnTraceRun;
     public static javax.swing.JComboBox<String> comboCalcMasks;
     public static javax.swing.JComboBox<String> comboPingCounts;
     public static javax.swing.JComboBox<String> comboPingTimeouts;
@@ -894,17 +1016,21 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -941,7 +1067,13 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator32;
     private javax.swing.JToolBar.Separator jSeparator33;
     private javax.swing.JToolBar.Separator jSeparator34;
+    private javax.swing.JToolBar.Separator jSeparator35;
+    private javax.swing.JToolBar.Separator jSeparator36;
+    private javax.swing.JToolBar.Separator jSeparator37;
+    private javax.swing.JToolBar.Separator jSeparator38;
+    private javax.swing.JToolBar.Separator jSeparator39;
     private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JToolBar.Separator jSeparator40;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
@@ -952,6 +1084,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar10;
     private javax.swing.JToolBar jToolBar11;
     private javax.swing.JToolBar jToolBar12;
+    private javax.swing.JToolBar jToolBar13;
+    private javax.swing.JToolBar jToolBar14;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
@@ -967,10 +1101,12 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taPingResult;
     public static javax.swing.JTextArea taSyslogResult;
     public static javax.swing.JTextArea taTcpResult;
+    public static javax.swing.JTextArea taTraceResult;
     public static javax.swing.JTextField tfCalcInput;
     public static javax.swing.JTextField tfDnsInput;
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfSyslogInput;
     public static javax.swing.JTextField tfTcpInput;
+    public static javax.swing.JTextField tfTraceInput;
     // End of variables declaration//GEN-END:variables
 }
