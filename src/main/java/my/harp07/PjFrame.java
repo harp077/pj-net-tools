@@ -991,7 +991,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDnsRun;
     private javax.swing.JButton btnExit;
     public static javax.swing.JButton btnPingReset;
-    private javax.swing.JButton btnPingRun;
+    public javax.swing.JButton btnPingRun;
     private javax.swing.JButton btnSaveCalc;
     private javax.swing.JButton btnSaveDns;
     private javax.swing.JButton btnSavePing;
@@ -1000,9 +1000,9 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
-    private javax.swing.JButton btnTcpRun;
+    public javax.swing.JButton btnTcpRun;
     private javax.swing.JButton btnTraceReset;
-    private javax.swing.JButton btnTraceRun;
+    public javax.swing.JButton btnTraceRun;
     public static javax.swing.JComboBox<String> comboCalcMasks;
     public static javax.swing.JComboBox<String> comboPingCounts;
     public static javax.swing.JComboBox<String> comboPingTimeouts;

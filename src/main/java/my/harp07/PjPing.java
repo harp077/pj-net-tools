@@ -84,6 +84,7 @@ public class PjPing {
             JOptionPane.showMessageDialog(frame, "Empty IP/DNS !", "Error", JOptionPane.ERROR_MESSAGE);
         }
         ta.setText("");
+        frame.btnPingRun.setEnabled(true);
         return result;
     }
 
@@ -92,12 +93,14 @@ public class PjPing {
         String input = ipq.getText().trim();
         //System.out.println(input);
         if (ipv.isValid(input))  {
+            frame.btnPingRun.setEnabled(false);
             //ta.setText("\nPlease, Wait !");
             //ta.setText(getResult(input));
             new Thread(()->ta.setText(getResult(input,ta))).start();
             return;
         } 
         if (dnsv.isValid(input)) {
+            frame.btnPingRun.setEnabled(false);
             //ta.setText("\nPlease, Wait !");
             //ta.setText(getResult(input));
             new Thread(()->ta.setText(getResult(input,ta))).start();

@@ -58,6 +58,7 @@ public class PjTrace {
             System.out.println("TRACE IOException: " + ex.getMessage());
         }
         ta.setText("");
+        frame.btnTraceRun.setEnabled(true);
         return result + "\n===========\n end";
     }
 
@@ -66,12 +67,14 @@ public class PjTrace {
         String input = ipq.getText().trim();
         //System.out.println(input);
         if (ipv.isValid(input)) {
+            frame.btnTraceRun.setEnabled(false);
             //ta.setText("\nPlease, Wait !");
             //ta.setText(getResult(input));
             new Thread(() -> ta.setText(trace(input, ta))).start();
             return;
         }
         if (dnsv.isValid(input)) {
+            frame.btnTraceRun.setEnabled(false);
             //ta.setText("\nPlease, Wait !");
             //ta.setText(getResult(input));
             new Thread(() -> ta.setText(trace(input, ta))).start();

@@ -62,12 +62,14 @@ public class PjTcp {
                 ta.setText(res);
             }
         }
+        frame.btnTcpRun.setEnabled(true);
         return res + "-------------\nend.";
     }
 
     public static void runGetResult(JTextField ipq, JTextArea ta) {
         ta.setText("");
         if (ipv.isValid(ipq.getText().trim())) {
+            frame.btnTcpRun.setEnabled(false);
             new Thread(() -> ta.setText(getResult(ipq, ta))).start();
         } else {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
