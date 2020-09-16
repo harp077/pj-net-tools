@@ -22,10 +22,12 @@ import static my.harp07.PjCalc.CIDRS_MASKS;
 import static my.harp07.PjPing.COUNTS;
 import static my.harp07.PjPing.TIMEOUTS;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
+    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
@@ -39,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText(" Version 1.0.3, build 16-09-2020.");
+        this.nizInfoLabel.setText(" Version 1.0.4, build 16-09-2020.");
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
@@ -50,6 +52,7 @@ public class PjFrame extends javax.swing.JFrame {
                 + "\n4. TCP-scaner.<br>"
                 + "\n5. IP-calculator.<br>"
                 + "\n6. Syslog-server.<br>"
+                + "\n7. Telnet-client.<br>"
                 + "\nCreate by Roman Koldaev,<br>"
                 + "\nSaratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
@@ -252,6 +255,17 @@ public class PjFrame extends javax.swing.JFrame {
         btnSyslogReset = new javax.swing.JButton();
         jSeparator25 = new javax.swing.JToolBar.Separator();
         btnSyslogSave = new javax.swing.JButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jPanel8 = new javax.swing.JPanel();
+        jToolBar15 = new javax.swing.JToolBar();
+        jSeparator41 = new javax.swing.JToolBar.Separator();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator42 = new javax.swing.JToolBar.Separator();
+        tfTelnetInput = new javax.swing.JTextField();
+        jSeparator43 = new javax.swing.JToolBar.Separator();
+        jToolBar16 = new javax.swing.JToolBar();
+        jSeparator44 = new javax.swing.JToolBar.Separator();
+        btnTelnetRun = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -442,7 +456,6 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel7.add(jToolBar14, java.awt.BorderLayout.SOUTH);
 
         jScrollPane14.setViewportView(jPanel7);
-        jPanel7.getAccessibleContext().setAccessibleName("Traceroute");
 
         jTabbedPane1.addTab("ICMP-Trace", new javax.swing.ImageIcon(getClass().getResource("/img/trace-16.png")), jScrollPane14, ""); // NOI18N
 
@@ -762,6 +775,49 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Syslog", new javax.swing.ImageIcon(getClass().getResource("/img/syslog-16.png")), jScrollPane10); // NOI18N
 
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("telnet"));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jToolBar15.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar15.setRollover(true);
+        jToolBar15.add(jSeparator41);
+
+        jLabel11.setText("Enter IP-address:");
+        jToolBar15.add(jLabel11);
+        jToolBar15.add(jSeparator42);
+
+        tfTelnetInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfTelnetInputKeyPressed(evt);
+            }
+        });
+        jToolBar15.add(tfTelnetInput);
+        jToolBar15.add(jSeparator43);
+
+        jPanel8.add(jToolBar15, java.awt.BorderLayout.NORTH);
+
+        jToolBar16.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar16.setRollover(true);
+        jToolBar16.add(jSeparator44);
+
+        btnTelnetRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnTelnetRun.setText("Run Telnet ");
+        btnTelnetRun.setFocusable(false);
+        btnTelnetRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnTelnetRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnTelnetRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTelnetRunActionPerformed(evt);
+            }
+        });
+        jToolBar16.add(btnTelnetRun);
+
+        jPanel8.add(jToolBar16, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane16.setViewportView(jPanel8);
+
+        jTabbedPane1.addTab("Telnet-client", new javax.swing.ImageIcon(getClass().getResource("/img/connect_16.png")), jScrollPane16); // NOI18N
+
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         taLocalResult.setEditable(false);
@@ -967,6 +1023,26 @@ public class PjFrame extends javax.swing.JFrame {
         taTraceResult.setText("");
     }//GEN-LAST:event_btnTraceResetActionPerformed
 
+    private void tfTelnetInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelnetInputKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (ipv.isValid(tfTelnetInput.getText().trim())) {
+                new TelnetNNM_Thread(tfTelnetInput.getText().trim());
+            }
+            else {
+                JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_tfTelnetInputKeyPressed
+
+    private void btnTelnetRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelnetRunActionPerformed
+        if (ipv.isValid(tfTelnetInput.getText().trim())) {
+            new TelnetNNM_Thread(tfTelnetInput.getText().trim());
+        }
+        else {
+            JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
+        }        
+    }//GEN-LAST:event_btnTelnetRunActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1001,6 +1077,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
     public javax.swing.JButton btnTcpRun;
+    public static javax.swing.JButton btnTelnetRun;
     private javax.swing.JButton btnTraceReset;
     public javax.swing.JButton btnTraceRun;
     public static javax.swing.JComboBox<String> comboCalcMasks;
@@ -1010,6 +1087,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1024,6 +1102,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1031,6 +1110,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1074,6 +1154,10 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator39;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator40;
+    private javax.swing.JToolBar.Separator jSeparator41;
+    private javax.swing.JToolBar.Separator jSeparator42;
+    private javax.swing.JToolBar.Separator jSeparator43;
+    private javax.swing.JToolBar.Separator jSeparator44;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
@@ -1086,6 +1170,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar12;
     private javax.swing.JToolBar jToolBar13;
     private javax.swing.JToolBar jToolBar14;
+    private javax.swing.JToolBar jToolBar15;
+    private javax.swing.JToolBar jToolBar16;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
@@ -1107,6 +1193,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfSyslogInput;
     public static javax.swing.JTextField tfTcpInput;
+    public static javax.swing.JTextField tfTelnetInput;
     public static javax.swing.JTextField tfTraceInput;
     // End of variables declaration//GEN-END:variables
 }
