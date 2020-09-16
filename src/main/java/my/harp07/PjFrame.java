@@ -950,12 +950,12 @@ public class PjFrame extends javax.swing.JFrame {
 
     private void tfTraceInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTraceInputKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            PjTrace.trace(tfTraceInput, taTraceResult);
+            PjTrace.runTrace(tfTraceInput, taTraceResult);
         }
     }//GEN-LAST:event_tfTraceInputKeyPressed
 
     private void btnTraceRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraceRunActionPerformed
-        PjTrace.trace(tfTraceInput, taTraceResult);
+        PjTrace.runTrace(tfTraceInput, taTraceResult);
     }//GEN-LAST:event_btnTraceRunActionPerformed
 
     private void btnSaveTraceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveTraceActionPerformed
