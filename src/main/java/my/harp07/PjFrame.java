@@ -1087,6 +1087,7 @@ public class PjFrame extends javax.swing.JFrame {
             frame.setSize(FW, FH);
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
+            frame.setLocation(111,111);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
         });
