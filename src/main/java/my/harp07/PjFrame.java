@@ -34,20 +34,21 @@ public class PjFrame extends javax.swing.JFrame {
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF="net.sf.tinylaf.TinyLookAndFeel";
-    public static String currentTheme="lib/themes/My_Cyan.theme";
+    public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
+    public static String zagolovok="Pure Java Network Tools,  v1.0.11, build 17-09-20";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
     public PjFrame() {
         initComponents();
-        this.setTitle("Pure Java Network Tools");
+        this.setTitle(zagolovok);
         this.comboPingCounts.setModel(new javax.swing.DefaultComboBoxModel(COUNTS));
         this.comboPingTimeouts.setModel(new javax.swing.DefaultComboBoxModel(TIMEOUTS));
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
         this.setIconImage(icone.getImage());
-        this.nizInfoLabel.setText(" Version 1.0.10, build 16-09-2020.");
+        this.nizInfoLabel.setText(zagolovok);
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
@@ -105,33 +106,9 @@ public class PjFrame extends javax.swing.JFrame {
         tinyTemes.add("lib/themes/My_Magenta.theme");  
         tinyTemes.add("lib/themes/My_Green.theme"); 
         MyInstLF("net.sf.tinylaf.TinyLookAndFeel"); 
-        MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
+        //MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         ///////////////////////        
         /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceAutumnLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeCoffeeLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceModerateLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMagellanLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistSilverLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeBlue2007LookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeBlack2007LookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeSilver2007LookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceNebulaBrickWallLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGeminiLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceDustLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceRavenLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteAquaLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessBlueSteelLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMarinerLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCeruleanLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");*/
     }
     
