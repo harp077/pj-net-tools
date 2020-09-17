@@ -36,7 +36,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="net.sf.tinylaf.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.11, build 17-09-20";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.13, build 17-09-20";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 

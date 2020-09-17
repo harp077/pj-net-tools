@@ -44,7 +44,7 @@ public class JTerm {
         term.setEmulator(emu);
         telnet = new Telnet(emu);
 
-        final JFrame frame = new JFrame("Telnet-client");
+        final JFrame frame = new JFrame("Telnet-client:  connect to " + server);
         frame.setSize(200,200);
         //NetworkManagerGUI.imageURL = NetworkManagerGUI.class.getResource("icons/nw.gif");
 
