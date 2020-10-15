@@ -36,7 +36,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.14, build 15-10-20";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.15, build 15-10-20";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -314,6 +314,8 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator48 = new javax.swing.JToolBar.Separator();
         btnArpRun = new javax.swing.JButton();
         jSeparator49 = new javax.swing.JToolBar.Separator();
+        btnArpALL = new javax.swing.JButton();
+        jSeparator23 = new javax.swing.JToolBar.Separator();
         btnSaveArp = new javax.swing.JButton();
         jSeparator50 = new javax.swing.JToolBar.Separator();
         btnArpReset = new javax.swing.JButton();
@@ -903,7 +905,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar18.add(jSeparator48);
 
         btnArpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
-        btnArpRun.setText("Get Arp");
+        btnArpRun.setText("Get Arp for IP ");
         btnArpRun.setToolTipText("");
         btnArpRun.setFocusable(false);
         btnArpRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -915,6 +917,19 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar18.add(btnArpRun);
         jToolBar18.add(jSeparator49);
+
+        btnArpALL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-double-16.png"))); // NOI18N
+        btnArpALL.setText("Get all local ARP-cache");
+        btnArpALL.setFocusable(false);
+        btnArpALL.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnArpALL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnArpALL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArpALLActionPerformed(evt);
+            }
+        });
+        jToolBar18.add(btnArpALL);
+        jToolBar18.add(jSeparator23);
 
         btnSaveArp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
         btnSaveArp.setText("Save Result ");
@@ -1173,12 +1188,12 @@ public class PjFrame extends javax.swing.JFrame {
 
     private void tfArpInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfArpInputKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            PjArp.runArp(tfArpInput, taArpResult);
+            PjArp.runArpIP(tfArpInput, taArpResult);
         }
     }//GEN-LAST:event_tfArpInputKeyPressed
 
     private void btnArpRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpRunActionPerformed
-        PjArp.runArp(tfArpInput, taArpResult);
+        PjArp.runArpIP(tfArpInput, taArpResult);
     }//GEN-LAST:event_btnArpRunActionPerformed
 
     private void btnSaveArpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveArpActionPerformed
@@ -1189,6 +1204,10 @@ public class PjFrame extends javax.swing.JFrame {
         tfArpInput.setText("");
         taArpResult.setText("");
     }//GEN-LAST:event_btnArpResetActionPerformed
+
+    private void btnArpALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpALLActionPerformed
+        PjArp.runArpAll(taArpResult);
+    }//GEN-LAST:event_btnArpALLActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
@@ -1209,6 +1228,7 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton btnArpALL;
     private javax.swing.JButton btnArpReset;
     public javax.swing.JButton btnArpRun;
     public static javax.swing.JToggleButton btnBooleanSyslog;
@@ -1290,6 +1310,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator20;
     private javax.swing.JToolBar.Separator jSeparator21;
     private javax.swing.JToolBar.Separator jSeparator22;
+    private javax.swing.JToolBar.Separator jSeparator23;
     private javax.swing.JToolBar.Separator jSeparator24;
     private javax.swing.JToolBar.Separator jSeparator25;
     private javax.swing.JToolBar.Separator jSeparator26;
