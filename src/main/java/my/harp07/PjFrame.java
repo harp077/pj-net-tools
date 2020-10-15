@@ -28,15 +28,15 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
-    public static int FW = 700;
-    public static int FH = 540;    
+    public static int FW = 800;
+    public static int FH = 550;    
     private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF="net.sf.tinylaf.TinyLookAndFeel";
+    public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.13, build 17-09-20";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.14, build 15-10-20";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -46,13 +46,13 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboPingCounts.setModel(new javax.swing.DefaultComboBoxModel(COUNTS));
         this.comboPingTimeouts.setModel(new javax.swing.DefaultComboBoxModel(TIMEOUTS));
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
-        ImageIcon icone = new ImageIcon(getClass().getResource("/img/globe-net-16.png"));
+        ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());
         this.nizInfoLabel.setText(zagolovok);
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
-                + "\nPure Java Network Tools. <br>Include:<br>"
+                + "\nPure Java Network Tools. <br>Include:<br><br>"
                 + "\n1. ICMP-ping;<br>"
                 + "\n2. ICMP-trace;<br>"                
                 + "\n3. DNS-checker.<br>"
@@ -60,6 +60,7 @@ public class PjFrame extends javax.swing.JFrame {
                 + "\n5. IP-calculator.<br>"
                 + "\n6. Syslog-server.<br>"
                 + "\n7. Telnet-client.<br>"
+                + "\n8. Local ARP request.<br><br>"
                 + "\nCreate by Roman Koldaev,<br>"
                 + "\nSaratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
@@ -83,7 +84,8 @@ public class PjFrame extends javax.swing.JFrame {
                 }
             }
         });
-
+        this.btnSkin.setVisible(false);
+        //this.btnExit.setVisible(false);
     }
 
     public static void MyInstLF(String lf) {
@@ -105,7 +107,7 @@ public class PjFrame extends javax.swing.JFrame {
         tinyTemes.add("lib/themes/My_AquaMarine.theme"); 
         tinyTemes.add("lib/themes/My_Magenta.theme");  
         tinyTemes.add("lib/themes/My_Green.theme"); 
-        MyInstLF("net.sf.tinylaf.TinyLookAndFeel"); 
+        MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel"); 
         //MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         ///////////////////////        
         /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
@@ -113,8 +115,8 @@ public class PjFrame extends javax.swing.JFrame {
     }
     
     public static void setLF() {
-        if (currentLAF.contains("tinylaf")) {
-            net.sf.tinylaf.Theme.loadTheme(new File(currentTheme));
+        if (currentLAF.contains("tinyl")) {
+            de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
         }
         try {
             UIManager.setLookAndFeel(currentLAF);
@@ -133,8 +135,8 @@ public class PjFrame extends javax.swing.JFrame {
         //lookAndFeelsRealNames.add(each.getClassName());
         //}
         //String changeLook = (String) JOptionPane.showInputDialog(this, "Choose Look and Feel Here:", "Select Look and Feel", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/JSK/img/color_swatch.png")), lookAndFeelsDisplay.toArray(), null);
-        String changeLook = "net.sf.tinylaf.TinyLookAndFeel";
-        if (changeLook.contains("net.sf.tinylaf")) {
+        String changeLook = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
+        if (changeLook.contains("tinyl")) {
             currentTheme = (String) JOptionPane.showInputDialog(this, "Set TinyLF Theme:", "Select TinyLF Theme", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/img/color_swatch.png")), tinyTemes.toArray(), null);
         }
         if (changeLook != null) {
@@ -298,6 +300,23 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar16 = new javax.swing.JToolBar();
         jSeparator44 = new javax.swing.JToolBar.Separator();
         btnTelnetRun = new javax.swing.JButton();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        taArpResult = new javax.swing.JTextArea();
+        jToolBar17 = new javax.swing.JToolBar();
+        jSeparator45 = new javax.swing.JToolBar.Separator();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator46 = new javax.swing.JToolBar.Separator();
+        tfArpInput = new javax.swing.JTextField();
+        jSeparator47 = new javax.swing.JToolBar.Separator();
+        jToolBar18 = new javax.swing.JToolBar();
+        jSeparator48 = new javax.swing.JToolBar.Separator();
+        btnArpRun = new javax.swing.JButton();
+        jSeparator49 = new javax.swing.JToolBar.Separator();
+        btnSaveArp = new javax.swing.JButton();
+        jSeparator50 = new javax.swing.JToolBar.Separator();
+        btnArpReset = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -305,9 +324,8 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane13 = new javax.swing.JScrollPane();
         epAbout = new javax.swing.JEditorPane();
         jToolBar1 = new javax.swing.JToolBar();
-        jSeparator23 = new javax.swing.JToolBar.Separator();
-        jButton1 = new javax.swing.JButton();
         jSeparator33 = new javax.swing.JToolBar.Separator();
+        btnSkin = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jToolBar4 = new javax.swing.JToolBar();
         jSeparator34 = new javax.swing.JToolBar.Separator();
@@ -850,6 +868,85 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Telnet-client", new javax.swing.ImageIcon(getClass().getResource("/img/connect_16.png")), jScrollPane16); // NOI18N
 
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Request to local ARP-cache"));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane18.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taArpResult.setEditable(false);
+        taArpResult.setColumns(20);
+        taArpResult.setRows(5);
+        jScrollPane18.setViewportView(taArpResult);
+
+        jPanel9.add(jScrollPane18, java.awt.BorderLayout.CENTER);
+
+        jToolBar17.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar17.setRollover(true);
+        jToolBar17.add(jSeparator45);
+
+        jLabel12.setText("Enter IP-address:");
+        jToolBar17.add(jLabel12);
+        jToolBar17.add(jSeparator46);
+
+        tfArpInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfArpInputKeyPressed(evt);
+            }
+        });
+        jToolBar17.add(tfArpInput);
+        jToolBar17.add(jSeparator47);
+
+        jPanel9.add(jToolBar17, java.awt.BorderLayout.NORTH);
+
+        jToolBar18.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar18.setRollover(true);
+        jToolBar18.add(jSeparator48);
+
+        btnArpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnArpRun.setText("Get Arp");
+        btnArpRun.setToolTipText("");
+        btnArpRun.setFocusable(false);
+        btnArpRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnArpRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnArpRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArpRunActionPerformed(evt);
+            }
+        });
+        jToolBar18.add(btnArpRun);
+        jToolBar18.add(jSeparator49);
+
+        btnSaveArp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
+        btnSaveArp.setText("Save Result ");
+        btnSaveArp.setFocusable(false);
+        btnSaveArp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSaveArp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaveArp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveArpActionPerformed(evt);
+            }
+        });
+        jToolBar18.add(btnSaveArp);
+        jToolBar18.add(jSeparator50);
+
+        btnArpReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
+        btnArpReset.setText("Clear  ");
+        btnArpReset.setFocusable(false);
+        btnArpReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnArpReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnArpReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArpResetActionPerformed(evt);
+            }
+        });
+        jToolBar18.add(btnArpReset);
+
+        jPanel9.add(jToolBar18, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane17.setViewportView(jPanel9);
+
+        jTabbedPane1.addTab("ARP-get", new javax.swing.ImageIcon(getClass().getResource("/img/net-card-green-16.png")), jScrollPane17, ""); // NOI18N
+
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         taLocalResult.setEditable(false);
@@ -869,25 +966,24 @@ public class PjFrame extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
-        jToolBar1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tools"));
         jToolBar1.setFloatable(false);
-        jToolBar1.add(jSeparator23);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/select-color-24.png"))); // NOI18N
-        jButton1.setToolTipText("Cange Skin");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton1);
         jToolBar1.add(jSeparator33);
 
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit-24.png"))); // NOI18N
+        btnSkin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/color_chooser-16.png"))); // NOI18N
+        btnSkin.setToolTipText("Cange Skin");
+        btnSkin.setFocusable(false);
+        btnSkin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSkin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSkin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkinActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnSkin);
+
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quit-16.png"))); // NOI18N
         btnExit.setFocusable(false);
+        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnExit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -927,9 +1023,9 @@ public class PjFrame extends javax.swing.JFrame {
         taPingResult.setText("");
     }//GEN-LAST:event_btnPingResetActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSkinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkinActionPerformed
         changeLF();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSkinActionPerformed
 
     private void btnCalcResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcResetActionPerformed
         tfCalcInput.setText("");
@@ -1075,6 +1171,25 @@ public class PjFrame extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_btnTelnetRunActionPerformed
 
+    private void tfArpInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfArpInputKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            PjArp.runArp(tfArpInput, taArpResult);
+        }
+    }//GEN-LAST:event_tfArpInputKeyPressed
+
+    private void btnArpRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpRunActionPerformed
+        PjArp.runArp(tfArpInput, taArpResult);
+    }//GEN-LAST:event_btnArpRunActionPerformed
+
+    private void btnSaveArpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveArpActionPerformed
+        PjSaveResult.Save(taArpResult);
+    }//GEN-LAST:event_btnSaveArpActionPerformed
+
+    private void btnArpResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpResetActionPerformed
+        tfArpInput.setText("");
+        taArpResult.setText("");
+    }//GEN-LAST:event_btnArpResetActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1094,6 +1209,8 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnArpReset;
+    public javax.swing.JButton btnArpRun;
     public static javax.swing.JToggleButton btnBooleanSyslog;
     private javax.swing.JButton btnCalcReset;
     private javax.swing.JButton btnCalcRun;
@@ -1102,11 +1219,13 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;
+    private javax.swing.JButton btnSaveArp;
     private javax.swing.JButton btnSaveCalc;
     private javax.swing.JButton btnSaveDns;
     private javax.swing.JButton btnSavePing;
     private javax.swing.JButton btnSaveTcp;
     private javax.swing.JButton btnSaveTrace;
+    private javax.swing.JButton btnSkin;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
@@ -1118,10 +1237,10 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> comboPingCounts;
     public static javax.swing.JComboBox<String> comboPingTimeouts;
     public static javax.swing.JEditorPane epAbout;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1137,6 +1256,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1145,6 +1265,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1168,7 +1290,6 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator20;
     private javax.swing.JToolBar.Separator jSeparator21;
     private javax.swing.JToolBar.Separator jSeparator22;
-    private javax.swing.JToolBar.Separator jSeparator23;
     private javax.swing.JToolBar.Separator jSeparator24;
     private javax.swing.JToolBar.Separator jSeparator25;
     private javax.swing.JToolBar.Separator jSeparator26;
@@ -1192,7 +1313,13 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator42;
     private javax.swing.JToolBar.Separator jSeparator43;
     private javax.swing.JToolBar.Separator jSeparator44;
+    private javax.swing.JToolBar.Separator jSeparator45;
+    private javax.swing.JToolBar.Separator jSeparator46;
+    private javax.swing.JToolBar.Separator jSeparator47;
+    private javax.swing.JToolBar.Separator jSeparator48;
+    private javax.swing.JToolBar.Separator jSeparator49;
     private javax.swing.JToolBar.Separator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator50;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
@@ -1206,6 +1333,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar14;
     private javax.swing.JToolBar jToolBar15;
     private javax.swing.JToolBar jToolBar16;
+    private javax.swing.JToolBar jToolBar17;
+    private javax.swing.JToolBar jToolBar18;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
@@ -1215,6 +1344,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar8;
     private javax.swing.JToolBar jToolBar9;
     public static javax.swing.JLabel nizInfoLabel;
+    public static javax.swing.JTextArea taArpResult;
     public static javax.swing.JTextArea taCalcResult;
     public static javax.swing.JTextArea taDnsResult;
     public static javax.swing.JTextArea taLocalResult;
@@ -1222,6 +1352,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taSyslogResult;
     public static javax.swing.JTextArea taTcpResult;
     public static javax.swing.JTextArea taTraceResult;
+    public static javax.swing.JTextField tfArpInput;
     public static javax.swing.JTextField tfCalcInput;
     public static javax.swing.JTextField tfDnsInput;
     public static javax.swing.JTextField tfPingInput;

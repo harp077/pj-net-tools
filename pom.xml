@@ -16,10 +16,10 @@
     <dependencies>
         
         <dependency>
-            <groupId>net.sf.tinylaf</groupId>
+            <groupId>de.muntjak</groupId>
             <artifactId>tinylaf</artifactId>
             <version>1.4.0</version>
-        </dependency>        
+        </dependency>
         
         <dependency>
             <groupId>dnsjava</groupId>
@@ -30,19 +30,19 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.11</version>
+            <version>3.8.1</version>
         </dependency>          
         
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
-            <version>1.7</version>
+            <version>1.6</version>
         </dependency>        
         
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
-            <version>3.7</version>
+            <version>3.6</version>
         </dependency>   
         
         <dependency>

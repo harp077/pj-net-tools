@@ -3,6 +3,7 @@ package my.harp07;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Enumeration;
 import javax.swing.JTextArea;
@@ -22,6 +23,7 @@ public class PjLocal {
                 NetworkInterface ni = enumerationNI.nextElement();
                 info = info + "-----------\n" + j + ") Interface Name = " + ni.getName() + "\n";
                 info = info + "MTU = " + ni.getMTU() + "\n";
+                //info = info + "MAC = " + Arrays.toString(ni.getHardwareAddress()) + "\n";
                 info = info + "State is UP = " + ni.isUp() + "\n";
                 //info = info  + "mac = " +  Base64.encodeBase64String(ni.getHardwareAddress()) + "\n";
                 Enumeration<InetAddress> niInetAddr = ni.getInetAddresses();
