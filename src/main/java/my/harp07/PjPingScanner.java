@@ -19,6 +19,7 @@ public class PjPingScanner {
     public static String result;
     public static String resultUP;
     public static String resultDOWN;
+    private static int j=1;
 
     public static String[] scannerCIDRS_MASKS = {
         //"/22=255.255.252.0",
@@ -48,22 +49,25 @@ public class PjPingScanner {
         frame.btnPingScannerRun.setEnabled(false);
         frame.btnPingScannerSave.setEnabled(false);
         frame.btnPingScannerClear.setEnabled(false);
-        result = "\n Ping-Scanner data:\n";
-        resultUP = "\n Ping-Scanner data for UP:\n";
-        resultDOWN = "\n Ping-Scanner data for DOWN:\n";        
+        result = "\n Ping-Scanner data:\n\n";
+        resultUP = "\n Ping-Scanner data for UP:\n\n";
+        resultDOWN = "\n Ping-Scanner data for DOWN:\n\n";        
         pingtimeout=Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
         su = new SubnetUtils(ipadr);
         //su=new SubnetUtils("10.73.2.111/23");
         //su=new SubnetUtils("10.73.2.111", "255.255.254.0");
+        j=1;
         Arrays.asList(su.getInfo().getAllAddresses())
                 .parallelStream()//.stream()
                 .forEach(x -> {
-                    if (pingIp(x, pingtimeout)) {
-                        result = result + "\n" + x + " = UP";
-                        resultUP = resultUP + "\n" + x + " = UP";
+                    if (pingIp(x, pingtimeout) || pingIp(x, pingtimeout)) {
+                        result = result + j + ") " + x + " = UP\n";
+                        resultUP = resultUP + j + ") " + x + " = UP\n";
+                        j++;
                     } else {
-                        result = result + "\n" + x + " = DOWN";
-                        resultDOWN = resultDOWN + "\n" + x + " = DOWN";                        
+                        result = result + j + ") " + x + " = DOWN\n";
+                        resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
+                        j++;
                     }
                 });
         frame.btnPingScannerRun.setEnabled(true);
