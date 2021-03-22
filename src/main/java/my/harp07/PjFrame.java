@@ -36,7 +36,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.16, build 18-10-20";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.17, build 22-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -753,7 +753,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jPanel4);
 
-        jTabbedPane1.addTab("IP-calculator", new javax.swing.ImageIcon(getClass().getResource("/img/ip-blue-16.png")), jScrollPane3); // NOI18N
+        jTabbedPane1.addTab("IP-calculator", new javax.swing.ImageIcon(getClass().getResource("/img/ip-red-16.png")), jScrollPane3); // NOI18N
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Syslog-Server"));
         jPanel5.setLayout(new java.awt.BorderLayout());
