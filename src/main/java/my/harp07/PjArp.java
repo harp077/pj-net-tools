@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static my.harp07.GenericPJ.ipv;
+import static my.harp07.GenericPJ.pingIp;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
@@ -25,7 +26,7 @@ public class PjArp {
     public static String getArpIP(String name, JTextArea ta) {
         os = System.getProperties().getProperty("os.name");
         //name = tf.getText().trim();
-        PjPing.pingIp(name, 222);
+        pingIp(name, 222);
         ta.setText("Please wait !");
         if (os.toLowerCase().contains("win")) {
             cmd = "arp -a " + name;

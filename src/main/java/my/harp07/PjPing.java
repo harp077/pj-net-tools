@@ -8,6 +8,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static my.harp07.GenericPJ.dnsv;
 import static my.harp07.GenericPJ.ipv;
+import static my.harp07.GenericPJ.pingIp;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
@@ -44,20 +45,6 @@ public class PjPing {
         "90",
         "100"
     };    
-    
-    // ВИСНЕТ КОГДА НЕ РАБОТАЕТ DNS И БЛОКИ CATCH ПУСТЫЕ !!!
-    public static Boolean pingIp(String ipad, int timeout) {
-        try {
-            return InetAddress.getByName(ipad).isReachable(timeout);
-        } 
-        catch (UnknownHostException ex) {
-            System.out.println("//_ping_DNS-error_UnknownHostException="+ex.getMessage());
-        } 
-        catch (IOException | NullPointerException ex) {  
-            System.out.println("//_ping_IOException/NullPointerException="+ex.getMessage());
-        }
-        return false;
-    }    
 
     public static String getResult(String ip_dns, JTextArea ta) {
         pingtimeout=Integer.parseInt(PjFrame.comboPingTimeouts.getSelectedItem().toString());
