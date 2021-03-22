@@ -43,12 +43,20 @@ public class PjPingScanner {
         "ALL",
         "UP",
         "DOWN"
-    };    
+    };  
+    
+    public static void changeInterface(Boolean bbb) {
+        frame.btnPingScannerRun.setEnabled(bbb);
+        frame.btnPingScannerSave.setEnabled(bbb);
+        frame.btnPingScannerClear.setEnabled(bbb);  
+        frame.taPingScannerResult.setEnabled(bbb);
+        frame.tfPingScannerInput.setEnabled(bbb);
+        frame.comboPingScannerShow.setEnabled(bbb);
+        frame.comboPingScannerMasks.setEnabled(bbb);
+    }
 
     public static String getResult(String ipadr) {
-        frame.btnPingScannerRun.setEnabled(false);
-        frame.btnPingScannerSave.setEnabled(false);
-        frame.btnPingScannerClear.setEnabled(false);
+        changeInterface(false);
         result = "\n Ping-Scanner data:\n\n";
         resultUP = "\n Ping-Scanner data for UP:\n\n";
         resultDOWN = "\n Ping-Scanner data for DOWN:\n\n";        
@@ -70,9 +78,7 @@ public class PjPingScanner {
                         j++;
                     }
                 });
-        frame.btnPingScannerRun.setEnabled(true);
-        frame.btnPingScannerSave.setEnabled(true);
-        frame.btnPingScannerClear.setEnabled(true);        
+        changeInterface(true);
         return result;
     }
 
