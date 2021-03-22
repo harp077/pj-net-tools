@@ -16,9 +16,9 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class PjPingScanner {
     
     private static int pingtimeout;
-    public static String result = "\n Ping-Scanner data:\n";
-    public static String resultUP = "\n Ping-Scanner data for UP:\n";
-    public static String resultDOWN = "\n Ping-Scanner data for DOWN:\n";
+    public static String result;
+    public static String resultUP;
+    public static String resultDOWN;
 
     public static String[] scannerCIDRS_MASKS = {
         //"/22=255.255.252.0",
@@ -48,6 +48,9 @@ public class PjPingScanner {
         frame.btnPingScannerRun.setEnabled(false);
         frame.btnPingScannerSave.setEnabled(false);
         frame.btnPingScannerClear.setEnabled(false);
+        result = "\n Ping-Scanner data:\n";
+        resultUP = "\n Ping-Scanner data for UP:\n";
+        resultDOWN = "\n Ping-Scanner data for DOWN:\n";        
         pingtimeout=Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
         su = new SubnetUtils(ipadr);
         //su=new SubnetUtils("10.73.2.111/23");
