@@ -19,6 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.text.html.HTMLEditorKit;
+import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjCalc.CIDRS_MASKS;
 import static my.harp07.PjPing.COUNTS;
 import static my.harp07.PjPing.TIMEOUTS;
@@ -30,13 +31,13 @@ public class PjFrame extends javax.swing.JFrame {
     public static PjFrame frame;
     public static int FW = 800;
     public static int FH = 550;    
-    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
+    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.18, build 22-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.19, build 22-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 

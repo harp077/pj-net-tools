@@ -8,14 +8,16 @@ import java.nio.charset.Charset;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static my.harp07.GenericPJ.dnsv;
+import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjTrace {
 
-    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
-    private static DomainValidator dnsv = DomainValidator.getInstance();
+    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
+    //private static DomainValidator dnsv = DomainValidator.getInstance();
     //private static String name;
     private static String result;
     private static String os;

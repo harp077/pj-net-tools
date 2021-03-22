@@ -4,6 +4,8 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static my.harp07.GenericPJ.ipv;
+import static my.harp07.GenericPJ.su;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.net.util.SubnetUtils;
@@ -11,8 +13,8 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjCalc {
 
-    private static SubnetUtils su;
-    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
+    //private static SubnetUtils su;
+    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static String[] CIDRS_MASKS = {
         "/8=255.0.0.0",
         "/9=255.128.0.0",

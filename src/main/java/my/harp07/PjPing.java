@@ -6,22 +6,24 @@ import java.net.UnknownHostException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static my.harp07.GenericPJ.dnsv;
+import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjPing {
 
-    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
-    private static DomainValidator dnsv = DomainValidator.getInstance();
+    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
+    //private static DomainValidator dnsv = DomainValidator.getInstance();
     private static int pingtimeout;
     //private static JComboBox timeouts;
     //private static JComboBox counts;
     //private static JTextArea ta;
     private static Long RTT_1, RTT_2;
     public static final String[] TIMEOUTS = {
-        //"100",
-        //"200",
+        "100",
+        "200",
         "300",
         "400",
         "500",

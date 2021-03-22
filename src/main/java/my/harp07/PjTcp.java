@@ -15,13 +15,14 @@ import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjTcp {
 
     private static String name;
-    private static InetAddressValidator ipv = InetAddressValidator.getInstance();
+    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     private static List<String> allTcpList
             = Arrays.asList("21:ftp-22:ssh-23:telnet-25:smtp-49:tacacs-53:dns-80:http-88:kerberos-110:pop3-135:msrpc-139:netbios_ssn-143:imap-179:bgp-220:imap3-389:ldap-443:https-445:microsoft_ds-465:smtp+ssl-587:smtp+tls-636:ldaps-993:imaps-995:po3s-1433:ms_sql_srv-1434:ms_sql_mon-1720:h323-3128:proxy-3306:mysql-3389:ms_terminal-4899:radmin-5060:sip-5432:postgresql-8080:webcache-".split("-"));
     private static Map<String, String> namesMap = new HashMap<>();
