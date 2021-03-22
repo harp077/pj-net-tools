@@ -49,13 +49,14 @@ public class PjPingScanner {
         frame.btnPingScannerRun.setEnabled(bbb);
         frame.btnPingScannerSave.setEnabled(bbb);
         frame.btnPingScannerClear.setEnabled(bbb);  
-        frame.taPingScannerResult.setEnabled(bbb);
+        //frame.taPingScannerResult.setEnabled(bbb);
         frame.tfPingScannerInput.setEnabled(bbb);
         frame.comboPingScannerShow.setEnabled(bbb);
         frame.comboPingScannerMasks.setEnabled(bbb);
+        frame.comboPingScannerTimeouts.setEnabled(bbb);
     }
 
-    public static String getResult(String ipadr) {
+    public static String getResult(String ipadr, JTextArea ta) {
         changeInterface(false);
         result = "\n Ping-Scanner data:\n\n";
         resultUP = "\n Ping-Scanner data for UP:\n\n";
@@ -66,7 +67,8 @@ public class PjPingScanner {
         //su=new SubnetUtils("10.73.2.111", "255.255.254.0");
         j=1;
         Arrays.asList(su.getInfo().getAllAddresses())
-                .parallelStream()//.stream()
+                //.parallelStream()
+                .stream()
                 .forEach(x -> {
                     if (pingIp(x, pingtimeout) || pingIp(x, pingtimeout)) {
                         result = result + j + ") " + x + " = UP\n";
@@ -77,22 +79,23 @@ public class PjPingScanner {
                         resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
                         j++;
                     }
+                    //ta.setText(result);
                 });
         changeInterface(true);
         return result;
     }
 
-    public static void runGetResult(JTextField ipq, JComboBox maskq, JTextArea taq) {
+    public static void runGetResult(JTextField ipq, JComboBox maskq, JTextArea ta) {
         String input = ipq.getText().trim() + maskq.getSelectedItem().toString().split("=")[0].trim();
         //System.out.println(input);
         if (!ipv.isValid(ipq.getText().trim())) {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            frame.taPingScannerResult.setText("Please Wait !");
+            //frame.taPingScannerResult.setText("Please Wait !");
             frame.comboPingScannerShow.setSelectedItem("ALL");
-            new Thread(()->taq.setText(getResult(input))).start();
+            ta.setText("\n Please Wait !");
+            new Thread(()->ta.setText(getResult(input,ta))).start();
         }
     }
-
 
 }
