@@ -429,8 +429,8 @@
         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="TCP-scan">
-                <Property name="tabTitle" type="java.lang.String" value="TCP-scan"/>
+              <JTabbedPaneConstraints tabName="TCP-scanner">
+                <Property name="tabTitle" type="java.lang.String" value="TCP-scanner"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/img/radiolocator-16.png"/>
                 </Property>

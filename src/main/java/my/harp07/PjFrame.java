@@ -37,7 +37,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.19, build 22-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.20, build 22-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -57,7 +57,7 @@ public class PjFrame extends javax.swing.JFrame {
                 + "\n1. ICMP-ping;<br>"
                 + "\n2. ICMP-trace;<br>"                
                 + "\n3. DNS-checker.<br>"
-                + "\n4. TCP-scaner.<br>"
+                + "\n4. TCP-scanner.<br>"
                 + "\n5. IP-calculator.<br>"
                 + "\n6. Syslog-server.<br>"
                 + "\n7. Telnet-client.<br>"
@@ -587,7 +587,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(jPanel2);
 
-        jTabbedPane1.addTab("TCP-scan", new javax.swing.ImageIcon(getClass().getResource("/img/radiolocator-16.png")), jScrollPane4); // NOI18N
+        jTabbedPane1.addTab("TCP-scanner", new javax.swing.ImageIcon(getClass().getResource("/img/radiolocator-16.png")), jScrollPane4); // NOI18N
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DNS-checker"));
         jPanel3.setLayout(new java.awt.BorderLayout());

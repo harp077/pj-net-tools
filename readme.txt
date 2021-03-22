@@ -4,9 +4,11 @@ Include:
 1) ICMP-ping, 
 2) ICMP-traceroute, 
 3) DNS-check resolver, 
-4) TCP-scaner, 
+4) TCP-scanner, 
 5) IP-calculator, 
 6) Syslog-server,  
 7) Telnet-client, 
 8) Local ARP-cache request. 
-Need JRE-1.8.
+Need JRE-1.8:
+https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+
