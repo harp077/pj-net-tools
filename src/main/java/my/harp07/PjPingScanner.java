@@ -56,15 +56,24 @@ public class PjPingScanner {
         frame.comboPingScannerTimeouts.setEnabled(bbb);
     }
 
-    public static String getResult(String ipadr, JTextArea ta) {
+    public static String getResult(String ipadr, JTextArea tap) {
         changeInterface(false);
-        result = "\n Ping-Scanner data:\n\n";
-        resultUP = "\n Ping-Scanner data for UP:\n\n";
-        resultDOWN = "\n Ping-Scanner data for DOWN:\n\n";        
-        pingtimeout=Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
         su = new SubnetUtils(ipadr);
         //su=new SubnetUtils("10.73.2.111/23");
-        //su=new SubnetUtils("10.73.2.111", "255.255.254.0");
+        //su=new SubnetUtils("10.73.2.111", "255.255.254.0");        
+        result = "\n Network IP-data:\n";
+        result = result + "\n Low Address = " + su.getInfo().getLowAddress();
+        result = result + "\n High Address = " + su.getInfo().getHighAddress();        
+        result = result + "\n Broadcast Address = " + su.getInfo().getBroadcastAddress();
+        //result = result + "\n Netmask = " + su.getInfo().getNetmask();
+        result = result + "\n Network Address = " + su.getInfo().getNetworkAddress();
+        result = result + "\n Host Addresses Count = " + su.getInfo().getAddressCountLong();
+        result = result + "\n CIDR notation = " + su.getInfo().getCidrSignature();
+        result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();        
+        resultUP = result + "\n\n Ping-Scanner data for UP:\n\n";
+        resultDOWN = result + "\n\n Ping-Scanner data for DOWN:\n\n";
+        result = result + "\n\n Ping-Scanner data:\n\n";
+        pingtimeout=Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
         j=1;
         Arrays.asList(su.getInfo().getAllAddresses())
                 //.parallelStream()
@@ -79,7 +88,7 @@ public class PjPingScanner {
                         resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
                         j++;
                     }
-                    //ta.setText(result);
+                    tap.setText("\n Please Wait !  ........" + j);
                 });
         changeInterface(true);
         return result;
