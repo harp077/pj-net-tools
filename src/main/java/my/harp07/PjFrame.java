@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.30, build 28-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.31, build 28-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -63,17 +63,17 @@ public class PjFrame extends javax.swing.JFrame {
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
                 + "\nPure Java Network Tools. Include:<br><br>"
-                + "\n1. ICMP-ping;<br>"
-                + "\n2. ICMP-trace;<br>"                
-                + "\n3. DNS-checker.<br>"
-                + "\n4. TCP-scanner.<br>"
-                + "\n5. IP-calculator.<br>"
-                + "\n6. Syslog-server.<br>"
-                + "\n7. Telnet-client.<br>"
-                + "\n8. Local ARP request.<br>"
-                + "\n9. Network Ping-Scanner.<br><br>"
-                + "\nCreate by Roman Koldaev,<br>"
-                + "\nSaratov city, Russia.<br>"
+                + "\n01. ICMP-ping;<br>"
+                + "\n02. ICMP-trace;<br>"                
+                + "\n03. DNS-checker.<br>"
+                + "\n04. TCP-scanner.<br>"
+                + "\n05. IP-calculator.<br>"
+                + "\n06. Syslog-server.<br>"
+                + "\n07. Telnet-client.<br>"
+                + "\n08. Local ARP request.<br>"
+                + "\n09. Network Ping-Scanner.<br>"
+                + "\n10. Snmp-Get concrete value utility.<br><br>"
+                + "\nCreate by Roman Koldaev, Saratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
                 + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
                 + "\nGitHub: <a href='https://github.com/harp077/'>https://github.com/harp077/</a><br>"
@@ -395,6 +395,10 @@ public class PjFrame extends javax.swing.JFrame {
         btnSnmpGet = new javax.swing.JButton();
         jScrollPane22 = new javax.swing.JScrollPane();
         taSnmpGet = new javax.swing.JTextArea();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        taSnmpOidHelp = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -1182,7 +1186,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(jLabel18);
         jToolBar21.add(jSeparator64);
 
-        tfSnmpGetCommunity.setText("look");
+        tfSnmpGetCommunity.setText("public");
         tfSnmpGetCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfSnmpGetCommunityKeyPressed(evt);
@@ -1229,6 +1233,19 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane21.setViewportView(jPanel11);
 
         jTabbedPane1.addTab("Snmp-Get", new javax.swing.ImageIcon(getClass().getResource("/img/snmp-get-16.png")), jScrollPane21); // NOI18N
+
+        jPanel12.setLayout(new java.awt.BorderLayout());
+
+        taSnmpOidHelp.setEditable(false);
+        taSnmpOidHelp.setColumns(20);
+        taSnmpOidHelp.setRows(5);
+        jScrollPane24.setViewportView(taSnmpOidHelp);
+
+        jPanel12.add(jScrollPane24, java.awt.BorderLayout.CENTER);
+
+        jScrollPane23.setViewportView(jPanel12);
+
+        jTabbedPane1.addTab("Snmp OID-help", new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png")), jScrollPane23); // NOI18N
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
@@ -1507,11 +1524,15 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tfTelnetPortKeyPressed
 
     private void tfSnmpGetIPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetIPKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
+        }
     }//GEN-LAST:event_tfSnmpGetIPKeyPressed
 
     private void tfSnmpGetCommunityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetCommunityKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
+        }
     }//GEN-LAST:event_tfSnmpGetCommunityKeyPressed
 
     private void btnSnmpGetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpGetActionPerformed
@@ -1530,6 +1551,7 @@ public class PjFrame extends javax.swing.JFrame {
             frame.setSize(FW, FH);
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
+            PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
             frame.setLocation(211,211);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
@@ -1595,6 +1617,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1618,6 +1641,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
+    private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1724,6 +1749,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taPingResult;
     public static javax.swing.JTextArea taPingScannerResult;
     public static javax.swing.JTextArea taSnmpGet;
+    public static javax.swing.JTextArea taSnmpOidHelp;
     public static javax.swing.JTextArea taSyslogResult;
     public static javax.swing.JTextArea taTcpResult;
     public static javax.swing.JTextArea taTraceResult;

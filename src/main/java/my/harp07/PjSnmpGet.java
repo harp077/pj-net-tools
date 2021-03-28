@@ -29,7 +29,7 @@ public class PjSnmpGet {
     private static final int Timeout = 555;
     private static String snmp_ip;
     private static String snmp_vers = "1";
-    private static String snmp_comm = "look";
+    private static String snmp_comm = "public";
     private static String snmp_port = "161";
     private static String snmp_oid;
     private static String snmp_result;
