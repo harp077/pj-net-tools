@@ -36,13 +36,14 @@ public class JTerm {
     static JTerminal term;
     static Telnet telnet;
     static String server = null;
-    static int port = 23;
+    static int port;// = 23;
 
-    public static void telnet(String server) { // String[] args
+    public static void telnet(String server, int selectedPort) { // String[] args
         emu = new VTEmulator(new VTMapper(), new VTTranslator());
         term = new JTerminal();
         term.setEmulator(emu);
         telnet = new Telnet(emu);
+        port=selectedPort;
 
         final JFrame frame = new JFrame("Telnet-client:  connect to " + server);
         frame.setSize(200,200);

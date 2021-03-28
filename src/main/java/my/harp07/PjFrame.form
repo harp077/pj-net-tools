@@ -1117,7 +1117,7 @@
               <JTabbedPaneConstraints tabName="Telnet-client">
                 <Property name="tabTitle" type="java.lang.String" value="Telnet-client"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/connect_16.png"/>
+                  <Image iconType="3" name="/img/telnet-web-16.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1162,9 +1162,29 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator42">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="tfTelnetInput">
+                    <Component class="javax.swing.JTextField" name="tfTelnetAdres">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfTelnetInputKeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfTelnetAdresKeyPressed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator59">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel16">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Port (1-65535, default=23) : "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator60">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tfTelnetPort">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="23"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfTelnetPortKeyPressed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
