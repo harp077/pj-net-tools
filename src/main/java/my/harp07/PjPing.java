@@ -31,7 +31,8 @@ public class PjPing {
         "600",
         "700",
         "800",
-        "900"
+        "900",
+        "1000"
     };
     public static final String[] COUNTS = {
         "10",

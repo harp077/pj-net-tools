@@ -33,7 +33,7 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
-    public static int FW = 800;
+    public static int FW = 1024;
     public static int FH = 550;    
     //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.29, build 28-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.30, build 28-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -374,6 +374,27 @@ public class PjFrame extends javax.swing.JFrame {
         btnPingScannerSave = new javax.swing.JButton();
         jSeparator56 = new javax.swing.JToolBar.Separator();
         btnPingScannerClear = new javax.swing.JButton();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        jPanel11 = new javax.swing.JPanel();
+        jToolBar21 = new javax.swing.JToolBar();
+        jSeparator61 = new javax.swing.JToolBar.Separator();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator62 = new javax.swing.JToolBar.Separator();
+        tfSnmpGetIP = new javax.swing.JTextField();
+        jSeparator63 = new javax.swing.JToolBar.Separator();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator64 = new javax.swing.JToolBar.Separator();
+        tfSnmpGetCommunity = new javax.swing.JTextField();
+        jSeparator65 = new javax.swing.JToolBar.Separator();
+        jLabel19 = new javax.swing.JLabel();
+        jSeparator67 = new javax.swing.JToolBar.Separator();
+        tfSnmpGetOID = new javax.swing.JTextField();
+        jSeparator68 = new javax.swing.JToolBar.Separator();
+        jToolBar22 = new javax.swing.JToolBar();
+        jSeparator66 = new javax.swing.JToolBar.Separator();
+        btnSnmpGet = new javax.swing.JButton();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        taSnmpGet = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -1138,6 +1159,77 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ping-Scanner", new javax.swing.ImageIcon(getClass().getResource("/img/scan_16.png")), jScrollPane19); // NOI18N
 
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("SNMP get concrete value utility"));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jToolBar21.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar21.setRollover(true);
+        jToolBar21.add(jSeparator61);
+
+        jLabel17.setText("Enter IP-address:");
+        jToolBar21.add(jLabel17);
+        jToolBar21.add(jSeparator62);
+
+        tfSnmpGetIP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSnmpGetIPKeyPressed(evt);
+            }
+        });
+        jToolBar21.add(tfSnmpGetIP);
+        jToolBar21.add(jSeparator63);
+
+        jLabel18.setText("Snmp Read-Community: ");
+        jToolBar21.add(jLabel18);
+        jToolBar21.add(jSeparator64);
+
+        tfSnmpGetCommunity.setText("look");
+        tfSnmpGetCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSnmpGetCommunityKeyPressed(evt);
+            }
+        });
+        jToolBar21.add(tfSnmpGetCommunity);
+        jToolBar21.add(jSeparator65);
+
+        jLabel19.setText("Snmp-OID (1.3.6.1.2.1...)");
+        jToolBar21.add(jLabel19);
+        jToolBar21.add(jSeparator67);
+        jToolBar21.add(tfSnmpGetOID);
+        jToolBar21.add(jSeparator68);
+
+        jPanel11.add(jToolBar21, java.awt.BorderLayout.NORTH);
+
+        jToolBar22.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar22.setRollover(true);
+        jToolBar22.add(jSeparator66);
+
+        btnSnmpGet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnSnmpGet.setText("Get SNMP concrete value ");
+        btnSnmpGet.setFocusable(false);
+        btnSnmpGet.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSnmpGet.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSnmpGet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnmpGetActionPerformed(evt);
+            }
+        });
+        jToolBar22.add(btnSnmpGet);
+
+        jPanel11.add(jToolBar22, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane22.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taSnmpGet.setEditable(false);
+        taSnmpGet.setColumns(20);
+        taSnmpGet.setRows(5);
+        jScrollPane22.setViewportView(taSnmpGet);
+
+        jPanel11.add(jScrollPane22, java.awt.BorderLayout.CENTER);
+
+        jScrollPane21.setViewportView(jPanel11);
+
+        jTabbedPane1.addTab("Snmp-Get", new javax.swing.ImageIcon(getClass().getResource("/img/snmp-get-16.png")), jScrollPane21); // NOI18N
+
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         taLocalResult.setEditable(false);
@@ -1414,6 +1506,18 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfTelnetPortKeyPressed
 
+    private void tfSnmpGetIPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetIPKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSnmpGetIPKeyPressed
+
+    private void tfSnmpGetCommunityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetCommunityKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSnmpGetCommunityKeyPressed
+
+    private void btnSnmpGetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpGetActionPerformed
+        PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
+    }//GEN-LAST:event_btnSnmpGetActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1454,6 +1558,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveTcp;
     private javax.swing.JButton btnSaveTrace;
     private javax.swing.JButton btnSkin;
+    public static javax.swing.JButton btnSnmpGet;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
@@ -1476,6 +1581,9 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1486,6 +1594,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1507,6 +1616,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1571,6 +1682,14 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator59;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator60;
+    private javax.swing.JToolBar.Separator jSeparator61;
+    private javax.swing.JToolBar.Separator jSeparator62;
+    private javax.swing.JToolBar.Separator jSeparator63;
+    private javax.swing.JToolBar.Separator jSeparator64;
+    private javax.swing.JToolBar.Separator jSeparator65;
+    private javax.swing.JToolBar.Separator jSeparator66;
+    private javax.swing.JToolBar.Separator jSeparator67;
+    private javax.swing.JToolBar.Separator jSeparator68;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
@@ -1588,6 +1707,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar19;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar20;
+    private javax.swing.JToolBar jToolBar21;
+    private javax.swing.JToolBar jToolBar22;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar5;
@@ -1602,6 +1723,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taLocalResult;
     public static javax.swing.JTextArea taPingResult;
     public static javax.swing.JTextArea taPingScannerResult;
+    public static javax.swing.JTextArea taSnmpGet;
     public static javax.swing.JTextArea taSyslogResult;
     public static javax.swing.JTextArea taTcpResult;
     public static javax.swing.JTextArea taTraceResult;
@@ -1610,6 +1732,9 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextField tfDnsInput;
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfPingScannerInput;
+    public static javax.swing.JTextField tfSnmpGetCommunity;
+    public static javax.swing.JTextField tfSnmpGetIP;
+    public static javax.swing.JTextField tfSnmpGetOID;
     public static javax.swing.JTextField tfSyslogInput;
     public static javax.swing.JTextField tfTcpInput;
     public static javax.swing.JTextField tfTelnetAdres;
