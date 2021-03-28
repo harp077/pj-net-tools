@@ -88,7 +88,7 @@ public class PjPingScanner {
                         resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
                         j++;
                     }
-                    tap.setText("\n Please Wait !  ........" + j);
+                    tap.setText("\nCheck by small 2 ping for every IP.\n\n Please Wait !  ........" + j);
                 });
         changeInterface(true);
         return result;
