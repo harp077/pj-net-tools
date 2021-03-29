@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.31, build 28-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.32, build 29-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -393,6 +393,8 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar22 = new javax.swing.JToolBar();
         jSeparator66 = new javax.swing.JToolBar.Separator();
         btnSnmpGet = new javax.swing.JButton();
+        jSeparator69 = new javax.swing.JToolBar.Separator();
+        btnSnmpGetClear = new javax.swing.JButton();
         jScrollPane22 = new javax.swing.JScrollPane();
         taSnmpGet = new javax.swing.JTextArea();
         jScrollPane23 = new javax.swing.JScrollPane();
@@ -1218,6 +1220,19 @@ public class PjFrame extends javax.swing.JFrame {
             }
         });
         jToolBar22.add(btnSnmpGet);
+        jToolBar22.add(jSeparator69);
+
+        btnSnmpGetClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
+        btnSnmpGetClear.setText("Clear ");
+        btnSnmpGetClear.setFocusable(false);
+        btnSnmpGetClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSnmpGetClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSnmpGetClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnmpGetClearActionPerformed(evt);
+            }
+        });
+        jToolBar22.add(btnSnmpGetClear);
 
         jPanel11.add(jToolBar22, java.awt.BorderLayout.SOUTH);
 
@@ -1539,6 +1554,13 @@ public class PjFrame extends javax.swing.JFrame {
         PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
     }//GEN-LAST:event_btnSnmpGetActionPerformed
 
+    private void btnSnmpGetClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpGetClearActionPerformed
+        tfSnmpGetIP.setText("");
+        tfSnmpGetOID.setText("");
+        tfSnmpGetCommunity.setText("");
+        taSnmpGet.setText("");
+    }//GEN-LAST:event_btnSnmpGetClearActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1581,6 +1603,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveTrace;
     private javax.swing.JButton btnSkin;
     public static javax.swing.JButton btnSnmpGet;
+    public static javax.swing.JButton btnSnmpGetClear;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
@@ -1715,6 +1738,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator66;
     private javax.swing.JToolBar.Separator jSeparator67;
     private javax.swing.JToolBar.Separator jSeparator68;
+    private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
