@@ -104,7 +104,7 @@ public class PjSnmpGet {
         snmp_ip = frame.tfSnmpGetIP.getText().trim();
         snmp_oid = frame.tfSnmpGetOID.getText().trim();
         snmp_comm = frame.tfSnmpGetCommunity.getText().trim();
-        snmp_vers = frame.comboSnmpVersion.getSelectedItem().toString();
+        snmp_vers = frame.comboSnmpVersion.getSelectedItem().toString().trim();
         if (!ipv.isValid(ips.getText().trim())) {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
             return;

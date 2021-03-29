@@ -38,15 +38,16 @@ public class JTerm {
     static String server = null;
     static int port;// = 23;
 
-    public static void telnet(String server, int selectedPort) { // String[] args
+    public static void telnet(String selectedServer, int selectedPort) { // String[] args
         emu = new VTEmulator(new VTMapper(), new VTTranslator());
         term = new JTerminal();
         term.setEmulator(emu);
         telnet = new Telnet(emu);
+        server=selectedServer;
         port=selectedPort;
 
-        final JFrame frame = new JFrame("Telnet-client:  connect to " + server);
-        frame.setSize(200,200);
+        final JFrame frame = new JFrame("Telnet-client:  connect to IP-address=" + server + ", port=" + port);
+        frame.setSize(400,400);
         //NetworkManagerGUI.imageURL = NetworkManagerGUI.class.getResource("icons/nw.gif");
 
         //ImageIcon icon = new ImageIcon(NetworkManagerGUI.imageURL );
@@ -60,9 +61,9 @@ public class JTerm {
         if (optSize.width > screenSize.width) {
            optSize.width = screenSize.width;
           }
-        frame.setLocation( (screenSize.width - optSize.width)/2-optSize.width,
-                            (screenSize.height - optSize.height)/2-optSize.height);
-
+        //frame.setLocation( (screenSize.width - optSize.width)/2-optSize.width,
+        //                    (screenSize.height - optSize.height)/2-optSize.height);
+        frame.setLocation(200,200);
         frame.setContentPane(term);
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -81,6 +82,7 @@ public class JTerm {
         }*/
         try {
             telnet.connect(server, port);
+            System.out.println("telnet frame = " + frame.getSize().toString());
         } catch (Exception e) {
             frame.dispose();
             JOptionPane.showMessageDialog(frame, "Can't connect", "Connect error", JOptionPane.ERROR_MESSAGE);
