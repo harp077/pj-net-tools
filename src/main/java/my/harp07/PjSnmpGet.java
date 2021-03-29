@@ -1,6 +1,8 @@
 package my.harp07;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -17,6 +19,7 @@ import org.snmp4j.PDU;
 import org.snmp4j.Snmp;
 import org.snmp4j.TransportMapping;
 import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.mp.SnmpConstants;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.UdpAddress;
@@ -33,6 +36,13 @@ public class PjSnmpGet {
     private static String snmp_port = "161";
     private static String snmp_oid;
     private static String snmp_result;
+    private static Map<String, Integer> versionMap = new HashMap<>();
+    
+    static {
+        versionMap.put("1", SnmpConstants.version1);
+        versionMap.put("2", SnmpConstants.version2c);
+        versionMap.put("3", SnmpConstants.version3);        
+    }
 
     public static String snmpGet(String ip, String oid, String comm, String port, String vers) {
         String str = "";
@@ -41,7 +51,7 @@ public class PjSnmpGet {
         try {
             CommunityTarget comtarget = new CommunityTarget();
             comtarget.setCommunity(new OctetString(comm));
-            comtarget.setVersion(Integer.parseInt(vers));
+            comtarget.setVersion(versionMap.get(vers));
             comtarget.setAddress(new UdpAddress(ip + "/" + port));
             comtarget.setRetries(Retries);
             comtarget.setTimeout(Timeout);
