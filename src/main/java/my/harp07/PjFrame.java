@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.36, build 29-03-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.37, build 29-03-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -264,23 +264,6 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveTcp = new javax.swing.JButton();
         jSeparator30 = new javax.swing.JToolBar.Separator();
         btnTcpReset = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        taDnsResult = new javax.swing.JTextArea();
-        jToolBar7 = new javax.swing.JToolBar();
-        jSeparator21 = new javax.swing.JToolBar.Separator();
-        jLabel5 = new javax.swing.JLabel();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        tfDnsInput = new javax.swing.JTextField();
-        jSeparator10 = new javax.swing.JToolBar.Separator();
-        jToolBar8 = new javax.swing.JToolBar();
-        jSeparator11 = new javax.swing.JToolBar.Separator();
-        btnDnsRun = new javax.swing.JButton();
-        jSeparator12 = new javax.swing.JToolBar.Separator();
-        btnSaveDns = new javax.swing.JButton();
-        jSeparator31 = new javax.swing.JToolBar.Separator();
-        btnDnsReset = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -300,6 +283,23 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveCalc = new javax.swing.JButton();
         jSeparator32 = new javax.swing.JToolBar.Separator();
         btnCalcReset = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        taDnsResult = new javax.swing.JTextArea();
+        jToolBar7 = new javax.swing.JToolBar();
+        jSeparator21 = new javax.swing.JToolBar.Separator();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
+        tfDnsInput = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
+        jToolBar8 = new javax.swing.JToolBar();
+        jSeparator11 = new javax.swing.JToolBar.Separator();
+        btnDnsRun = new javax.swing.JButton();
+        jSeparator12 = new javax.swing.JToolBar.Separator();
+        btnSaveDns = new javax.swing.JButton();
+        jSeparator31 = new javax.swing.JToolBar.Separator();
+        btnDnsReset = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -472,7 +472,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar3.setRollover(true);
         jToolBar3.add(jSeparator3);
 
-        btnPingRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnPingRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnPingRun.setText("Run Pinger ");
         btnPingRun.setFocusable(false);
         btnPingRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -550,8 +550,8 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar14.setRollover(true);
         jToolBar14.add(jSeparator38);
 
-        btnTraceRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
-        btnTraceRun.setText("Trace run ");
+        btnTraceRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnTraceRun.setText("Run TraceRoute ");
         btnTraceRun.setToolTipText("");
         btnTraceRun.setFocusable(false);
         btnTraceRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -631,7 +631,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar6.setRollover(true);
         jToolBar6.add(jSeparator7);
 
-        btnTcpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnTcpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnTcpRun.setText("Run TCP-scaner ");
         btnTcpRun.setFocusable(false);
         btnTcpRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -673,84 +673,6 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jPanel2);
 
         jTabbedPane1.addTab("TCP-scanner", new javax.swing.ImageIcon(getClass().getResource("/img/radiolocator-16.png")), jScrollPane4); // NOI18N
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DNS-checker"));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane8.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
-
-        taDnsResult.setEditable(false);
-        taDnsResult.setColumns(20);
-        taDnsResult.setRows(5);
-        jScrollPane8.setViewportView(taDnsResult);
-
-        jPanel3.add(jScrollPane8, java.awt.BorderLayout.CENTER);
-
-        jToolBar7.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar7.setRollover(true);
-        jToolBar7.add(jSeparator21);
-
-        jLabel5.setText("Enter IP-address/DNS-name:");
-        jToolBar7.add(jLabel5);
-        jToolBar7.add(jSeparator9);
-
-        tfDnsInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfDnsInputKeyPressed(evt);
-            }
-        });
-        jToolBar7.add(tfDnsInput);
-        jToolBar7.add(jSeparator10);
-
-        jPanel3.add(jToolBar7, java.awt.BorderLayout.NORTH);
-
-        jToolBar8.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar8.setRollover(true);
-        jToolBar8.add(jSeparator11);
-
-        btnDnsRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
-        btnDnsRun.setText("Check DNS ");
-        btnDnsRun.setFocusable(false);
-        btnDnsRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnDnsRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnDnsRun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDnsRunActionPerformed(evt);
-            }
-        });
-        jToolBar8.add(btnDnsRun);
-        jToolBar8.add(jSeparator12);
-
-        btnSaveDns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
-        btnSaveDns.setText("Save Result ");
-        btnSaveDns.setFocusable(false);
-        btnSaveDns.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSaveDns.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSaveDns.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveDnsActionPerformed(evt);
-            }
-        });
-        jToolBar8.add(btnSaveDns);
-        jToolBar8.add(jSeparator31);
-
-        btnDnsReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnDnsReset.setText("Clear  ");
-        btnDnsReset.setFocusable(false);
-        btnDnsReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnDnsReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnDnsReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDnsResetActionPerformed(evt);
-            }
-        });
-        jToolBar8.add(btnDnsReset);
-
-        jPanel3.add(jToolBar8, java.awt.BorderLayout.SOUTH);
-
-        jScrollPane2.setViewportView(jPanel3);
-
-        jTabbedPane1.addTab("DNS-check", new javax.swing.ImageIcon(getClass().getResource("/img/dns-16.png")), jScrollPane2); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("IP-calculator"));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -797,8 +719,8 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar10.setRollover(true);
         jToolBar10.add(jSeparator15);
 
-        btnCalcRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
-        btnCalcRun.setText("Calculate IP ");
+        btnCalcRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnCalcRun.setText("Calculate IP-data ");
         btnCalcRun.setFocusable(false);
         btnCalcRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnCalcRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -841,6 +763,84 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("IP-calculator", new javax.swing.ImageIcon(getClass().getResource("/img/ip-red-16.png")), jScrollPane3); // NOI18N
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DNS-checker"));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taDnsResult.setEditable(false);
+        taDnsResult.setColumns(20);
+        taDnsResult.setRows(5);
+        jScrollPane8.setViewportView(taDnsResult);
+
+        jPanel3.add(jScrollPane8, java.awt.BorderLayout.CENTER);
+
+        jToolBar7.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar7.setRollover(true);
+        jToolBar7.add(jSeparator21);
+
+        jLabel5.setText("Enter IP-address/DNS-name:");
+        jToolBar7.add(jLabel5);
+        jToolBar7.add(jSeparator9);
+
+        tfDnsInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfDnsInputKeyPressed(evt);
+            }
+        });
+        jToolBar7.add(tfDnsInput);
+        jToolBar7.add(jSeparator10);
+
+        jPanel3.add(jToolBar7, java.awt.BorderLayout.NORTH);
+
+        jToolBar8.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar8.setRollover(true);
+        jToolBar8.add(jSeparator11);
+
+        btnDnsRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnDnsRun.setText("Check DNS ");
+        btnDnsRun.setFocusable(false);
+        btnDnsRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnDnsRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDnsRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDnsRunActionPerformed(evt);
+            }
+        });
+        jToolBar8.add(btnDnsRun);
+        jToolBar8.add(jSeparator12);
+
+        btnSaveDns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
+        btnSaveDns.setText("Save Result ");
+        btnSaveDns.setFocusable(false);
+        btnSaveDns.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSaveDns.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaveDns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveDnsActionPerformed(evt);
+            }
+        });
+        jToolBar8.add(btnSaveDns);
+        jToolBar8.add(jSeparator31);
+
+        btnDnsReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
+        btnDnsReset.setText("Clear  ");
+        btnDnsReset.setFocusable(false);
+        btnDnsReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnDnsReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDnsReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDnsResetActionPerformed(evt);
+            }
+        });
+        jToolBar8.add(btnDnsReset);
+
+        jPanel3.add(jToolBar8, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane2.setViewportView(jPanel3);
+
+        jTabbedPane1.addTab("DNS-check", new javax.swing.ImageIcon(getClass().getResource("/img/dns-16.png")), jScrollPane2); // NOI18N
+
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Syslog-Server"));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
@@ -869,7 +869,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar12.setRollover(true);
         jToolBar12.add(jSeparator27);
 
-        btnBooleanSyslog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnBooleanSyslog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnBooleanSyslog.setText("Run Syslog-server ");
         btnBooleanSyslog.setFocusable(false);
         btnBooleanSyslog.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -951,7 +951,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar16.setRollover(true);
         jToolBar16.add(jSeparator44);
 
-        btnTelnetRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnTelnetRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnTelnetRun.setText("Run Telnet ");
         btnTelnetRun.setFocusable(false);
         btnTelnetRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -1003,7 +1003,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar18.setRollover(true);
         jToolBar18.add(jSeparator48);
 
-        btnArpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnArpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnArpRun.setText("Get Arp for IP ");
         btnArpRun.setToolTipText("");
         btnArpRun.setFocusable(false);
@@ -1125,7 +1125,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar20.setRollover(true);
         jToolBar20.add(jSeparator54);
 
-        btnPingScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnPingScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnPingScannerRun.setText("Run Ping-Scanner");
         btnPingScannerRun.setFocusable(false);
         btnPingScannerRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -1227,7 +1227,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar22.setRollover(true);
         jToolBar22.add(jSeparator66);
 
-        btnSnmpGet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        btnSnmpGet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         btnSnmpGet.setText("Get SNMP concrete value ");
         btnSnmpGet.setFocusable(false);
         btnSnmpGet.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -1278,7 +1278,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane23.setViewportView(jPanel12);
 
-        jTabbedPane1.addTab("Snmp OID-help", new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png")), jScrollPane23); // NOI18N
+        jTabbedPane1.addTab("Snmp OID-help", new javax.swing.ImageIcon(getClass().getResource("/img/help-green-16.png")), jScrollPane23); // NOI18N
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
