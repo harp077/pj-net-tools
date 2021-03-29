@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.33, build 29-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.34, build 29-03-21";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -54,6 +54,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(scannerTIMEOUTS));
         this.comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(scannerCIDRS_MASKS));
         this.comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel(arrayUpDown));
+        this.comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1","2c"}));
         ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());
         this.nizInfoLabel.setText(zagolovok);
@@ -389,6 +390,9 @@ public class PjFrame extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jSeparator67 = new javax.swing.JToolBar.Separator();
         tfSnmpGetOID = new javax.swing.JTextField();
+        jSeparator70 = new javax.swing.JToolBar.Separator();
+        jLabel20 = new javax.swing.JLabel();
+        comboSnmpVersion = new javax.swing.JComboBox<>();
         jSeparator68 = new javax.swing.JToolBar.Separator();
         jToolBar22 = new javax.swing.JToolBar();
         jSeparator66 = new javax.swing.JToolBar.Separator();
@@ -1176,6 +1180,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(jLabel17);
         jToolBar21.add(jSeparator62);
 
+        tfSnmpGetIP.setText("127.0.0.1");
         tfSnmpGetIP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfSnmpGetIPKeyPressed(evt);
@@ -1197,10 +1202,23 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(tfSnmpGetCommunity);
         jToolBar21.add(jSeparator65);
 
-        jLabel19.setText("Snmp-OID (1.3.6.1.2.1...)");
+        jLabel19.setText("Snmp-OID (1.3.6.1.2.1...): ");
         jToolBar21.add(jLabel19);
         jToolBar21.add(jSeparator67);
+
+        tfSnmpGetOID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSnmpGetOIDKeyPressed(evt);
+            }
+        });
         jToolBar21.add(tfSnmpGetOID);
+        jToolBar21.add(jSeparator70);
+
+        jLabel20.setText("Snmp-Version: ");
+        jToolBar21.add(jLabel20);
+
+        comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2c", " " }));
+        jToolBar21.add(comboSnmpVersion);
         jToolBar21.add(jSeparator68);
 
         jPanel11.add(jToolBar21, java.awt.BorderLayout.NORTH);
@@ -1561,6 +1579,12 @@ public class PjFrame extends javax.swing.JFrame {
         taSnmpGet.setText("");
     }//GEN-LAST:event_btnSnmpGetClearActionPerformed
 
+    private void tfSnmpGetOIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetOIDKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
+        }
+    }//GEN-LAST:event_tfSnmpGetOIDKeyPressed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1617,6 +1641,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JComboBox<String> comboPingScannerShow;
     public static javax.swing.JComboBox<String> comboPingScannerTimeouts;
     public static javax.swing.JComboBox<String> comboPingTimeouts;
+    public static javax.swing.JComboBox<String> comboSnmpVersion;
     public static javax.swing.JEditorPane epAbout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1630,6 +1655,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1740,6 +1766,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator68;
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
+    private javax.swing.JToolBar.Separator jSeparator70;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;

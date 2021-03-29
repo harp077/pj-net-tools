@@ -40,7 +40,7 @@ public class PjSnmpGet {
     
     static {
         versionMap.put("1", SnmpConstants.version1);
-        versionMap.put("2", SnmpConstants.version2c);
+        versionMap.put("2c", SnmpConstants.version2c);
         versionMap.put("3", SnmpConstants.version3);        
     }
 
@@ -104,6 +104,7 @@ public class PjSnmpGet {
         snmp_ip = frame.tfSnmpGetIP.getText().trim();
         snmp_oid = frame.tfSnmpGetOID.getText().trim();
         snmp_comm = frame.tfSnmpGetCommunity.getText().trim();
+        snmp_vers = frame.comboSnmpVersion.getSelectedItem().toString();
         if (!ipv.isValid(ips.getText().trim())) {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -112,7 +113,7 @@ public class PjSnmpGet {
         if (snmp_result != null && snmp_result.equals("")) {
             snmp_result = "no value";
         }
-        tas.setText("\nSnmp result value = " + snmp_result);
+        tas.setText("\nSnmp version = " + snmp_vers + "\n\nSnmp result value = \n" + snmp_result);
     }
 
 }
