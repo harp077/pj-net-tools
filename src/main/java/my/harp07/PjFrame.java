@@ -33,7 +33,7 @@ import org.apache.commons.validator.routines.InetAddressValidator;
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
-    public static int FW = 1024;
+    public static int FW = 999;
     public static int FH = 550;    
     //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.34, build 29-03-21";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.35, build 29-03-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 

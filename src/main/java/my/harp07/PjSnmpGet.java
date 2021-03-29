@@ -113,7 +113,7 @@ public class PjSnmpGet {
         if (snmp_result != null && snmp_result.equals("")) {
             snmp_result = "no value";
         }
-        tas.setText("\nSnmp version = " + snmp_vers + "\n\nSnmp result value = \n" + snmp_result);
+        tas.setText("\nSnmp version = " + snmp_vers + "\n\nSnmp result value = " + snmp_result);
     }
 
 }
