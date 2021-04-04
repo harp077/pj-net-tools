@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.38, build 04-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.39, build 04-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -390,6 +390,7 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator70 = new javax.swing.JToolBar.Separator();
         jLabel20 = new javax.swing.JLabel();
         comboSnmpVersion = new javax.swing.JComboBox<>();
+        jSeparator62 = new javax.swing.JToolBar.Separator();
         jToolBar22 = new javax.swing.JToolBar();
         jSeparator66 = new javax.swing.JToolBar.Separator();
         btnSnmpGet = new javax.swing.JButton();
@@ -433,7 +434,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel1.add(jScrollPane6, java.awt.BorderLayout.CENTER);
 
         jToolBar2.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar2.setRollover(true);
+        jToolBar2.setFloatable(false);
         jToolBar2.add(jSeparator13);
 
         jLabel2.setText("Enter IP/DNS:");
@@ -465,7 +466,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel1.add(jToolBar2, java.awt.BorderLayout.NORTH);
 
         jToolBar3.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar3.setRollover(true);
+        jToolBar3.setFloatable(false);
         jToolBar3.add(jSeparator3);
 
         btnPingRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -525,7 +526,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel7.add(jScrollPane15, java.awt.BorderLayout.CENTER);
 
         jToolBar13.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar13.setRollover(true);
+        jToolBar13.setFloatable(false);
         jToolBar13.add(jSeparator35);
 
         jLabel9.setText("Enter IP-address/DNS-name:");
@@ -543,7 +544,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel7.add(jToolBar13, java.awt.BorderLayout.NORTH);
 
         jToolBar14.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar14.setRollover(true);
+        jToolBar14.setFloatable(false);
         jToolBar14.add(jSeparator38);
 
         btnTraceRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -606,7 +607,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel2.add(jScrollPane7, java.awt.BorderLayout.CENTER);
 
         jToolBar5.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar5.setRollover(true);
+        jToolBar5.setFloatable(false);
         jToolBar5.add(jSeparator22);
 
         jLabel4.setText("Enter IP-address:");
@@ -624,7 +625,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel2.add(jToolBar5, java.awt.BorderLayout.NORTH);
 
         jToolBar6.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar6.setRollover(true);
+        jToolBar6.setFloatable(false);
         jToolBar6.add(jSeparator7);
 
         btnTcpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -683,7 +684,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel4.add(jScrollPane9, java.awt.BorderLayout.CENTER);
 
         jToolBar9.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar9.setRollover(true);
+        jToolBar9.setFloatable(false);
         jToolBar9.add(jSeparator20);
 
         jLabel6.setText("Enter IP-address: ");
@@ -712,7 +713,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel4.add(jToolBar9, java.awt.BorderLayout.NORTH);
 
         jToolBar10.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar10.setRollover(true);
+        jToolBar10.setFloatable(false);
         jToolBar10.add(jSeparator15);
 
         btnCalcRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -772,7 +773,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel3.add(jScrollPane8, java.awt.BorderLayout.CENTER);
 
         jToolBar7.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar7.setRollover(true);
+        jToolBar7.setFloatable(false);
         jToolBar7.add(jSeparator21);
 
         jLabel5.setText("Enter IP-address/DNS-name:");
@@ -790,7 +791,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel3.add(jToolBar7, java.awt.BorderLayout.NORTH);
 
         jToolBar8.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar8.setRollover(true);
+        jToolBar8.setFloatable(false);
         jToolBar8.add(jSeparator11);
 
         btnDnsRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -850,7 +851,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel5.add(jScrollPane11, java.awt.BorderLayout.CENTER);
 
         jToolBar11.setBorder(javax.swing.BorderFactory.createTitledBorder("UDP-port:"));
-        jToolBar11.setRollover(true);
+        jToolBar11.setFloatable(false);
         jToolBar11.add(jSeparator24);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -862,7 +863,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel5.add(jToolBar11, java.awt.BorderLayout.NORTH);
 
         jToolBar12.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar12.setRollover(true);
+        jToolBar12.setFloatable(false);
         jToolBar12.add(jSeparator27);
 
         btnBooleanSyslog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -913,7 +914,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel8.setLayout(new java.awt.BorderLayout());
 
         jToolBar15.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar15.setRollover(true);
+        jToolBar15.setFloatable(false);
         jToolBar15.add(jSeparator41);
 
         jLabel11.setText("Enter IP-address:");
@@ -944,7 +945,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel8.add(jToolBar15, java.awt.BorderLayout.NORTH);
 
         jToolBar16.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar16.setRollover(true);
+        jToolBar16.setFloatable(false);
         jToolBar16.add(jSeparator44);
 
         btnTelnetRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -978,7 +979,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel9.add(jScrollPane18, java.awt.BorderLayout.CENTER);
 
         jToolBar17.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar17.setRollover(true);
+        jToolBar17.setFloatable(false);
         jToolBar17.add(jSeparator45);
 
         jLabel12.setText("Enter IP-address:");
@@ -996,7 +997,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel9.add(jToolBar17, java.awt.BorderLayout.NORTH);
 
         jToolBar18.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar18.setRollover(true);
+        jToolBar18.setFloatable(false);
         jToolBar18.add(jSeparator48);
 
         btnArpRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -1070,7 +1071,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel10.add(jScrollPane20, java.awt.BorderLayout.CENTER);
 
         jToolBar19.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar19.setRollover(true);
+        jToolBar19.setFloatable(false);
         jToolBar19.add(jSeparator51);
 
         jLabel13.setText("Enter IP-address: ");
@@ -1118,7 +1119,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel10.add(jToolBar19, java.awt.BorderLayout.NORTH);
 
         jToolBar20.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar20.setRollover(true);
+        jToolBar20.setFloatable(false);
         jToolBar20.add(jSeparator54);
 
         btnPingScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -1169,7 +1170,7 @@ public class PjFrame extends javax.swing.JFrame {
         jPanel11.setLayout(new java.awt.BorderLayout());
 
         jToolBar21.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar21.setRollover(true);
+        jToolBar21.setFloatable(false);
         jToolBar21.add(jSeparator61);
 
         jLabel17.setText("IP-address: ");
@@ -1220,11 +1221,12 @@ public class PjFrame extends javax.swing.JFrame {
             }
         });
         jToolBar21.add(comboSnmpVersion);
+        jToolBar21.add(jSeparator62);
 
         jPanel11.add(jToolBar21, java.awt.BorderLayout.NORTH);
 
         jToolBar22.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar22.setRollover(true);
+        jToolBar22.setFloatable(false);
         jToolBar22.add(jSeparator66);
 
         btnSnmpGet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
@@ -1329,7 +1331,7 @@ public class PjFrame extends javax.swing.JFrame {
         getContentPane().add(jToolBar1, java.awt.BorderLayout.NORTH);
 
         jToolBar4.setBorder(javax.swing.BorderFactory.createTitledBorder("Info:"));
-        jToolBar4.setRollover(true);
+        jToolBar4.setFloatable(false);
         jToolBar4.add(jSeparator34);
 
         nizInfoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/globe-net-16.png"))); // NOI18N
@@ -1761,6 +1763,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator60;
     private javax.swing.JToolBar.Separator jSeparator61;
+    private javax.swing.JToolBar.Separator jSeparator62;
     private javax.swing.JToolBar.Separator jSeparator63;
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
