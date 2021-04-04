@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.40, build 04-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.41, build 04-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -1199,7 +1199,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(tfSnmpGetCommunity);
         jToolBar21.add(jSeparator65);
 
-        jLabel19.setText("OID (1.3.6.1.2.1..): ");
+        jLabel19.setText("OID (1.3.6..): ");
         jToolBar21.add(jLabel19);
 
         tfSnmpGetOID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
