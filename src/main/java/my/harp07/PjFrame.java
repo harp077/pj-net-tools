@@ -1,6 +1,8 @@
 package my.harp07;
 
 import java.awt.Desktop;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -13,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
+import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -41,9 +44,11 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.41, build 04-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.42, build 04-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
+    public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
+    //public ImageIcon snmpIcon44 = new ImageIcon(getClass().getResource("/mib-tree-4.png"));
 
     public PjFrame() {
         initComponents();
@@ -99,6 +104,16 @@ public class PjFrame extends javax.swing.JFrame {
         });
         this.btnSkin.setVisible(false);
         //this.btnExit.setVisible(false);
+        /*taSnmpOidHelp = new JTextArea() {
+            Image image = snmpIcon33.getImage();
+            { setOpaque(false); }
+            public void paint(Graphics g) {
+                g.drawImage(image, 11, 11, 240, 180, this);
+                super.paint(g);
+            }
+        }; */
+        PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
+        taSnmpOidHelp.setEditable(false);
     }
 
     public static void MyInstLF(String lf) {
@@ -1603,7 +1618,7 @@ public class PjFrame extends javax.swing.JFrame {
             frame.setSize(FW, FH);
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
-            PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
+            //PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
             frame.setLocation(211,211);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
