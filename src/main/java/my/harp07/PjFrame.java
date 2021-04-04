@@ -41,7 +41,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.37, build 29-03-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.38, build 04-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
 
@@ -380,20 +380,16 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21 = new javax.swing.JToolBar();
         jSeparator61 = new javax.swing.JToolBar.Separator();
         jLabel17 = new javax.swing.JLabel();
-        jSeparator62 = new javax.swing.JToolBar.Separator();
         tfSnmpGetIP = new javax.swing.JTextField();
         jSeparator63 = new javax.swing.JToolBar.Separator();
         jLabel18 = new javax.swing.JLabel();
-        jSeparator64 = new javax.swing.JToolBar.Separator();
         tfSnmpGetCommunity = new javax.swing.JTextField();
         jSeparator65 = new javax.swing.JToolBar.Separator();
         jLabel19 = new javax.swing.JLabel();
-        jSeparator67 = new javax.swing.JToolBar.Separator();
         tfSnmpGetOID = new javax.swing.JTextField();
         jSeparator70 = new javax.swing.JToolBar.Separator();
         jLabel20 = new javax.swing.JLabel();
         comboSnmpVersion = new javax.swing.JComboBox<>();
-        jSeparator68 = new javax.swing.JToolBar.Separator();
         jToolBar22 = new javax.swing.JToolBar();
         jSeparator66 = new javax.swing.JToolBar.Separator();
         btnSnmpGet = new javax.swing.JButton();
@@ -1176,10 +1172,10 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.setRollover(true);
         jToolBar21.add(jSeparator61);
 
-        jLabel17.setText("Enter IP-address:");
+        jLabel17.setText("IP-address: ");
         jToolBar21.add(jLabel17);
-        jToolBar21.add(jSeparator62);
 
+        tfSnmpGetIP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfSnmpGetIP.setText("127.0.0.1");
         tfSnmpGetIP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1189,10 +1185,10 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(tfSnmpGetIP);
         jToolBar21.add(jSeparator63);
 
-        jLabel18.setText("Snmp Read-Community: ");
+        jLabel18.setText("Read-Community: ");
         jToolBar21.add(jLabel18);
-        jToolBar21.add(jSeparator64);
 
+        tfSnmpGetCommunity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfSnmpGetCommunity.setText("public");
         tfSnmpGetCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1202,10 +1198,10 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(tfSnmpGetCommunity);
         jToolBar21.add(jSeparator65);
 
-        jLabel19.setText("Snmp-OID (1.3.6.1.2.1...): ");
+        jLabel19.setText("OID (1.3.6.1.2.1..): ");
         jToolBar21.add(jLabel19);
-        jToolBar21.add(jSeparator67);
 
+        tfSnmpGetOID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfSnmpGetOID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfSnmpGetOIDKeyPressed(evt);
@@ -1214,12 +1210,16 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar21.add(tfSnmpGetOID);
         jToolBar21.add(jSeparator70);
 
-        jLabel20.setText("Snmp-Version: ");
+        jLabel20.setText("Version: ");
         jToolBar21.add(jLabel20);
 
         comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2c", " " }));
+        comboSnmpVersion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSnmpVersionActionPerformed(evt);
+            }
+        });
         jToolBar21.add(comboSnmpVersion);
-        jToolBar21.add(jSeparator68);
 
         jPanel11.add(jToolBar21, java.awt.BorderLayout.NORTH);
 
@@ -1585,6 +1585,10 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfSnmpGetOIDKeyPressed
 
+    private void comboSnmpVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSnmpVersionActionPerformed
+        PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
+    }//GEN-LAST:event_comboSnmpVersionActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1757,13 +1761,9 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator60;
     private javax.swing.JToolBar.Separator jSeparator61;
-    private javax.swing.JToolBar.Separator jSeparator62;
     private javax.swing.JToolBar.Separator jSeparator63;
-    private javax.swing.JToolBar.Separator jSeparator64;
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
-    private javax.swing.JToolBar.Separator jSeparator67;
-    private javax.swing.JToolBar.Separator jSeparator68;
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator70;

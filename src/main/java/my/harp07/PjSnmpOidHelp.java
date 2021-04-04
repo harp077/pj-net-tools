@@ -55,7 +55,7 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.1.5.0 = system name \n";
         info = info + "   1.3.6.1.2.1.1.6.0 = system location \n";
 
-        info = info + "\n   1.3.6.1.2.1.4.* = IP-mib:\n";
+        /*info = info + "\n   1.3.6.1.2.1.4.* = IP-mib:\n";
         info = info + "   1.3.6.1.2.1.4.22.1.2 = ip Net To Media Physical Address \n";
         info = info + "   1.3.6.1.2.1.4.22.1.3 = ip Net To Media Network Address \n";
 
@@ -65,7 +65,7 @@ public class PjSnmpOidHelp {
 
         info = info + "\n   1.3.6.1.2.1.7.* = UDP-mib:\n";
         info = info + "   1.3.6.1.2.1.7.5.1.1 = local IP-address of UDP-listener \n";
-        info = info + "   1.3.6.1.2.1.7.5.1.2 = local UDP-port of UDP-listener \n";
+        info = info + "   1.3.6.1.2.1.7.5.1.2 = local UDP-port of UDP-listener \n";*/
         info = info + "\n";
         ta.setText(info);
     }
