@@ -44,10 +44,10 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.43, build 04-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.44, build 07-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
-    public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
+    //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
     //public ImageIcon snmpIcon44 = new ImageIcon(getClass().getResource("/mib-tree-4.png"));
 
     public PjFrame() {
@@ -411,6 +411,8 @@ public class PjFrame extends javax.swing.JFrame {
         btnSnmpGet = new javax.swing.JButton();
         jSeparator69 = new javax.swing.JToolBar.Separator();
         btnSnmpGetClear = new javax.swing.JButton();
+        jSeparator64 = new javax.swing.JToolBar.Separator();
+        btnSnmpMibs = new javax.swing.JButton();
         jScrollPane22 = new javax.swing.JScrollPane();
         taSnmpGet = new javax.swing.JTextArea();
         jScrollPane23 = new javax.swing.JScrollPane();
@@ -1268,6 +1270,19 @@ public class PjFrame extends javax.swing.JFrame {
             }
         });
         jToolBar22.add(btnSnmpGetClear);
+        jToolBar22.add(jSeparator64);
+
+        btnSnmpMibs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png"))); // NOI18N
+        btnSnmpMibs.setText("Snmp-MIBs structure");
+        btnSnmpMibs.setFocusable(false);
+        btnSnmpMibs.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSnmpMibs.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSnmpMibs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnmpMibsActionPerformed(evt);
+            }
+        });
+        jToolBar22.add(btnSnmpMibs);
 
         jPanel11.add(jToolBar22, java.awt.BorderLayout.SOUTH);
 
@@ -1607,6 +1622,11 @@ public class PjFrame extends javax.swing.JFrame {
         PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
     }//GEN-LAST:event_comboSnmpVersionActionPerformed
 
+    private void btnSnmpMibsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsActionPerformed
+        ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(640, 480, Image.SCALE_SMOOTH));
+        JOptionPane.showMessageDialog(frame, "", "Structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii);
+    }//GEN-LAST:event_btnSnmpMibsActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1650,6 +1670,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSkin;
     public static javax.swing.JButton btnSnmpGet;
     public static javax.swing.JButton btnSnmpGetClear;
+    public static javax.swing.JButton btnSnmpMibs;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
@@ -1781,6 +1802,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator61;
     private javax.swing.JToolBar.Separator jSeparator62;
     private javax.swing.JToolBar.Separator jSeparator63;
+    private javax.swing.JToolBar.Separator jSeparator64;
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
     private javax.swing.JToolBar.Separator jSeparator69;
