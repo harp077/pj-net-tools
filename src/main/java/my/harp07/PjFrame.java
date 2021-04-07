@@ -44,7 +44,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.44, build 07-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.45, build 07-04-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -412,7 +412,9 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator69 = new javax.swing.JToolBar.Separator();
         btnSnmpGetClear = new javax.swing.JButton();
         jSeparator64 = new javax.swing.JToolBar.Separator();
-        btnSnmpMibs = new javax.swing.JButton();
+        btnSnmpMibsAll = new javax.swing.JButton();
+        jSeparator67 = new javax.swing.JToolBar.Separator();
+        btnSnmpMibsStd = new javax.swing.JButton();
         jScrollPane22 = new javax.swing.JScrollPane();
         taSnmpGet = new javax.swing.JTextArea();
         jScrollPane23 = new javax.swing.JScrollPane();
@@ -1272,17 +1274,30 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar22.add(btnSnmpGetClear);
         jToolBar22.add(jSeparator64);
 
-        btnSnmpMibs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png"))); // NOI18N
-        btnSnmpMibs.setText("Snmp-MIBs structure");
-        btnSnmpMibs.setFocusable(false);
-        btnSnmpMibs.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSnmpMibs.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSnmpMibs.addActionListener(new java.awt.event.ActionListener() {
+        btnSnmpMibsAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png"))); // NOI18N
+        btnSnmpMibsAll.setText("All Snmp-MIBs structure");
+        btnSnmpMibsAll.setFocusable(false);
+        btnSnmpMibsAll.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSnmpMibsAll.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSnmpMibsAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSnmpMibsActionPerformed(evt);
+                btnSnmpMibsAllActionPerformed(evt);
             }
         });
-        jToolBar22.add(btnSnmpMibs);
+        jToolBar22.add(btnSnmpMibsAll);
+        jToolBar22.add(jSeparator67);
+
+        btnSnmpMibsStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png"))); // NOI18N
+        btnSnmpMibsStd.setText("Standard Snmp-MIBs structure");
+        btnSnmpMibsStd.setFocusable(false);
+        btnSnmpMibsStd.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSnmpMibsStd.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSnmpMibsStd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSnmpMibsStdActionPerformed(evt);
+            }
+        });
+        jToolBar22.add(btnSnmpMibsStd);
 
         jPanel11.add(jToolBar22, java.awt.BorderLayout.SOUTH);
 
@@ -1622,10 +1637,15 @@ public class PjFrame extends javax.swing.JFrame {
         PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
     }//GEN-LAST:event_comboSnmpVersionActionPerformed
 
-    private void btnSnmpMibsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsActionPerformed
+    private void btnSnmpMibsAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsAllActionPerformed
         ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(640, 480, Image.SCALE_SMOOTH));
         JOptionPane.showMessageDialog(frame, "", "Structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii);
-    }//GEN-LAST:event_btnSnmpMibsActionPerformed
+    }//GEN-LAST:event_btnSnmpMibsAllActionPerformed
+
+    private void btnSnmpMibsStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsStdActionPerformed
+        ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-4.png")).getImage().getScaledInstance(672, 467, Image.SCALE_SMOOTH));
+        JOptionPane.showMessageDialog(frame, "", "Structure of Standard Snmp-MIB OIDs = 1.3.6.1.2.1.* ", JOptionPane.INFORMATION_MESSAGE, ii);
+    }//GEN-LAST:event_btnSnmpMibsStdActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
@@ -1670,7 +1690,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSkin;
     public static javax.swing.JButton btnSnmpGet;
     public static javax.swing.JButton btnSnmpGetClear;
-    public static javax.swing.JButton btnSnmpMibs;
+    public static javax.swing.JButton btnSnmpMibsAll;
+    public static javax.swing.JButton btnSnmpMibsStd;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
     private javax.swing.JButton btnTcpReset;
@@ -1805,6 +1826,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator64;
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
+    private javax.swing.JToolBar.Separator jSeparator67;
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator70;
