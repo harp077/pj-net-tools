@@ -13,12 +13,18 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.text.html.HTMLEditorKit;
@@ -1638,8 +1644,30 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSnmpVersionActionPerformed
 
     private void btnSnmpMibsAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsAllActionPerformed
-        ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(640, 480, Image.SCALE_SMOOTH));
-        JOptionPane.showMessageDialog(frame, "", "Structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii);
+        ImageIcon ii11 = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(440, 330, Image.SCALE_SMOOTH));
+        ImageIcon ii22 = new ImageIcon(new ImageIcon(getClass().getResource("/snmp-all-well.gif")).getImage().getScaledInstance(440, 330, Image.SCALE_SMOOTH));
+        JLabel lb11 = new JLabel("");
+        JLabel lb22 = new JLabel("");
+        lb11.setBorder(new TitledBorder("Example 1:"));
+        lb22.setBorder(new TitledBorder("Example 2:"));
+        //lb11.setVerticalTextPosition(SwingConstants.TOP);
+        //lb11.setComponentOrientation(ComponentOrientation.);
+        lb11.setIcon(ii11);
+        lb22.setIcon(ii22);
+        JPanel jp=new JPanel();
+        jp.add(lb11);
+        jp.add(lb22);
+        //jp.se
+        //JTextArea ta = new JTextArea(15,45);
+        //ta.add(lb11);
+        //ta.add(lb22);
+        //JScrollPane jsc=new JScrollPane(jp);
+        //jsc.setViewportView(jp); 
+        //jsc.add(lb11);
+        //jsc.add(lb22);
+        Object[] ob = {jp};//{lb11,lb22};
+        ImageIcon ii33 = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
+        JOptionPane.showMessageDialog(frame, ob, "Structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii33);
     }//GEN-LAST:event_btnSnmpMibsAllActionPerformed
 
     private void btnSnmpMibsStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsStdActionPerformed
