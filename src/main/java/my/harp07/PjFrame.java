@@ -50,7 +50,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.45, build 07-04-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.47, build 03-06-2021";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -1644,8 +1644,8 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_comboSnmpVersionActionPerformed
 
     private void btnSnmpMibsAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsAllActionPerformed
-        ImageIcon ii11 = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(440, 330, Image.SCALE_SMOOTH));
-        ImageIcon ii22 = new ImageIcon(new ImageIcon(getClass().getResource("/snmp-all-well.gif")).getImage().getScaledInstance(440, 330, Image.SCALE_SMOOTH));
+        ImageIcon ii11 = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-3.jpg")).getImage().getScaledInstance(480, 360, Image.SCALE_SMOOTH));
+        ImageIcon ii22 = new ImageIcon(new ImageIcon(getClass().getResource("/snmp-all-well.gif")).getImage().getScaledInstance(480, 360, Image.SCALE_SMOOTH));
         JLabel lb11 = new JLabel("");
         JLabel lb22 = new JLabel("");
         lb11.setBorder(new TitledBorder("Example 1:"));
@@ -1667,12 +1667,25 @@ public class PjFrame extends javax.swing.JFrame {
         //jsc.add(lb22);
         Object[] ob = {jp};//{lb11,lb22};
         ImageIcon ii33 = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
-        JOptionPane.showMessageDialog(frame, ob, "Structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii33);
+        JOptionPane.showMessageDialog(frame, ob, "All snmp-mib structure:  1.3.6.1.2.1.* = Standard Snmp-MIB OIDs, 1.3.6.1.4.1.* = Enterprise Snmp-MIB OIDs", JOptionPane.INFORMATION_MESSAGE, ii33);
     }//GEN-LAST:event_btnSnmpMibsAllActionPerformed
 
     private void btnSnmpMibsStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpMibsStdActionPerformed
-        ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-4.png")).getImage().getScaledInstance(672, 467, Image.SCALE_SMOOTH));
-        JOptionPane.showMessageDialog(frame, "", "Structure of Standard Snmp-MIB OIDs = 1.3.6.1.2.1.* ", JOptionPane.INFORMATION_MESSAGE, ii);
+        //ImageIcon ii = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-4.png")).getImage().getScaledInstance(672, 467, Image.SCALE_SMOOTH));
+        ImageIcon ii11 = new ImageIcon(new ImageIcon(getClass().getResource("/mib-tree-4.png")).getImage().getScaledInstance(480, 360, Image.SCALE_SMOOTH));
+        ImageIcon ii22 = new ImageIcon(new ImageIcon(getClass().getResource("/snmp-standart-well.jpg")).getImage().getScaledInstance(480, 360, Image.SCALE_SMOOTH));
+        JLabel lb11 = new JLabel("");
+        JLabel lb22 = new JLabel("");
+        lb11.setBorder(new TitledBorder("Example 1:"));
+        lb22.setBorder(new TitledBorder("Example 2:"));
+        lb11.setIcon(ii11);
+        lb22.setIcon(ii22);
+        JPanel jp=new JPanel();
+        jp.add(lb11);
+        jp.add(lb22);
+        Object[] ob = {jp};//{lb11,lb22};
+        ImageIcon ii33 = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
+        JOptionPane.showMessageDialog(frame, ob, "Structure of Standard Snmp-MIB OIDs = 1.3.6.1.2.1.* ", JOptionPane.INFORMATION_MESSAGE, ii33);
     }//GEN-LAST:event_btnSnmpMibsStdActionPerformed
 
     public static void main(String args[]) {
