@@ -599,7 +599,7 @@
               <JTabbedPaneConstraints tabName="IP-calculator">
                 <Property name="tabTitle" type="java.lang.String" value="IP-calculator"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/ip-red-16.png"/>
+                  <Image iconType="3" name="/img/ip-blue-16.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>

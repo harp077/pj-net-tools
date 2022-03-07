@@ -50,7 +50,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme="lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.48, build 03-06-2021";
+    public static String zagolovok="Pure Java Network Tools,  v1.0.49, build 07-03-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -783,7 +783,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jPanel4);
 
-        jTabbedPane1.addTab("IP-calculator", new javax.swing.ImageIcon(getClass().getResource("/img/ip-red-16.png")), jScrollPane3); // NOI18N
+        jTabbedPane1.addTab("IP-calculator", new javax.swing.ImageIcon(getClass().getResource("/img/ip-blue-16.png")), jScrollPane3); // NOI18N
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DNS-checker"));
         jPanel3.setLayout(new java.awt.BorderLayout());
