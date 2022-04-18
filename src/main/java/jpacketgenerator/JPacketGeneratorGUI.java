@@ -30,7 +30,7 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
         //UIManager.setLookAndFeel(laf);
         ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());        
-        this.setSize(350, 220);
+        this.setSize(350, 280);
         this.setLocation(222, 222);
     }
     
@@ -93,6 +93,8 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
         S_packetSize_KB = new javax.swing.JSpinner();
         S_streamSpeed = new javax.swing.JSpinner();
         jtb = new javax.swing.JToggleButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("UDP-flood utility");
@@ -163,6 +165,14 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
         getContentPane().add(jtb);
         jtb.setBounds(150, 140, 90, 26);
 
+        jLabel6.setText("ONLY FOR CHECK NETWORK NODES DEFENCE !");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(20, 190, 310, 15);
+
+        jLabel7.setText("NOT USE FOR ATTACK !");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(20, 220, 310, 15);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -217,6 +227,8 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public static javax.swing.JToggleButton jtb;
     // End of variables declaration//GEN-END:variables
 

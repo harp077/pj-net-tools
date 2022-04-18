@@ -52,7 +52,7 @@ public class PjPingFlood {
 
     public static void runEmbeddedPingFlood(JTextArea ta) {
         ta.setText("");
-        ta.append("ONLY FOR CHECK NETWORK NODES DEFENCE ! \nNOT FOR ATTACK !");
+        ta.append("ONLY FOR CHECK NETWORK NODES DEFENCE ! \nNOT USE FOR ATTACK !");
         smp = Runtime.getRuntime().availableProcessors();
         if (smp > 1) {
             ta.append("\nUse parallel calculation: Detected CPU's = " + smp);
