@@ -11,12 +11,19 @@ public class PjPingFlood {
     private static String ip;
     private static long N = 0;
     private static long M = 0;
-    private static final int time = 100;
+    private static int time;
     private static long run;
     private static long end;
     private static int smp;
     private static ConcurrentHashMap<Integer, String> chm = new ConcurrentHashMap<>();
     private static long k = 0;
+    public static final String[] floodTIMEOUTS = {
+        "20",
+        "40",
+        "60",
+        "80",
+        "100"
+    };    
 
     public static void runPingFlood(String ip, int timeout, JTextArea ta) {
         chm.clear();
@@ -62,6 +69,8 @@ public class PjPingFlood {
         System.out.println("ip = " + ip);
         pingFloodEnabled = true;
         run = System.currentTimeMillis();
+        time=Integer.parseInt(frame.comboPingFloodTimeouts.getSelectedItem().toString());
+        ta.append("\nuse timeout = "+time);
         runPingFlood(frame.tfPingFloodIP.getText().trim(), time, ta);
         System.out.println("stop flood");
     }

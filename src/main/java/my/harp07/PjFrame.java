@@ -32,6 +32,7 @@ import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjCalc.CIDRS_MASKS;
 import static my.harp07.PjPing.COUNTS;
 import static my.harp07.PjPing.TIMEOUTS;
+import static my.harp07.PjPingFlood.floodTIMEOUTS;
 import static my.harp07.PjPingScanner.arrayUpDown;
 import static my.harp07.PjPingScanner.scannerCIDRS_MASKS;
 import static my.harp07.PjPingScanner.scannerTIMEOUTS;
@@ -61,6 +62,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.setTitle(zagolovok);
         this.comboPingCounts.setModel(new javax.swing.DefaultComboBoxModel(COUNTS));
         this.comboPingTimeouts.setModel(new javax.swing.DefaultComboBoxModel(TIMEOUTS));
+        this.comboPingFloodTimeouts.setModel(new javax.swing.DefaultComboBoxModel(floodTIMEOUTS));
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
         this.comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(scannerTIMEOUTS));
         this.comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(scannerCIDRS_MASKS));
@@ -276,7 +278,10 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator68 = new javax.swing.JToolBar.Separator();
         jLabel21 = new javax.swing.JLabel();
         tfPingFloodIP = new javax.swing.JTextField();
-        jSeparator71 = new javax.swing.JToolBar.Separator();
+        jSeparator73 = new javax.swing.JToolBar.Separator();
+        jLabel22 = new javax.swing.JLabel();
+        comboPingFloodTimeouts = new javax.swing.JComboBox<>();
+        jSeparator75 = new javax.swing.JToolBar.Separator();
         jToolBar24 = new javax.swing.JToolBar();
         jSeparator72 = new javax.swing.JToolBar.Separator();
         btnBooleanPingFlood = new javax.swing.JToggleButton();
@@ -653,7 +658,14 @@ public class PjFrame extends javax.swing.JFrame {
         jLabel21.setText("Target IP-address: ");
         jToolBar23.add(jLabel21);
         jToolBar23.add(tfPingFloodIP);
-        jToolBar23.add(jSeparator71);
+        jToolBar23.add(jSeparator73);
+
+        jLabel22.setText("TimeOut, ms: ");
+        jToolBar23.add(jLabel22);
+
+        comboPingFloodTimeouts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jToolBar23.add(comboPingFloodTimeouts);
+        jToolBar23.add(jSeparator75);
 
         jPanel13.add(jToolBar23, java.awt.BorderLayout.NORTH);
 
@@ -1853,6 +1865,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JButton btnUdpFlood;
     public static javax.swing.JComboBox<String> comboCalcMasks;
     public static javax.swing.JComboBox<String> comboPingCounts;
+    public static javax.swing.JComboBox<String> comboPingFloodTimeouts;
     public static javax.swing.JComboBox<String> comboPingScannerMasks;
     public static javax.swing.JComboBox<String> comboPingScannerShow;
     public static javax.swing.JComboBox<String> comboPingScannerTimeouts;
@@ -1873,6 +1886,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1987,9 +2001,10 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator70;
-    private javax.swing.JToolBar.Separator jSeparator71;
     private javax.swing.JToolBar.Separator jSeparator72;
+    private javax.swing.JToolBar.Separator jSeparator73;
     private javax.swing.JToolBar.Separator jSeparator74;
+    private javax.swing.JToolBar.Separator jSeparator75;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
