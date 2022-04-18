@@ -70,7 +70,7 @@ public class PjPingFlood {
         pingFloodEnabled = true;
         run = System.currentTimeMillis();
         time=Integer.parseInt(frame.comboPingFloodTimeouts.getSelectedItem().toString());
-        ta.append("\nuse timeout = "+time);
+        ta.append("use timeout = "+time + "\n");
         runPingFlood(frame.tfPingFloodIP.getText().trim(), time, ta);
         System.out.println("stop flood");
     }
