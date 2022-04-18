@@ -43,14 +43,14 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
     public static int FW = 999;
-    public static int FH = 550;    
+    public static int FH = 550;
     //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF="de.muntjak.tinylookandfeel.TinyLookAndFeel";
-    public static String currentTheme="lib/themes/Default.theme";
+    public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
+    public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok="Pure Java Network Tools,  v1.0.49, build 07-03-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.50, build 18-04-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -65,7 +65,7 @@ public class PjFrame extends javax.swing.JFrame {
         this.comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(scannerTIMEOUTS));
         this.comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(scannerCIDRS_MASKS));
         this.comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel(arrayUpDown));
-        this.comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1","2c"}));
+        this.comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1", "2c"}));
         ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());
         this.nizInfoLabel.setText(zagolovok);
@@ -76,7 +76,7 @@ public class PjFrame extends javax.swing.JFrame {
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
                 + "\nPure Java Network Tools. Include:<br><br>"
                 + "\n01. ICMP-ping;<br>"
-                + "\n02. ICMP-trace;<br>"                
+                + "\n02. ICMP-trace;<br>"
                 + "\n03. DNS-checker.<br>"
                 + "\n04. TCP-scanner.<br>"
                 + "\n05. IP-calculator.<br>"
@@ -84,7 +84,8 @@ public class PjFrame extends javax.swing.JFrame {
                 + "\n07. Telnet-client.<br>"
                 + "\n08. Local ARP request.<br>"
                 + "\n09. Network Ping-Scanner.<br>"
-                + "\n10. Snmp-Get concrete value utility.<br><br>"
+                + "\n10. Snmp-Get concrete value utility.<br>"
+                + "\n11. ICMP ping flood utility.<br><br>"
                 + "\nCreate by Roman Koldaev, Saratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
                 + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
@@ -137,17 +138,17 @@ public class PjFrame extends javax.swing.JFrame {
         tinyTemes.add("lib/themes/Nightly.theme");
         //tinyTemes.add("lib/themes/Unicode.theme");
         tinyTemes.add("lib/themes/My_Cyan.theme");
-        tinyTemes.add("lib/themes/My_Yellow.theme");  
-        tinyTemes.add("lib/themes/My_AquaMarine.theme"); 
-        tinyTemes.add("lib/themes/My_Magenta.theme");  
-        tinyTemes.add("lib/themes/My_Green.theme"); 
-        MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel"); 
+        tinyTemes.add("lib/themes/My_Yellow.theme");
+        tinyTemes.add("lib/themes/My_AquaMarine.theme");
+        tinyTemes.add("lib/themes/My_Magenta.theme");
+        tinyTemes.add("lib/themes/My_Green.theme");
+        MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         //MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         ///////////////////////        
         /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");*/
     }
-    
+
     public static void setLF() {
         if (currentLAF.contains("tinyl")) {
             de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
@@ -182,20 +183,20 @@ public class PjFrame extends javax.swing.JFrame {
                 }
             }
         }
-    } 
-    
+    }
+
     public static void telnetClientHandler() {
-            int port=0;
-            if (NumberUtils.isParsable(tfTelnetPort.getText().trim())) {
-                port=Integer.parseInt(tfTelnetPort.getText().trim());
-            } else {
-                JOptionPane.showMessageDialog(frame, "Wrong port !", "Error", JOptionPane.ERROR_MESSAGE);
-            }            
-            if (ipv.isValid(tfTelnetAdres.getText().trim()) && port>0 && port <65536) {
-                new TelnetNNM_Thread(tfTelnetAdres.getText().trim(), Integer.parseInt(tfTelnetPort.getText().trim()));
-            } else {
-                JOptionPane.showMessageDialog(frame, "Wrong IP or port !", "Error", JOptionPane.ERROR_MESSAGE);
-            }        
+        int port = 0;
+        if (NumberUtils.isParsable(tfTelnetPort.getText().trim())) {
+            port = Integer.parseInt(tfTelnetPort.getText().trim());
+        } else {
+            JOptionPane.showMessageDialog(frame, "Wrong port !", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (ipv.isValid(tfTelnetAdres.getText().trim()) && port > 0 && port < 65536) {
+            new TelnetNNM_Thread(tfTelnetAdres.getText().trim(), Integer.parseInt(tfTelnetPort.getText().trim()));
+        } else {
+            JOptionPane.showMessageDialog(frame, "Wrong IP or port !", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /*public void changeLF() {
@@ -211,7 +212,7 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }*/
 
-    /*public void setLF(JFrame frame) {
+ /*public void setLF(JFrame frame) {
         try {
             UIManager.setLookAndFeel(currentLAF);
         } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
@@ -222,7 +223,6 @@ public class PjFrame extends javax.swing.JFrame {
         SwingUtilities.updateComponentTreeUI(frame);
         //frame.pack();
     }*/
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -268,6 +268,43 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveTrace = new javax.swing.JButton();
         jSeparator40 = new javax.swing.JToolBar.Separator();
         btnTraceReset = new javax.swing.JButton();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        taPingFloodResult = new javax.swing.JTextArea();
+        jToolBar23 = new javax.swing.JToolBar();
+        jSeparator68 = new javax.swing.JToolBar.Separator();
+        jLabel21 = new javax.swing.JLabel();
+        tfPingFloodIP = new javax.swing.JTextField();
+        jSeparator71 = new javax.swing.JToolBar.Separator();
+        jToolBar24 = new javax.swing.JToolBar();
+        jSeparator72 = new javax.swing.JToolBar.Separator();
+        btnBooleanPingFlood = new javax.swing.JToggleButton();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        taPingScannerResult = new javax.swing.JTextArea();
+        jToolBar19 = new javax.swing.JToolBar();
+        jSeparator51 = new javax.swing.JToolBar.Separator();
+        jLabel13 = new javax.swing.JLabel();
+        tfPingScannerInput = new javax.swing.JTextField();
+        jSeparator52 = new javax.swing.JToolBar.Separator();
+        jLabel14 = new javax.swing.JLabel();
+        comboPingScannerMasks = new javax.swing.JComboBox<>();
+        jSeparator53 = new javax.swing.JToolBar.Separator();
+        jLabel3 = new javax.swing.JLabel();
+        comboPingScannerTimeouts = new javax.swing.JComboBox<>();
+        jSeparator57 = new javax.swing.JToolBar.Separator();
+        jLabel15 = new javax.swing.JLabel();
+        comboPingScannerShow = new javax.swing.JComboBox<>();
+        jSeparator58 = new javax.swing.JToolBar.Separator();
+        jToolBar20 = new javax.swing.JToolBar();
+        jSeparator54 = new javax.swing.JToolBar.Separator();
+        btnPingScannerRun = new javax.swing.JButton();
+        jSeparator55 = new javax.swing.JToolBar.Separator();
+        btnPingScannerSave = new javax.swing.JButton();
+        jSeparator56 = new javax.swing.JToolBar.Separator();
+        btnPingScannerClear = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -371,31 +408,6 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveArp = new javax.swing.JButton();
         jSeparator50 = new javax.swing.JToolBar.Separator();
         btnArpReset = new javax.swing.JButton();
-        jScrollPane19 = new javax.swing.JScrollPane();
-        jPanel10 = new javax.swing.JPanel();
-        jScrollPane20 = new javax.swing.JScrollPane();
-        taPingScannerResult = new javax.swing.JTextArea();
-        jToolBar19 = new javax.swing.JToolBar();
-        jSeparator51 = new javax.swing.JToolBar.Separator();
-        jLabel13 = new javax.swing.JLabel();
-        tfPingScannerInput = new javax.swing.JTextField();
-        jSeparator52 = new javax.swing.JToolBar.Separator();
-        jLabel14 = new javax.swing.JLabel();
-        comboPingScannerMasks = new javax.swing.JComboBox<>();
-        jSeparator53 = new javax.swing.JToolBar.Separator();
-        jLabel3 = new javax.swing.JLabel();
-        comboPingScannerTimeouts = new javax.swing.JComboBox<>();
-        jSeparator57 = new javax.swing.JToolBar.Separator();
-        jLabel15 = new javax.swing.JLabel();
-        comboPingScannerShow = new javax.swing.JComboBox<>();
-        jSeparator58 = new javax.swing.JToolBar.Separator();
-        jToolBar20 = new javax.swing.JToolBar();
-        jSeparator54 = new javax.swing.JToolBar.Separator();
-        btnPingScannerRun = new javax.swing.JButton();
-        jSeparator55 = new javax.swing.JToolBar.Separator();
-        btnPingScannerSave = new javax.swing.JButton();
-        jSeparator56 = new javax.swing.JToolBar.Separator();
-        btnPingScannerClear = new javax.swing.JButton();
         jScrollPane21 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jToolBar21 = new javax.swing.JToolBar();
@@ -618,6 +630,160 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane14.setViewportView(jPanel7);
 
         jTabbedPane1.addTab("ICMP-Trace", new javax.swing.ImageIcon(getClass().getResource("/img/trace-16.png")), jScrollPane14, ""); // NOI18N
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("ICMP-flood utility"));
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane26.setBorder(javax.swing.BorderFactory.createTitledBorder("Received messages:"));
+
+        taPingFloodResult.setEditable(false);
+        taPingFloodResult.setColumns(20);
+        taPingFloodResult.setRows(5);
+        jScrollPane26.setViewportView(taPingFloodResult);
+
+        jPanel13.add(jScrollPane26, java.awt.BorderLayout.CENTER);
+
+        jToolBar23.setBorder(javax.swing.BorderFactory.createTitledBorder("Target IP:"));
+        jToolBar23.setFloatable(false);
+        jToolBar23.add(jSeparator68);
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Target IP-address: ");
+        jToolBar23.add(jLabel21);
+        jToolBar23.add(tfPingFloodIP);
+        jToolBar23.add(jSeparator71);
+
+        jPanel13.add(jToolBar23, java.awt.BorderLayout.NORTH);
+
+        jToolBar24.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar24.setFloatable(false);
+        jToolBar24.add(jSeparator72);
+
+        btnBooleanPingFlood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnBooleanPingFlood.setText("Run Ping Flood");
+        btnBooleanPingFlood.setFocusable(false);
+        btnBooleanPingFlood.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnBooleanPingFlood.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBooleanPingFlood.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                btnBooleanPingFloodItemStateChanged(evt);
+            }
+        });
+        jToolBar24.add(btnBooleanPingFlood);
+
+        jPanel13.add(jToolBar24, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane25.setViewportView(jPanel13);
+
+        jTabbedPane1.addTab("ICMP-flood", new javax.swing.ImageIcon(getClass().getResource("/img/flood-car-16.png")), jScrollPane25); // NOI18N
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Network Ping-Scanner"));
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane20.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taPingScannerResult.setEditable(false);
+        taPingScannerResult.setColumns(20);
+        taPingScannerResult.setRows(5);
+        jScrollPane20.setViewportView(taPingScannerResult);
+
+        jPanel10.add(jScrollPane20, java.awt.BorderLayout.CENTER);
+
+        jToolBar19.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar19.setFloatable(false);
+        jToolBar19.add(jSeparator51);
+
+        jLabel13.setText("Enter IP-address: ");
+        jToolBar19.add(jLabel13);
+
+        tfPingScannerInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPingScannerInputKeyPressed(evt);
+            }
+        });
+        jToolBar19.add(tfPingScannerInput);
+        jToolBar19.add(jSeparator52);
+
+        jLabel14.setText("Prefix/Mask: ");
+        jToolBar19.add(jLabel14);
+
+        comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPingScannerMasks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPingScannerMasksActionPerformed(evt);
+            }
+        });
+        jToolBar19.add(comboPingScannerMasks);
+        jToolBar19.add(jSeparator53);
+
+        jLabel3.setText("TimeOut, ms: ");
+        jToolBar19.add(jLabel3);
+
+        comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jToolBar19.add(comboPingScannerTimeouts);
+        jToolBar19.add(jSeparator57);
+
+        jLabel15.setText("Show: ");
+        jToolBar19.add(jLabel15);
+
+        comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPingScannerShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPingScannerShowActionPerformed(evt);
+            }
+        });
+        jToolBar19.add(comboPingScannerShow);
+        jToolBar19.add(jSeparator58);
+
+        jPanel10.add(jToolBar19, java.awt.BorderLayout.NORTH);
+
+        jToolBar20.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar20.setFloatable(false);
+        jToolBar20.add(jSeparator54);
+
+        btnPingScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnPingScannerRun.setText("Run Ping-Scanner");
+        btnPingScannerRun.setFocusable(false);
+        btnPingScannerRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPingScannerRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPingScannerRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPingScannerRunActionPerformed(evt);
+            }
+        });
+        jToolBar20.add(btnPingScannerRun);
+        jToolBar20.add(jSeparator55);
+
+        btnPingScannerSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
+        btnPingScannerSave.setText("Save Result ");
+        btnPingScannerSave.setFocusable(false);
+        btnPingScannerSave.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPingScannerSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPingScannerSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPingScannerSaveActionPerformed(evt);
+            }
+        });
+        jToolBar20.add(btnPingScannerSave);
+        jToolBar20.add(jSeparator56);
+
+        btnPingScannerClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
+        btnPingScannerClear.setText("Clear ");
+        btnPingScannerClear.setFocusable(false);
+        btnPingScannerClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPingScannerClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPingScannerClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPingScannerClearActionPerformed(evt);
+            }
+        });
+        jToolBar20.add(btnPingScannerClear);
+
+        jPanel10.add(jToolBar20, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane19.setViewportView(jPanel10);
+
+        jTabbedPane1.addTab("Ping-Scanner", new javax.swing.ImageIcon(getClass().getResource("/img/scan_16.png")), jScrollPane19); // NOI18N
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("TCP-scaner"));
         jPanel2.setLayout(new java.awt.BorderLayout());
@@ -1083,114 +1249,6 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ARP-get", new javax.swing.ImageIcon(getClass().getResource("/img/net-card-green-16.png")), jScrollPane17, ""); // NOI18N
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Network Ping-Scanner"));
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane20.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
-
-        taPingScannerResult.setEditable(false);
-        taPingScannerResult.setColumns(20);
-        taPingScannerResult.setRows(5);
-        jScrollPane20.setViewportView(taPingScannerResult);
-
-        jPanel10.add(jScrollPane20, java.awt.BorderLayout.CENTER);
-
-        jToolBar19.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
-        jToolBar19.setFloatable(false);
-        jToolBar19.add(jSeparator51);
-
-        jLabel13.setText("Enter IP-address: ");
-        jToolBar19.add(jLabel13);
-
-        tfPingScannerInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfPingScannerInputKeyPressed(evt);
-            }
-        });
-        jToolBar19.add(tfPingScannerInput);
-        jToolBar19.add(jSeparator52);
-
-        jLabel14.setText("Prefix/Mask: ");
-        jToolBar19.add(jLabel14);
-
-        comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboPingScannerMasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboPingScannerMasksActionPerformed(evt);
-            }
-        });
-        jToolBar19.add(comboPingScannerMasks);
-        jToolBar19.add(jSeparator53);
-
-        jLabel3.setText("TimeOut, ms: ");
-        jToolBar19.add(jLabel3);
-
-        comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jToolBar19.add(comboPingScannerTimeouts);
-        jToolBar19.add(jSeparator57);
-
-        jLabel15.setText("Show: ");
-        jToolBar19.add(jLabel15);
-
-        comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboPingScannerShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboPingScannerShowActionPerformed(evt);
-            }
-        });
-        jToolBar19.add(comboPingScannerShow);
-        jToolBar19.add(jSeparator58);
-
-        jPanel10.add(jToolBar19, java.awt.BorderLayout.NORTH);
-
-        jToolBar20.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
-        jToolBar20.setFloatable(false);
-        jToolBar20.add(jSeparator54);
-
-        btnPingScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
-        btnPingScannerRun.setText("Run Ping-Scanner");
-        btnPingScannerRun.setFocusable(false);
-        btnPingScannerRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPingScannerRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPingScannerRun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPingScannerRunActionPerformed(evt);
-            }
-        });
-        jToolBar20.add(btnPingScannerRun);
-        jToolBar20.add(jSeparator55);
-
-        btnPingScannerSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
-        btnPingScannerSave.setText("Save Result ");
-        btnPingScannerSave.setFocusable(false);
-        btnPingScannerSave.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPingScannerSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPingScannerSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPingScannerSaveActionPerformed(evt);
-            }
-        });
-        jToolBar20.add(btnPingScannerSave);
-        jToolBar20.add(jSeparator56);
-
-        btnPingScannerClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnPingScannerClear.setText("Clear ");
-        btnPingScannerClear.setFocusable(false);
-        btnPingScannerClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPingScannerClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPingScannerClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPingScannerClearActionPerformed(evt);
-            }
-        });
-        jToolBar20.add(btnPingScannerClear);
-
-        jPanel10.add(jToolBar20, java.awt.BorderLayout.SOUTH);
-
-        jScrollPane19.setViewportView(jPanel10);
-
-        jTabbedPane1.addTab("Ping-Scanner", new javax.swing.ImageIcon(getClass().getResource("/img/scan_16.png")), jScrollPane19); // NOI18N
-
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("SNMP get concrete value utility"));
         jPanel11.setLayout(new java.awt.BorderLayout());
 
@@ -1598,9 +1656,15 @@ public class PjFrame extends javax.swing.JFrame {
 
     private void comboPingScannerShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPingScannerShowActionPerformed
         switch (comboPingScannerShow.getSelectedItem().toString()) {
-            case "ALL": this.taPingScannerResult.setText(PjPingScanner.result); break;
-            case "UP": this.taPingScannerResult.setText(PjPingScanner.resultUP); break;
-            case "DOWN": this.taPingScannerResult.setText(PjPingScanner.resultDOWN); break;
+            case "ALL":
+                this.taPingScannerResult.setText(PjPingScanner.result);
+                break;
+            case "UP":
+                this.taPingScannerResult.setText(PjPingScanner.resultUP);
+                break;
+            case "DOWN":
+                this.taPingScannerResult.setText(PjPingScanner.resultDOWN);
+                break;
         }
     }//GEN-LAST:event_comboPingScannerShowActionPerformed
 
@@ -1654,7 +1718,7 @@ public class PjFrame extends javax.swing.JFrame {
         //lb11.setComponentOrientation(ComponentOrientation.);
         lb11.setIcon(ii11);
         lb22.setIcon(ii22);
-        JPanel jp=new JPanel();
+        JPanel jp = new JPanel();
         jp.add(lb11);
         jp.add(lb22);
         //jp.se
@@ -1680,13 +1744,37 @@ public class PjFrame extends javax.swing.JFrame {
         lb22.setBorder(new TitledBorder("Example 2:"));
         lb11.setIcon(ii11);
         lb22.setIcon(ii22);
-        JPanel jp=new JPanel();
+        JPanel jp = new JPanel();
         jp.add(lb11);
         jp.add(lb22);
         Object[] ob = {jp};//{lb11,lb22};
         ImageIcon ii33 = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         JOptionPane.showMessageDialog(frame, ob, "Structure of Standard Snmp-MIB OIDs = 1.3.6.1.2.1.* ", JOptionPane.INFORMATION_MESSAGE, ii33);
     }//GEN-LAST:event_btnSnmpMibsStdActionPerformed
+
+    private void btnBooleanPingFloodItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanPingFloodItemStateChanged
+        // TODO add your handling code here:
+        if (!ipv.isValid(frame.tfPingFloodIP.getText().trim())) {
+            JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
+            btnBooleanPingFlood.setSelected(false);
+            return;
+        }
+        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            PjPingFlood.go(taPingFloodResult);
+            btnBooleanPingFlood.setText("Stop Ping Flood ");
+            btnBooleanPingFlood.setIcon(iconOf);
+            tfPingFloodIP.setEnabled(false);//.setEditable(false);
+            System.out.println("button is selected");
+        } else if (evt.getStateChange() == ItemEvent.DESELECTED) {
+            PjPingFlood.stop();
+            btnBooleanPingFlood.setText("Run Ping Flood ");
+            btnBooleanPingFlood.setIcon(iconOn);
+            tfPingFloodIP.setEnabled(true);//.setEditable(true);
+            System.out.println("button is not selected");
+        }
+    }//GEN-LAST:event_btnBooleanPingFloodItemStateChanged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
@@ -1701,7 +1789,7 @@ public class PjFrame extends javax.swing.JFrame {
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
             //PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
-            frame.setLocation(211,211);
+            frame.setLocation(211, 211);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
         });
@@ -1711,6 +1799,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JButton btnArpALL;
     private javax.swing.JButton btnArpReset;
     public javax.swing.JButton btnArpRun;
+    public static javax.swing.JToggleButton btnBooleanPingFlood;
     public static javax.swing.JToggleButton btnBooleanSyslog;
     private javax.swing.JButton btnCalcReset;
     private javax.swing.JButton btnCalcRun;
@@ -1761,6 +1850,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1772,6 +1862,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1797,6 +1888,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1868,9 +1961,12 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
     private javax.swing.JToolBar.Separator jSeparator67;
+    private javax.swing.JToolBar.Separator jSeparator68;
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator70;
+    private javax.swing.JToolBar.Separator jSeparator71;
+    private javax.swing.JToolBar.Separator jSeparator72;
     private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1889,6 +1985,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar20;
     private javax.swing.JToolBar jToolBar21;
     private javax.swing.JToolBar jToolBar22;
+    private javax.swing.JToolBar jToolBar23;
+    private javax.swing.JToolBar jToolBar24;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar5;
@@ -1901,6 +1999,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taCalcResult;
     public static javax.swing.JTextArea taDnsResult;
     public static javax.swing.JTextArea taLocalResult;
+    public static javax.swing.JTextArea taPingFloodResult;
     public static javax.swing.JTextArea taPingResult;
     public static javax.swing.JTextArea taPingScannerResult;
     public static javax.swing.JTextArea taSnmpGet;
@@ -1911,6 +2010,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextField tfArpInput;
     public static javax.swing.JTextField tfCalcInput;
     public static javax.swing.JTextField tfDnsInput;
+    public static javax.swing.JTextField tfPingFloodIP;
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfPingScannerInput;
     public static javax.swing.JTextField tfSnmpGetCommunity;

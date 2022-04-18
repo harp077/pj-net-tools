@@ -1,4 +1,5 @@
-Pure Java Network Tools. Free portable cross-platform. Include: 
+Pure Java Network Tools. Free portable cross-platform. Include:
+ 
 01) ICMP-ping, 
 02) ICMP-traceroute, 
 03) DNS-check resolver, 
@@ -8,6 +9,8 @@ Pure Java Network Tools. Free portable cross-platform. Include:
 07) Telnet-client, 
 08) Local ARP-cache request,
 09) Network Ping-Scanner,
-10) Snmp-Get concrete value utility. 
+10) Snmp-Get concrete value utility.
+11) ICMP ping flood utility. 
+
 Need JRE-1.8:
-https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+
