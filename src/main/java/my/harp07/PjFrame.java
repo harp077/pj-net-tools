@@ -50,7 +50,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.50, build 18-04-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.51, build 18-04-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -90,8 +90,7 @@ public class PjFrame extends javax.swing.JFrame {
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
                 + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
                 + "\nGitHub: <a href='https://github.com/harp077/'>https://github.com/harp077/</a><br>"
-                + "\nneed JRE-1.8:<br>"
-                + "\n<a href='https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html'>https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html</a></p></body></html>";
+                + "\nneed jre-1.8:<br></p></body></html>";
         this.epAbout.setText(msg);
         this.epAbout.setEditable(false);//so its not editable
         this.epAbout.setOpaque(false);//so we dont see whit background        
