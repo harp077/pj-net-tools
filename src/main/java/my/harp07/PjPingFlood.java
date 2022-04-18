@@ -35,7 +35,7 @@ public class PjPingFlood {
                             }
                         });
                 end = System.currentTimeMillis();
-                if (k % 9 == 0) {
+                if (k % 11 == 0) {
                     ta.append("\n-> " + 1000 * (M + N) / (end - run) + " pps");
                 } else {
                     ta.append(", -> " + 1000 * (M + N) / (end - run) + " pps");
