@@ -51,7 +51,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.55, build 18-04-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.56, build 18-04-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -1794,12 +1794,14 @@ public class PjFrame extends javax.swing.JFrame {
             btnBooleanPingFlood.setText("Stop Ping Flood ");
             btnBooleanPingFlood.setIcon(iconOf);
             tfPingFloodIP.setEnabled(false);//.setEditable(false);
+            btnUdpFlood.setEnabled(false);
             System.out.println("button is selected");
         } else if (evt.getStateChange() == ItemEvent.DESELECTED) {
             PjPingFlood.stop();
             btnBooleanPingFlood.setText("Run Ping Flood ");
             btnBooleanPingFlood.setIcon(iconOn);
             tfPingFloodIP.setEnabled(true);//.setEditable(true);
+            btnUdpFlood.setEnabled(true);
             System.out.println("button is not selected");
         }
     }//GEN-LAST:event_btnBooleanPingFloodItemStateChanged
