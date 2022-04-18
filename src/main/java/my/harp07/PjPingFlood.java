@@ -57,6 +57,7 @@ public class PjPingFlood {
             ta.append("\nall time = " + (end - run) + " msec");
             ta.append("\nping's with response = " + N);
             ta.append("\nping's with not response = " + M);
+            ta.append("\nPackets Loss, percent = " + String.format("%.2f", 100*(0.0+M)/(M+N)) + " %");
             ta.append("\nAverage Packets Per Second = " + 1000 * (M + N) / (end - run) + " pps\n");
         }).start();
     }
