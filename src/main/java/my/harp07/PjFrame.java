@@ -53,7 +53,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.66, build 02-05-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.67, build 02-05-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -77,27 +77,7 @@ public class PjFrame extends javax.swing.JFrame {
         //this.tfTelnetPort.setColumns(11);
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
-        String msg = "<html><body><p style='margin-left: 50px'>PJ-NET-TOOLS:<br><br>"
-                + "\nPure Java Network Tools. Run as root/admin user ! Include:<br><br>"
-                + "\n01. ICMP-ping;<br>"
-                + "\n02. ICMP-trace;<br>"
-                + "\n03. DNS-checker.<br>"
-                + "\n04. TCP-scanner.<br>"
-                + "\n05. IP-calculator.<br>"
-                + "\n06. Syslog-server.<br>"
-                + "\n07. Telnet-client.<br>"
-                + "\n08. Local ARP request.<br>"
-                + "\n09. Network Ping-Scanner.<br>"
-                + "\n10. Snmp-Get concrete value utility.<br>"
-                + "\n11. ICMP-flood utility.<br>"
-                + "\n12. UDP-flood utility.<br>"
-                + "\n13. TFTP-server.<br><br>"
-                + "\nCreate by Roman Koldaev, Saratov city, Russia.<br>"
-                + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
-                + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
-                + "\nGitHub: <a href='https://github.com/harp077/'>https://github.com/harp077/</a><br>"
-                + "\nneed jre-1.8:<br></p></body></html>";
-        this.epAbout.setText(msg);
+        this.epAbout.setText(GenericPJ.about());
         this.epAbout.setEditable(false);//so its not editable
         this.epAbout.setOpaque(false);//so we dont see whit background        
         this.epAbout.addHyperlinkListener(new HyperlinkListener() {
@@ -138,7 +118,7 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     public static void InstallLF() {
-        tinyTemes.add("lib/themes/Default.theme");
+        /*tinyTemes.add("lib/themes/Default.theme");
         tinyTemes.add("lib/themes/Forest.theme");
         tinyTemes.add("lib/themes/Golden.theme");
         tinyTemes.add("lib/themes/Plastic.theme");
@@ -149,7 +129,7 @@ public class PjFrame extends javax.swing.JFrame {
         tinyTemes.add("lib/themes/My_Yellow.theme");
         tinyTemes.add("lib/themes/My_AquaMarine.theme");
         tinyTemes.add("lib/themes/My_Magenta.theme");
-        tinyTemes.add("lib/themes/My_Green.theme");
+        tinyTemes.add("lib/themes/My_Green.theme");*/
         MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         //MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         ///////////////////////        
@@ -1131,7 +1111,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane10.setViewportView(jPanel5);
 
-        jTabbedPane1.addTab("Syslog", new javax.swing.ImageIcon(getClass().getResource("/img/syslog-16.png")), jScrollPane10); // NOI18N
+        jTabbedPane1.addTab("Syslog-server", new javax.swing.ImageIcon(getClass().getResource("/img/syslog-16.png")), jScrollPane10); // NOI18N
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("telnet"));
         jPanel8.setLayout(new java.awt.BorderLayout());
@@ -1634,6 +1614,12 @@ public class PjFrame extends javax.swing.JFrame {
             btnBooleanSyslog.setSelected(false);
             return;
         }
+        int ii=Integer.parseInt(frame.tfSyslogInput.getText());
+        if (!(ii>0 && ii<65535)) {
+            JOptionPane.showMessageDialog(frame, "Wrong Port !", "Error", JOptionPane.ERROR_MESSAGE);
+            btnBooleanSyslog.setSelected(false);
+            return;
+        }        
         ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
         ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
