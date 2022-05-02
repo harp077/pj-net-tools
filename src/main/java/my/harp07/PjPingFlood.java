@@ -18,12 +18,11 @@ public class PjPingFlood {
     private static ConcurrentHashMap<Integer, String> chm = new ConcurrentHashMap<>();
     private static long k;
     public static final String[] floodTIMEOUTS = {
-        "10",
-        "30",
-        "50",
-        "70",
-        "90",
-        "110"
+        "20",
+        "40",
+        "60",
+        "80",
+        "100"
     };    
 
     public static void runPingFlood(String ip, int timeout, JTextArea ta) {
@@ -63,7 +62,7 @@ public class PjPingFlood {
     }
 
     public static void runEmbeddedPingFlood(JTextArea ta) {
-        ta.setText("");
+        ta.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
         ta.append("ONLY FOR CHECK NETWORK NODES DEFENCE ! \nNOT USE FOR ATTACK !");
         smp = Runtime.getRuntime().availableProcessors();
         if (smp > 1) {

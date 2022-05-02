@@ -51,7 +51,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.60, build 18-04-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.61, build 02-05-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -76,7 +76,7 @@ public class PjFrame extends javax.swing.JFrame {
         //this.epAbout.setEditorKit(new HTMLEditorKit());
         this.epAbout.setContentType("text/html");
         String msg = "<html><body><p style='margin-left: 50px'><br>PJ-NET-TOOLS:<br><br>"
-                + "\nPure Java Network Tools. Include:<br><br>"
+                + "\nPure Java Network Tools. Run as root/admin user ! Include:<br><br>"
                 + "\n01. ICMP-ping;<br>"
                 + "\n02. ICMP-trace;<br>"
                 + "\n03. DNS-checker.<br>"
@@ -123,6 +123,7 @@ public class PjFrame extends javax.swing.JFrame {
         }; */
         PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
         taSnmpOidHelp.setEditable(false);
+        taPingFloodResult.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
     }
 
     public static void MyInstLF(String lf) {

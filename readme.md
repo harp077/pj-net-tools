@@ -1,4 +1,6 @@
-Pure Java Network Tools. Free portable cross-platform. Include:
+Pure Java Network Tools. Free portable cross-platform. 
+Run as root/admin !
+Include:
  
 01) ICMP-ping, 
 02) ICMP-traceroute, 
