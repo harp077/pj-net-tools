@@ -16,6 +16,9 @@ import java.util.HashSet;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 import static my.harp07.PjFrame.btnTftpSave;
 import static my.harp07.PjFrame.taTftpResult;
 import static my.harp07.PjFrame.tfTftpFolder;
@@ -33,9 +36,9 @@ import org.apache.commons.net.tftp.TFTPPacket;
 import org.apache.commons.net.tftp.TFTPPacketException;
 import org.apache.commons.net.tftp.TFTPReadRequestPacket;
 import org.apache.commons.net.tftp.TFTPWriteRequestPacket;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+//import org.apache.log4j.Level;
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.PropertyConfigurator;
 
  /* A fully multi-threaded tftp server. Can handle multiple clients at the same
  time. Implements RFC 1350 and wrapping block numbers for large file support.
@@ -65,22 +68,22 @@ public static void main(String[] args) throws Exception {
 
 public class TFTPServer implements Runnable {
 
-    //public static java.util.logging.Logger jul;
-    public static org.apache.log4j.Logger jul;
+    public static java.util.logging.Logger jul;
+    //public static org.apache.log4j.Logger jul;
 
     static {
             // for java.util.logging:
-        /*try (FileInputStream ins = new FileInputStream("log/jul.properties")) {
+        try (FileInputStream ins = new FileInputStream("log/jul.properties")) {
             LogManager.getLogManager().readConfiguration(ins);
             jul = java.util.logging.Logger.getLogger(TFTPServer.class.getName());
-        } catch (Exception ignore) { ignore.printStackTrace(); }*/
+        } catch (Exception ignore) { ignore.printStackTrace(); }
 
             // for log4j:
         //File propertiesFile = new File("cfg/log4j.properties");
         //PropertyConfigurator.configure(propertiesFile.toString());
-        PropertyConfigurator.configure("log/log4j.properties");
+        //PropertyConfigurator.configure("log/jul.properties");
         //DOMConfigurator.configure("cfg/log4j.xml"); 
-        jul = org.apache.log4j.Logger.getLogger(TFTPServer.class.getName());
+        //jul = java.util.logging.Logger.getLogger(TFTPServer.class.getName());
 
     }
 
@@ -342,7 +345,7 @@ public class TFTPServer implements Runnable {
         } catch (final Exception e) {
             if (!shutdownServer) {
                 serverException = e;
-                jul.log(Level.ERROR, "Unexpected Error in TFTP Server - Server shut down! + " + e);
+                jul.log(Level.WARNING, "Unexpected Error in TFTP Server - Server shut down! + " + e);
             }
         } finally {
             shutdownServer = true; // set this to true, so the launching thread can check to see if it started.
@@ -414,11 +417,11 @@ public class TFTPServer implements Runnable {
                 } else if (tftpPacket_ instanceof TFTPWriteRequestPacket) {
                     handleWrite((TFTPWriteRequestPacket) tftpPacket_);
                 } else {
-                    jul.log(Level.WARN, "Unsupported TFTP request (" + tftpPacket_ + ") - ignored.");
+                    jul.log(Level.WARNING, "Unsupported TFTP request (" + tftpPacket_ + ") - ignored.");
                 }
             } catch (final Exception e) {
                 if (!shutdownTransfer) {
-                    jul.log(Level.ERROR, "Unexpected Error in during TFTP file transfer.  Transfer aborted. " + e);
+                    jul.log(Level.WARNING, "Unexpected Error in during TFTP file transfer.  Transfer aborted. " + e);
                 }
             } finally {
                 try {
@@ -521,7 +524,7 @@ public class TFTPServer implements Runnable {
 
                     if (answer == null || !(answer instanceof TFTPAckPacket)) {
                         if (!shutdownTransfer) {
-                            jul.log(Level.ERROR, "Unexpected response from tftp client during transfer ("
+                            jul.log(Level.WARNING, "Unexpected response from tftp client during transfer ("
                                     + answer + ").  Transfer aborted.");
                         }
                         break;
@@ -636,7 +639,7 @@ public class TFTPServer implements Runnable {
                         transferTftp_.bufferedSend(lastSentAck);
                     } else if (dataPacket == null || !(dataPacket instanceof TFTPDataPacket)) {
                         if (!shutdownTransfer) {
-                            jul.log(Level.ERROR, "Unexpected response from tftp client during transfer ("
+                            jul.log(Level.WARNING, "Unexpected response from tftp client during transfer ("
                                     + dataPacket + ").  Transfer aborted.");
                         }
                         break;
