@@ -1,7 +1,6 @@
 package my.harp07;
 
 import java.awt.Desktop;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
@@ -18,17 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-import javax.swing.text.html.HTMLEditorKit;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.PjCalc.CIDRS_MASKS;
@@ -40,24 +34,18 @@ import static my.harp07.PjPingScanner.scannerCIDRS_MASKS;
 import static my.harp07.PjPingScanner.scannerTIMEOUTS;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
-import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
     public static int FW = 999;
     public static int FH = 550;
-    //private static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.67, build 02-05-2022";
-    //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
-    //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
-    //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
-    //public ImageIcon snmpIcon44 = new ImageIcon(getClass().getResource("/mib-tree-4.png"));
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.68, build 02-05-2022";
 
     public PjFrame() {
         initComponents();
@@ -94,16 +82,6 @@ public class PjFrame extends javax.swing.JFrame {
                 }
             }
         });
-        this.btnSkin.setVisible(false);
-        //this.btnExit.setVisible(false);
-        /*taSnmpOidHelp = new JTextArea() {
-            Image image = snmpIcon33.getImage();
-            { setOpaque(false); }
-            public void paint(Graphics g) {
-                g.drawImage(image, 11, 11, 240, 180, this);
-                super.paint(g);
-            }
-        }; */
         PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
         taSnmpOidHelp.setEditable(false);
         taPingResult.setText(ping_remark);
@@ -118,23 +96,8 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     public static void InstallLF() {
-        /*tinyTemes.add("lib/themes/Default.theme");
-        tinyTemes.add("lib/themes/Forest.theme");
-        tinyTemes.add("lib/themes/Golden.theme");
-        tinyTemes.add("lib/themes/Plastic.theme");
-        tinyTemes.add("lib/themes/Silver.theme");
-        tinyTemes.add("lib/themes/Nightly.theme");
-        //tinyTemes.add("lib/themes/Unicode.theme");
-        tinyTemes.add("lib/themes/My_Cyan.theme");
-        tinyTemes.add("lib/themes/My_Yellow.theme");
-        tinyTemes.add("lib/themes/My_AquaMarine.theme");
-        tinyTemes.add("lib/themes/My_Magenta.theme");
-        tinyTemes.add("lib/themes/My_Green.theme");*/
         MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
-        //MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
-        ///////////////////////        
-        /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");*/
+        MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
     }
 
     public static void setLF() {
@@ -151,28 +114,6 @@ public class PjFrame extends javax.swing.JFrame {
         //frame.setSize(FW, FH);
     }
 
-    public void changeLF() {
-        //Actions.currentTheme="";
-        //for (UIManager.LookAndFeelInfo each : UIManager.getInstalledLookAndFeels()) {
-        //lookAndFeelsDisplay.add(each.getName());
-        //lookAndFeelsRealNames.add(each.getClassName());
-        //}
-        //String changeLook = (String) JOptionPane.showInputDialog(this, "Choose Look and Feel Here:", "Select Look and Feel", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/JSK/img/color_swatch.png")), lookAndFeelsDisplay.toArray(), null);
-        String changeLook = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
-        if (changeLook.contains("tinyl")) {
-            currentTheme = (String) JOptionPane.showInputDialog(this, "Set TinyLF Theme:", "Select TinyLF Theme", JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon(getClass().getResource("/img/color_swatch.png")), tinyTemes.toArray(), null);
-        }
-        if (changeLook != null) {
-            for (int a = 0; a < lookAndFeelsDisplay.size(); a++) {
-                if (changeLook.equals(lookAndFeelsDisplay.get(a))) {
-                    currentLAF = lookAndFeelsRealNames.get(a);
-                    setLF();
-                    break;
-                }
-            }
-        }
-    }
-
     public static void telnetClientHandler() {
         int port = 0;
         if (NumberUtils.isParsable(tfTelnetPort.getText().trim())) {
@@ -187,30 +128,6 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }
 
-    /*public void changeLF() {
-        String changeLook = (String) JOptionPane.showInputDialog(frame, "Choose Look and Feel Here:", "Select Look and Feel", JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource("/img/color_swatch.png")), lookAndFeelsDisplay.toArray(), null);
-        if (changeLook != null) {
-            for (int a = 0; a < lookAndFeelsDisplay.size(); a++) {
-                if (changeLook.equals(lookAndFeelsDisplay.get(a))) {
-                    currentLAF = lookAndFeelsRealNames.get(a);
-                    setLF(frame);
-                    break;
-                }
-            }
-        }
-    }*/
-
- /*public void setLF(JFrame frame) {
-        try {
-            UIManager.setLookAndFeel(currentLAF);
-        } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(this.getName()).log(Level.SEVERE, null, ex);
-        }
-        SwingUtilities.updateComponentTreeUI(frame);
-        //frame.pack();
-    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -450,7 +367,6 @@ public class PjFrame extends javax.swing.JFrame {
         epAbout = new javax.swing.JEditorPane();
         jToolBar1 = new javax.swing.JToolBar();
         jSeparator33 = new javax.swing.JToolBar.Separator();
-        btnSkin = new javax.swing.JButton();
         btnUdpFlood = new javax.swing.JButton();
         jSeparator74 = new javax.swing.JToolBar.Separator();
         btnExit = new javax.swing.JButton();
@@ -1481,18 +1397,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.add(jSeparator33);
 
-        btnSkin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/color_chooser-16.png"))); // NOI18N
-        btnSkin.setToolTipText("Cange Skin");
-        btnSkin.setFocusable(false);
-        btnSkin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSkin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSkin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSkinActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnSkin);
-
         btnUdpFlood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flood-sea-level-16.png"))); // NOI18N
         btnUdpFlood.setText("  UDP-flood ");
         btnUdpFlood.setFocusable(false);
@@ -1548,10 +1452,6 @@ public class PjFrame extends javax.swing.JFrame {
         tfPingInput.setText("");
         taPingResult.setText("");
     }//GEN-LAST:event_btnPingResetActionPerformed
-
-    private void btnSkinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkinActionPerformed
-        changeLF();
-    }//GEN-LAST:event_btnSkinActionPerformed
 
     private void btnCalcResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcResetActionPerformed
         tfCalcInput.setText("");
@@ -1947,7 +1847,6 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSavePing;
     private javax.swing.JButton btnSaveTcp;
     private javax.swing.JButton btnSaveTrace;
-    private javax.swing.JButton btnSkin;
     public static javax.swing.JButton btnSnmpGet;
     public static javax.swing.JButton btnSnmpGetClear;
     public static javax.swing.JButton btnSnmpMibsAll;

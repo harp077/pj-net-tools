@@ -15,17 +15,11 @@ import java.net.SocketTimeoutException;
 import java.util.HashSet;
 import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
-import static my.harp07.PjFrame.btnTftpSave;
 import static my.harp07.PjFrame.taTftpResult;
 import static my.harp07.PjFrame.tfTftpFolder;
-//import java.util.logging.Level;
-//import java.util.logging.LogManager;
-//import java.util.logging.Logger;
-
 import org.apache.commons.net.io.FromNetASCIIOutputStream;
 import org.apache.commons.net.io.ToNetASCIIInputStream;
 import org.apache.commons.net.tftp.TFTP;
@@ -36,9 +30,6 @@ import org.apache.commons.net.tftp.TFTPPacket;
 import org.apache.commons.net.tftp.TFTPPacketException;
 import org.apache.commons.net.tftp.TFTPReadRequestPacket;
 import org.apache.commons.net.tftp.TFTPWriteRequestPacket;
-//import org.apache.log4j.Level;
-//import org.apache.log4j.Logger;
-//import org.apache.log4j.PropertyConfigurator;
 
  /* A fully multi-threaded tftp server. Can handle multiple clients at the same
  time. Implements RFC 1350 and wrapping block numbers for large file support.
@@ -84,7 +75,6 @@ public class TFTPServer implements Runnable {
         //PropertyConfigurator.configure("log/jul.properties");
         //DOMConfigurator.configure("cfg/log4j.xml"); 
         //jul = java.util.logging.Logger.getLogger(TFTPServer.class.getName());
-
     }
 
     private static final int DEFAULT_TFTP_PORT = 69;
@@ -792,7 +782,7 @@ public class TFTPServer implements Runnable {
         taTftpResult.append("\nserver mode = " + ts.mode_);
         taTftpResult.append("\nserver read-folder = " + ts.serverReadDirectory_);
         taTftpResult.append("\nserver write-folder = " + ts.serverWriteDirectory_);
-        taTftpResult.append("\nserver thread name = " + ts.serverThread.getName());
+        taTftpResult.append("\nserver main-thread name = " + ts.serverThread.getName());
         //new InputStreamReader(System.in).read();
         //Scanner sc = new Scanner(System.in);
         /*new Thread(() -> {
