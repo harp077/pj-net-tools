@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import static my.harp07.GenericPJ.dnsv;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.pingIp;
+import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.validator.routines.DomainValidator;
 import org.apache.commons.validator.routines.InetAddressValidator;
@@ -50,7 +51,7 @@ public class PjPing {
     public static String getResult(String ip_dns, JTextArea ta) {
         pingtimeout=Integer.parseInt(PjFrame.comboPingTimeouts.getSelectedItem().toString());
         int loss=0;
-        String result = "TimeOut = " + pingtimeout + " ms, Count = "+PjFrame.comboPingCounts.getSelectedItem().toString()+":\n\n";
+        String result = ping_remark + "TimeOut = " + pingtimeout + " ms, Count = "+PjFrame.comboPingCounts.getSelectedItem().toString()+":\n\n";
         if (ip_dns != null) {
             for (int j = 1; j <= 1+Integer.parseInt(PjFrame.comboPingCounts.getSelectedItem().toString()); j++) {
                 if (j==1) {
@@ -79,7 +80,8 @@ public class PjPing {
     }
 
     public static void runGetResult(JTextField ipq, JTextArea ta) {
-        ta.setText("");
+       // ta.setText("");
+        ta.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
         String input = ipq.getText().trim();
         //System.out.println(input);
         if (ipv.isValid(input))  {

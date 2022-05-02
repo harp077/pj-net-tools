@@ -7,6 +7,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.pingIp;
+import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.GenericPJ.su;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.lang3.StringUtils;
@@ -61,7 +62,7 @@ public class PjPingScanner {
         su = new SubnetUtils(ipadr);
         //su=new SubnetUtils("10.73.2.111/23");
         //su=new SubnetUtils("10.73.2.111", "255.255.254.0");        
-        result = "\n Network IP-data:\n";
+        result = ping_remark + "\n Network IP-data:\n";
         result = result + "\n Low Address = " + su.getInfo().getLowAddress();
         result = result + "\n High Address = " + su.getInfo().getHighAddress();        
         result = result + "\n Broadcast Address = " + su.getInfo().getBroadcastAddress();
@@ -88,7 +89,7 @@ public class PjPingScanner {
                         resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
                         j++;
                     }
-                    tap.setText("\nCheck by small 2 ping for every IP.\n\n Please Wait !  ........" + j);
+                    tap.setText(ping_remark + "\nCheck by small 2 ping for every IP.\n\n Please Wait !  ........" + j);
                 });
         changeInterface(true);
         return result;

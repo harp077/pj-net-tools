@@ -29,6 +29,7 @@ import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.text.html.HTMLEditorKit;
 import static my.harp07.GenericPJ.ipv;
+import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.PjCalc.CIDRS_MASKS;
 import static my.harp07.PjPing.COUNTS;
 import static my.harp07.PjPing.TIMEOUTS;
@@ -51,7 +52,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.62, build 02-05-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.63, build 02-05-2022";
     //public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     //public static String currentLAF = "javax.swing.plaf.metal.MetalLookAndFeel";
     //public ImageIcon snmpIcon33 = new ImageIcon(getClass().getResource("/mib-tree-3.jpg"));
@@ -123,7 +124,9 @@ public class PjFrame extends javax.swing.JFrame {
         }; */
         PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
         taSnmpOidHelp.setEditable(false);
-        taPingFloodResult.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
+        taPingResult.setText(ping_remark);
+        taPingScannerResult.setText(ping_remark);
+        taPingFloodResult.setText(ping_remark);
     }
 
     public static void MyInstLF(String lf) {

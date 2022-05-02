@@ -13,6 +13,7 @@ public class GenericPJ {
     public static SubnetUtils su;
     public static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static DomainValidator dnsv = DomainValidator.getInstance();
+    public static String ping_remark="Works well and tested with Root privileges on Linux ! Run as root/admin user !\n";
     
     // ВИСНЕТ КОГДА НЕ РАБОТАЕТ DNS И БЛОКИ CATCH ПУСТЫЕ !!!
     public static Boolean pingIp(String ipad, int timeout) {
