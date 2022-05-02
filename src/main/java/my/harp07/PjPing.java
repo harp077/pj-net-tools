@@ -45,7 +45,8 @@ public class PjPing {
         "70",
         "80",
         "90",
-        "100"
+        "100",
+        "999"
     };    
 
     public static String getResult(String ip_dns, JTextArea ta) {

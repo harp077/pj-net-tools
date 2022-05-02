@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -45,7 +46,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.68, build 02-05-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.69, build 02-05-2022";
 
     public PjFrame() {
         initComponents();
@@ -87,6 +88,8 @@ public class PjFrame extends javax.swing.JFrame {
         taPingResult.setText(ping_remark);
         taPingScannerResult.setText(ping_remark);
         taPingFloodResult.setText(ping_remark);
+        //spinnerNTP.setValue(123);
+        spinnerNTP.setModel(new SpinnerNumberModel(123, 1, 65535, 1));
     }
 
     public static void MyInstLF(String lf) {
@@ -359,6 +362,17 @@ public class PjFrame extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         tfTftpFolder = new javax.swing.JTextField();
         jSeparator78 = new javax.swing.JToolBar.Separator();
+        jScrollPane29 = new javax.swing.JScrollPane();
+        jPanel15 = new javax.swing.JPanel();
+        jScrollPane30 = new javax.swing.JScrollPane();
+        taNtpResult = new javax.swing.JTextArea();
+        jToolBar27 = new javax.swing.JToolBar();
+        jSeparator80 = new javax.swing.JToolBar.Separator();
+        btnBooleanNtp = new javax.swing.JToggleButton();
+        jSeparator81 = new javax.swing.JToolBar.Separator();
+        jLabel24 = new javax.swing.JLabel();
+        spinnerNTP = new javax.swing.JSpinner();
+        jSeparator71 = new javax.swing.JToolBar.Separator();
         jScrollPane5 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -1375,6 +1389,46 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("TFTP-server", new javax.swing.ImageIcon(getClass().getResource("/img/tftp-well-16.png")), jScrollPane27); // NOI18N
 
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("NTP-server"));
+        jPanel15.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane30.setBorder(javax.swing.BorderFactory.createTitledBorder("Received messages:"));
+
+        taNtpResult.setEditable(false);
+        taNtpResult.setColumns(20);
+        taNtpResult.setRows(5);
+        jScrollPane30.setViewportView(taNtpResult);
+
+        jPanel15.add(jScrollPane30, java.awt.BorderLayout.CENTER);
+
+        jToolBar27.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar27.setFloatable(false);
+        jToolBar27.add(jSeparator80);
+
+        btnBooleanNtp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnBooleanNtp.setText("Run NTP-server ");
+        btnBooleanNtp.setFocusable(false);
+        btnBooleanNtp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnBooleanNtp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBooleanNtp.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                btnBooleanNtpItemStateChanged(evt);
+            }
+        });
+        jToolBar27.add(btnBooleanNtp);
+        jToolBar27.add(jSeparator81);
+
+        jLabel24.setText("UDP-port = ");
+        jToolBar27.add(jLabel24);
+        jToolBar27.add(spinnerNTP);
+        jToolBar27.add(jSeparator71);
+
+        jPanel15.add(jToolBar27, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane29.setViewportView(jPanel15);
+
+        jTabbedPane1.addTab("NTP-server", new javax.swing.ImageIcon(getClass().getResource("/img/time-well-16.png")), jScrollPane29); // NOI18N
+
         jPanel6.setLayout(new java.awt.BorderLayout());
 
         taLocalResult.setEditable(false);
@@ -1805,6 +1859,24 @@ public class PjFrame extends javax.swing.JFrame {
         }//switch
     }//GEN-LAST:event_btnTftpSaveActionPerformed
 
+    private void btnBooleanNtpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanNtpItemStateChanged
+        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            btnBooleanNtp.setText("Stop NTP-server ");
+            btnBooleanNtp.setIcon(iconOf);
+            spinnerNTP.setEnabled(false);
+            new Thread(() -> {
+                SimpleNTPServer.go();
+            }).start();            
+        } else if (evt.getStateChange() == ItemEvent.DESELECTED) {
+            btnBooleanNtp.setText("Run NTP-server ");
+            btnBooleanNtp.setIcon(iconOn);
+            spinnerNTP.setEnabled(true);
+            SimpleNTPServer.stop();
+        }
+    }//GEN-LAST:event_btnBooleanNtpItemStateChanged
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             frame = new PjFrame();
@@ -1828,6 +1900,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JButton btnArpALL;
     private javax.swing.JButton btnArpReset;
     public javax.swing.JButton btnArpRun;
+    public static javax.swing.JToggleButton btnBooleanNtp;
     public static javax.swing.JToggleButton btnBooleanPingFlood;
     public static javax.swing.JToggleButton btnBooleanSyslog;
     public static javax.swing.JToggleButton btnBooleanTftp;
@@ -1885,6 +1958,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1898,6 +1972,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1927,7 +2002,9 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane27;
     private javax.swing.JScrollPane jScrollPane28;
+    private javax.swing.JScrollPane jScrollPane29;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane30;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -2002,6 +2079,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator69;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator70;
+    private javax.swing.JToolBar.Separator jSeparator71;
     private javax.swing.JToolBar.Separator jSeparator72;
     private javax.swing.JToolBar.Separator jSeparator73;
     private javax.swing.JToolBar.Separator jSeparator74;
@@ -2010,6 +2088,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator78;
     private javax.swing.JToolBar.Separator jSeparator79;
     private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator80;
+    private javax.swing.JToolBar.Separator jSeparator81;
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
@@ -2030,6 +2110,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar23;
     private javax.swing.JToolBar jToolBar24;
     private javax.swing.JToolBar jToolBar26;
+    private javax.swing.JToolBar jToolBar27;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar5;
@@ -2038,10 +2119,12 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar8;
     private javax.swing.JToolBar jToolBar9;
     public static javax.swing.JLabel nizInfoLabel;
+    public static javax.swing.JSpinner spinnerNTP;
     public static javax.swing.JTextArea taArpResult;
     public static javax.swing.JTextArea taCalcResult;
     public static javax.swing.JTextArea taDnsResult;
     public static javax.swing.JTextArea taLocalResult;
+    public static javax.swing.JTextArea taNtpResult;
     public static javax.swing.JTextArea taPingFloodResult;
     public static javax.swing.JTextArea taPingResult;
     public static javax.swing.JTextArea taPingScannerResult;
