@@ -68,7 +68,7 @@ public class PjPingFlood {
         if (smp > 1) {
             ta.append("\nUse parallel calculation: Detected CPU's = " + smp);
         }
-        ta.append("\nUse small packets - for example: linux=32 byte, win=64 byte, \nFlood-ping running.\n");
+        ta.append("\nUse small packets - for example: linux=64 byte, win=32 byte, \nFlood-ping running.\n");
         ip = frame.tfPingFloodIP.getText().trim();
         System.out.println("ip = " + ip);
         pingFloodEnabled = true;
