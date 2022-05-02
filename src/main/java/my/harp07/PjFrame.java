@@ -46,7 +46,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.70, build 02-05-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.71, build 02-05-2022";
 
     public PjFrame() {
         initComponents();
@@ -390,8 +390,6 @@ public class PjFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-
-        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pinger"));
         jPanel1.setLayout(new java.awt.BorderLayout());
