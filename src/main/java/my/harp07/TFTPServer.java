@@ -16,6 +16,9 @@ import java.util.HashSet;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Scanner;
+import static my.harp07.PjFrame.btnTftpSave;
+import static my.harp07.PjFrame.taTftpResult;
+import static my.harp07.PjFrame.tfTftpFolder;
 //import java.util.logging.Level;
 //import java.util.logging.LogManager;
 //import java.util.logging.Logger;
@@ -99,6 +102,7 @@ public class TFTPServer implements Runnable {
     private int maxTimeoutRetries_ = 3;
     private int socketTimeout_;
     private Thread serverThread;
+    private static TFTPServer ts;
 
      /* Start a TFTP Server on the default port (69). Gets and Puts occur in the
      * specified directories.
@@ -267,9 +271,9 @@ public class TFTPServer implements Runnable {
 
     // start the server, throw an error if it can't start.
     private void launch(final File serverReadDirectory, final File serverWriteDirectory) throws IOException {
-        jul.log(Level.INFO, "Starting TFTP Server on port " + port_ + ".  Read directory: "
-                + serverReadDirectory + " Write directory: " + serverWriteDirectory
-                + " Server Mode is " + mode_);
+        jul.log(Level.INFO, "Starting TFTP Server on port " + port_ + ".  \nRead directory: "
+                + serverReadDirectory + " \nWrite directory: " + serverWriteDirectory
+                + " \nServer Mode is " + mode_);
 
         serverReadDirectory_ = serverReadDirectory.getCanonicalFile();
         if (!serverReadDirectory_.exists() || !serverReadDirectory.isDirectory()) {
@@ -764,27 +768,51 @@ public class TFTPServer implements Runnable {
         tftp.bufferedSend(data);
     }
 
-    public static void main(String[] args) throws Exception {
-        if (args.length != 1) {
+    public static void go() {
+        /*if (args.length != 1) {
             System.out.println("You must provide 1 argument - the base path for the server to serve from.");
             System.exit(1);
+        }*/
+
+        //TFTPServer ts;
+        try {
+            ts = new TFTPServer(new File(tfTftpFolder.getText()), new File(tfTftpFolder.getText()), ServerMode.GET_AND_PUT);
+            ts.setSocketTimeout(2000);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        TFTPServer ts = new TFTPServer(new File(args[0]), new File(args[0]), ServerMode.GET_AND_PUT);
-        ts.setSocketTimeout(2000);
-
-        jul.log(Level.INFO, "Fully multi-threaded TFTP Server v1.0.2 running.  Enter 'stop' to server stop.");
+        jul.log(Level.INFO, "Fully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
+        taTftpResult.setText("");
+        taTftpResult.append("Fully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
+        taTftpResult.append("\nserver port = " + ts.port_);
+        taTftpResult.append("\nserver mode = " + ts.mode_);
+        taTftpResult.append("\nserver read-folder = " + ts.serverReadDirectory_);
+        taTftpResult.append("\nserver write-folder = " + ts.serverWriteDirectory_);
+        taTftpResult.append("\nserver thread name = " + ts.serverThread.getName());
         //new InputStreamReader(System.in).read();
-        Scanner sc = new Scanner(System.in);
-        new Thread(() -> {
+        //Scanner sc = new Scanner(System.in);
+        /*new Thread(() -> {
             while (true) {
-                    if (sc.next().toLowerCase().trim().equals("stop")) {
+                    if (btnTftpSave.isEnabled()) {
                     ts.shutdown();
                     jul.log(Level.INFO, "Server shut down.");
-                    System.exit(0);
+                    taTftpResult.append("\nServer shut down.");
+                    //System.exit(0);
                 }
             }
-        }).start();
+        }).start();*/
+    }
+    
+    public static void stop() {
+        ts.shutdown();
+        try {
+            taTftpResult.append("\nServer running = " + ts.isRunning());
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        ts=null;
+        taTftpResult.append("\nServer shut down.");
     }
 
 }
