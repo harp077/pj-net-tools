@@ -46,7 +46,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.72, build 15-10-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.73, build 15-10-2022";
 
     public PjFrame() {
         initComponents();
@@ -105,7 +105,7 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static void setLF() {
         if (currentLAF.contains("tinyl")) {
-            de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
+            //de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
         }
         try {
             UIManager.setLookAndFeel(currentLAF);
@@ -390,6 +390,8 @@ public class PjFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pinger"));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -1877,11 +1879,18 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
+            //FlatLightLaf.setup();
+            //com.formdev.flatlaf.intellijthemes.FlatArcIJTheme.setup();
+            com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme.setup();
+            //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme.setup();
+            //com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme.setup();
+            //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme.setup();
+            //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme.setup();
             frame = new PjFrame();
-            frame.InstallLF();
+            //frame.InstallLF();
             frame.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
             //frame.setLF(frame);
-            frame.setLF();
+            //frame.setLF();
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
             frame.setSize(FW, FH);

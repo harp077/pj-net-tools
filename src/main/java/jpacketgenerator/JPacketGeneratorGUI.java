@@ -98,7 +98,6 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("UDP-flood utility");
-        setPreferredSize(new java.awt.Dimension(405, 170));
         setSize(new java.awt.Dimension(405, 170));
         getContentPane().setLayout(null);
 

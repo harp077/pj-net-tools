@@ -54,18 +54,48 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.1.4.0 = system contact\n";
         info = info + "   1.3.6.1.2.1.1.5.0 = system name \n";
         info = info + "   1.3.6.1.2.1.1.6.0 = system location \n";
+        
+        info = info + "\n   1.3.6.1.2.1.4.* = IP-mib:\n";
+        info = info + "   1.3.6.1.2.1.4.7.0 =  ip in unknown protocol\n";
+        info = info + "   1.3.6.1.2.1.4.8.0 =  ip in discards \n";
+        info = info + "   1.3.6.1.2.1.4.11.0 = ip out discards \n";
+        info = info + "   1.3.6.1.2.1.4.12.0 = ip out no routes \n";
+        info = info + "   1.3.6.1.2.1.4.23.0 = ip routing discards\n"; 
+        info = info + "   1.3.6.1.2.1.4.24.3.0 = ip routes number\n";
+        info = info + "   1.3.6.1.2.1.4.24.6.0 = inet routes number\n";
 
-        /*info = info + "\n   1.3.6.1.2.1.4.* = IP-mib:\n";
-        info = info + "   1.3.6.1.2.1.4.22.1.2 = ip Net To Media Physical Address \n";
-        info = info + "   1.3.6.1.2.1.4.22.1.3 = ip Net To Media Network Address \n";
+        info = info + "\n   1.3.6.1.2.1.5.* = ICMP-mib\n";
+        info = info + "   1.3.6.1.2.1.5.2.0 = icmp input errors\n";
+        info = info + "   1.3.6.1.2.1.5.15.0 = icmp output errors\n";
 
         info = info + "\n   1.3.6.1.2.1.6.* = TCP-mib:\n";
-        info = info + "   1.3.6.1.2.1.6.13.1.2 = tcp Connection Local Address\n";
-        info = info + "   1.3.6.1.2.1.6.13.1.3 = tcp Connection Local Port\n";
+        info = info + "   1.3.6.1.2.1.6.14.0 = tcp input errors  \n";
+        info = info + "   1.3.6.1.2.1.6.5.0 = tcp active opens\n";
+        info = info + "   1.3.6.1.2.1.6.6.0 = tcp passive opens\n";
 
         info = info + "\n   1.3.6.1.2.1.7.* = UDP-mib:\n";
-        info = info + "   1.3.6.1.2.1.7.5.1.1 = local IP-address of UDP-listener \n";
-        info = info + "   1.3.6.1.2.1.7.5.1.2 = local UDP-port of UDP-listener \n";*/
+        info = info + "   1.3.6.1.2.1.7.2.0 = udp no-ports\n";
+        info = info + "   1.3.6.1.2.1.7.3.0 = udp input errors\n";
+
+        info = info + "\n   1.3.6.1.2.1.11.* = SNMP-mib\n";
+        info = info + "   1.3.6.1.2.1.11.3.0 = snmp in bad versions\n";
+        info = info + "   1.3.6.1.2.1.11.4.0 = snmp in bad community names\n";
+
+        info = info + "\n   1.3.6.1.2.1.25.* = HOST-RESOURCES-mib \n";
+        info = info + "   1.3.6.1.2.1.25.1.1.0 = System Uptime\n";
+        info = info + "   1.3.6.1.2.1.25.1.6.0 = System Processes\n";
+        info = info + "   1.3.6.1.2.1.25.2.2.0 = Memory Size\n";
+
+        info = info + "\n   1.3.6.1.2.1.33.* = UPS-mib:\n";
+        info = info + "   1.3.6.1.2.1.33.1.2.2.0 = Seconds-On-Battery\n";
+        info = info + "   1.3.6.1.2.1.33.1.2.3.0 = Estimated-Minutes-Remaining\n";
+        info = info + "   1.3.6.1.2.1.33.1.2.7.0 = Battery-Temperature\n";
+        info = info + "   1.3.6.1.2.1.33.1.3.3.1.2.1 = Input-Frequency\n";
+        info = info + "   1.3.6.1.2.1.33.1.3.3.1.3.1 = Input-Voltage\n";
+        info = info + "   1.3.6.1.2.1.33.1.4.2.0 = Output-Frequency\n";
+        info = info + "   1.3.6.1.2.1.33.1.4.4.1.5.1 = Output-Percent-Load \n";  
+        info = info + "   1.3.6.1.2.1.33.1.4.4.1.2.1 = Output-Voltage  \n";          
+
         info = info + "\n";
         ta.setText(info);
     }
