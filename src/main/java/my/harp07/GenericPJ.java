@@ -50,7 +50,7 @@ public class GenericPJ {
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
                 + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
                 + "\nGitHub: <a href='https://github.com/harp077/'>https://github.com/harp077/</a><br>"
-                + "\nneed jre-1.8:<br></p></body></html>";
+                + "\nneed jre-1.8.<br><br></p></body></html>";
                 return msg;
     }
     
