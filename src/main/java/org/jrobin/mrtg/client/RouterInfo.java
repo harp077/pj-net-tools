@@ -80,8 +80,8 @@ public class RouterInfo implements TreeElementInfo {
 	public String getInfo() {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("Node address: " + getHost() + "\n");
-		buffer.append("Community: " + getCommunity() + "\n");
-		buffer.append("Description: " + getDescr() + "\n");
+		buffer.append("SNMP-read Community: " + getCommunity() + "\n");
+		//buffer.append("Description: " + getDescr() + "\n");
 		buffer.append("Active: " + isActive() + "\n");
 		buffer.append("Sampled links: " + getLinkInfo().length + "\n");
 		return buffer.toString();

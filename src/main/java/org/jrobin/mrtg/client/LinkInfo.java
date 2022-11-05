@@ -127,8 +127,8 @@ public class LinkInfo implements TreeElementInfo {
 	public String getInfo() {
 		StringBuffer b = new StringBuffer();
 		b.append("Interface description: " + getIfDescr() + "\n");
-		b.append("MRTG description: " + getDescr() + "\n");
-		b.append("Node alias: " + getIfAlias() + "\n");
+		//b.append("MRTG description: " + getDescr() + "\n");
+		b.append("Interface alias: " + getIfAlias() + "\n");
 		b.append("Interface index: " + getIfIndex() + "\n");
 		b.append("Sampling interval: " + getSamplingInterval() + " sec\n");
 		b.append("Active: " + isActive() + "\n\n");

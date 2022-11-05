@@ -48,7 +48,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "com.jtattoo.plaf.acryl.AcrylLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.77, build 05-11-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.78, build 05-11-2022";
 
     public PjFrame() {
         initComponents();

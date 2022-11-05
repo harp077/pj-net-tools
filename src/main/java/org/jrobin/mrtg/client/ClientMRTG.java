@@ -51,7 +51,7 @@ public class ClientMRTG extends JFrame {
         
         static final String helpStr = "Started SNMP-polling after running pj-net-tools and ending SNMP-polling after killing pj-net-tools. \nKeeps SNMP-polling even after closing MRTG-window. \nUse 32-bit counters for speed <= 100 Mbit/s.\nPolling every 300 sec.";
 
-	static final String TITLE = "MRTG, keeps polling even after closing this window, 32-bit counters for speed <= 100 Mbit/s";
+	static final String TITLE = "MRTG  ( keeps polling even after closing this window )";
 
 	static final String SUBTITLE = "http://netwhistler.spb.ru";
 

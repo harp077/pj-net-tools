@@ -40,9 +40,9 @@ public class EditRouterDialog extends JDialog {
 
 	private RouterInfo routerInfo;
 
-	private JLabel hostLabel = Util.standardLabel("Address: ");
+	private JLabel hostLabel = Util.standardLabel("IP-address: ");
 
-	private JLabel communityLabel = Util.standardLabel("Community: ");
+	private JLabel communityLabel = Util.standardLabel("Read-Community: ");
 
 	private JLabel descrLabel = Util.standardLabel("Description: ");
 

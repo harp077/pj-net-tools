@@ -96,7 +96,7 @@ public class GraphFrame extends JFrame {
 	private JLabel infoLabel = new JLabel();
 
 	GraphFrame(JFrame parent, RouterInfo routerInfo, LinkInfo linkInfo, int type) {
-		super(linkInfo.getIfDescr() + "@" + routerInfo.getHost() + " , 32-bit counters for speed <= 100 Mbit/s");
+		super(linkInfo.getIfDescr() + "@" + routerInfo.getHost());
 		setResizable(false);
 		this.routerInfo = routerInfo;
 		this.linkInfo = linkInfo;
