@@ -82,7 +82,7 @@ public class PjPing {
 
     public static void runGetResult(JTextField ipq, JTextArea ta) {
        // ta.setText("");
-        ta.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
+        ta.setText("ICMP-ping works well when run as Root on Linux !\n");
         String input = ipq.getText().trim();
         //System.out.println(input);
         if (ipv.isValid(input))  {

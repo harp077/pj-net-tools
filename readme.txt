@@ -1,5 +1,7 @@
 Pure Java Network Tools. Free portable cross-platform. 
-Run as root/admin !
+ICMP-ping works well only when run as Root on Linux ! 
+You can check this by iptraf linux utility. 
+Run as root user !
 Include:
  
 01) ICMP-ping, 
@@ -16,6 +18,7 @@ Include:
 12) UDP  flood utility. 
 13) TFTP-server.
 14) NTP-server.
+15) SNMP-MRTG traffic monitor.
 
 Need JRE-1.8:
 

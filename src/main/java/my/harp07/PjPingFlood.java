@@ -62,7 +62,7 @@ public class PjPingFlood {
     }
 
     public static void runEmbeddedPingFlood(JTextArea ta) {
-        ta.setText("Works well and tested with Root privileges on Linux ! Run as root/admin user !\n");
+        ta.setText("ICMP-ping works well when run as Root on Linux !\n");
         ta.append("ONLY FOR CHECK NETWORK NODES DEFENCE ! \nNOT USE FOR ATTACK !");
         smp = Runtime.getRuntime().availableProcessors();
         if (smp > 1) {

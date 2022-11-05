@@ -35,18 +35,20 @@ import static my.harp07.PjPingScanner.scannerCIDRS_MASKS;
 import static my.harp07.PjPingScanner.scannerTIMEOUTS;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
+import org.jrobin.mrtg.client.ClientMRTG;
 
 public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
+    public static Thread mrtgThread;
     public static int FW = 999;
-    public static int FH = 550;
+    public static int FH = 600;
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
+    public static String currentLAF = "com.jtattoo.plaf.acryl.AcrylLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.74, build 22-10-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.75, build 05-11-2022";
 
     public PjFrame() {
         initComponents();
@@ -99,8 +101,22 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     public static void InstallLF() {
-        MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
+        //MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
+        //
+        MyInstLF("com.jtattoo.plaf.acryl.AcrylLookAndFeel"); 
+        MyInstLF("com.jtattoo.plaf.aero.AeroLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.fast.FastLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.mint.MintLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.noire.NoireLookAndFeel"); 
+        MyInstLF("com.jtattoo.plaf.smart.SmartLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.luna.LunaLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.texture.TextureLookAndFeel");
+        MyInstLF("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");       
     }
 
     public static void setLF() {
@@ -383,6 +399,8 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator33 = new javax.swing.JToolBar.Separator();
         btnUdpFlood = new javax.swing.JButton();
         jSeparator74 = new javax.swing.JToolBar.Separator();
+        btnMRTG = new javax.swing.JButton();
+        jSeparator76 = new javax.swing.JToolBar.Separator();
         btnExit = new javax.swing.JButton();
         jToolBar4 = new javax.swing.JToolBar();
         jSeparator34 = new javax.swing.JToolBar.Separator();
@@ -390,7 +408,6 @@ public class PjFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pinger"));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -1463,6 +1480,19 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar1.add(btnUdpFlood);
         jToolBar1.add(jSeparator74);
 
+        btnMRTG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mrtg.png"))); // NOI18N
+        btnMRTG.setText("SNMP-MRTG ");
+        btnMRTG.setFocusable(false);
+        btnMRTG.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnMRTG.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnMRTG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMRTGActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnMRTG);
+        jToolBar1.add(jSeparator76);
+
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quit-16.png"))); // NOI18N
         btnExit.setFocusable(false);
         btnExit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -1876,20 +1906,25 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBooleanNtpItemStateChanged
 
+    private void btnMRTGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRTGActionPerformed
+        ClientMRTG.frameClientMRTG.setVisible(true);
+        System.out.println("main MRTG thread = " + mrtgThread.getName());
+    }//GEN-LAST:event_btnMRTGActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             //FlatLightLaf.setup();
             //com.formdev.flatlaf.intellijthemes.FlatArcIJTheme.setup();
-            com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme.setup();
+            //com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme.setup();
             //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme.setup();
             //com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme.setup();
             //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme.setup();
             //com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme.setup();
             frame = new PjFrame();
-            //frame.InstallLF();
+            frame.InstallLF();
             frame.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
             //frame.setLF(frame);
-            //frame.setLF();
+            frame.setLF();
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
             frame.setSize(FW, FH);
@@ -1899,6 +1934,9 @@ public class PjFrame extends javax.swing.JFrame {
             frame.setLocation(211, 211);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
+            mrtgThread = new Thread(() -> ClientMRTG.runMRTG());
+            mrtgThread.start();
+            System.out.println("main MRTG thread = " + mrtgThread.getName());
         });
     }
 
@@ -1915,6 +1953,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDnsReset;
     private javax.swing.JButton btnDnsRun;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnMRTG;
     public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;
     public static javax.swing.JButton btnPingScannerClear;
@@ -2090,6 +2129,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator73;
     private javax.swing.JToolBar.Separator jSeparator74;
     private javax.swing.JToolBar.Separator jSeparator75;
+    private javax.swing.JToolBar.Separator jSeparator76;
     private javax.swing.JToolBar.Separator jSeparator77;
     private javax.swing.JToolBar.Separator jSeparator78;
     private javax.swing.JToolBar.Separator jSeparator79;

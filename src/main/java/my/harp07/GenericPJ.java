@@ -13,7 +13,7 @@ public class GenericPJ {
     public static SubnetUtils su;
     public static InetAddressValidator ipv = InetAddressValidator.getInstance();
     public static DomainValidator dnsv = DomainValidator.getInstance();
-    public static String ping_remark="Works well and tested with Root privileges on Linux ! \nYou can check this by iptraf linux utility. \nRun as root/admin user !\n";
+    public static String ping_remark="ICMP-ping works well only when run as Root on Linux !\nYou can check this by iptraf linux utility. \nRun as root user !\n";
     
     // ВИСНЕТ КОГДА НЕ РАБОТАЕТ DNS И БЛОКИ CATCH ПУСТЫЕ !!!
     public static Boolean pingIp(String ipad, int timeout) {
@@ -45,7 +45,8 @@ public class GenericPJ {
                 + "\n11. ICMP-flood utility.<br>"
                 + "\n12. UDP-flood utility.<br>"
                 + "\n13. TFTP-server.<br>"
-                + "\n14. NTP-server.<br><br>"
+                + "\n14. NTP-server.<br>"
+                + "\n15. SNMP-MRTG traffic monitor.<br><br>"
                 + "\nCreate by Roman Koldaev, Saratov city, Russia.<br>"
                 + "\nmail: <A HREF='mailto:harp07@mail.ru'> harp07@mail.ru </A><br>"
                 + "\nSourceForge: <a href='https://sf.net/u/harp07/profile/'>https://sf.net/u/harp07/profile/</a><br>"
