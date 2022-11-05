@@ -48,16 +48,18 @@ public class ClientMRTG extends JFrame {
         public static ClientMRTG frameClientMRTG;
     
 	static final String RESOURCE_PATH = "mrtg/icons/";
+        
+        static final String helpStr = "Started SNMP-polling after running pj-net-tools and ending SNMP-polling after killing pj-net-tools. \nKeeps SNMP-polling even after closing MRTG-window. \nUse 32-bit counters for speed <= 100 Mbit/s.\nPolling every 300 sec.";
 
-	static final String TITLE = " SNMP-MRTG  ,  32-bit counters for speed <= 100 Mbit/s";
+	static final String TITLE = "MRTG, keeps polling even after closing this window, 32-bit counters for speed <= 100 Mbit/s";
 
 	static final String SUBTITLE = "http://netwhistler.spb.ru";
 
 	static final String COPYRIGHT = "Copyright \u00A9 2005 NetWhistler";
 
-	static Dimension MAIN_TREE_SIZE = new Dimension(320, 400);
+	static Dimension MAIN_TREE_SIZE = new Dimension(400, 400);
 
-	static Dimension INFO_PANE_SIZE = new Dimension(320, 400);
+	static Dimension INFO_PANE_SIZE = new Dimension(400, 400);
 
 	static String DEFAULT_HOST = "localhost";
 
@@ -113,9 +115,9 @@ public class ClientMRTG extends JFrame {
 	JMenuItem customGraphItem = new JMenuItem("Custom Graph...", KeyEvent.VK_C);
 
 	// Help menu
-	JMenu helpMenu = new JMenu("Help");
+	JMenu helpMenu = new JMenu("Info");
 
-	JMenuItem helpItem = new JMenuItem("Help...", KeyEvent.VK_H);
+	JMenuItem helpItem = new JMenuItem("Info...", KeyEvent.VK_H);
 
 	// MRTG popup menu
 	JPopupMenu mrtgPopupMenu = new JPopupMenu();
@@ -353,7 +355,8 @@ public class ClientMRTG extends JFrame {
 		helpMenu.setMnemonic(KeyEvent.VK_H);
 		helpItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new HelpDialog(ClientMRTG.this);
+				//new HelpDialog(ClientMRTG.this);
+                            JOptionPane.showMessageDialog(frameClientMRTG, helpStr, " Info ", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		helpMenu.add(helpItem);
