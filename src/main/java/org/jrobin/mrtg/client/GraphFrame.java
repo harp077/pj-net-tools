@@ -47,7 +47,7 @@ public class GraphFrame extends JFrame {
 
 	static int START_YEAR = 2022, END_YEAR = 2032;
 
-	static Dimension GRAPH_SIZE = new Dimension(640, 480);
+	static Dimension GRAPH_SIZE = new Dimension(680, 480);
 
 	static final int REFRESH_INTERVAL = 300; // 5 minutes
 

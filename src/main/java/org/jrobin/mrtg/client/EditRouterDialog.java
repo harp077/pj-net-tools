@@ -33,6 +33,7 @@ import java.awt.event.WindowEvent;
 //import nnm.NetworkManagerGUI;
 
 public class EditRouterDialog extends JDialog {
+    
 	static final String ADD_TITLE = "New SNMP Node";
 
 	static final String EDIT_TITLE = "Edit Node data";
@@ -87,7 +88,7 @@ public class EditRouterDialog extends JDialog {
 		Box box = Box.createVerticalBox();
 		box.add(Util.getPanelFor(hostLabel, hostField));
 		box.add(Util.getPanelFor(communityLabel, communityField));
-		box.add(Util.getPanelFor(descrLabel, descrField));
+		//box.add(Util.getPanelFor(descrLabel, descrField));
 		box.add(Util.getPanelFor(activeLabel, activeBox));
 		box.add(Util.getPanelFor(Util.standardLabel(), okButton, cancelButton));
 		okButton.addActionListener(new ActionListener() {

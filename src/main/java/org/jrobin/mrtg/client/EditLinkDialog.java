@@ -59,7 +59,7 @@ public class EditLinkDialog extends JDialog {
 
 	private JLabel descrLabel = Util.standardLabel("Description: ");
 
-	private JLabel samplingLabel = Util.standardLabel("Sampling interval: ");
+	private JLabel samplingLabel = Util.standardLabel("Poll-period (sec):");
 
 	private JLabel activeLabel = Util.standardLabel("Active: ");
 
@@ -136,8 +136,10 @@ public class EditLinkDialog extends JDialog {
 		box.add(Util.getPanelFor(routerLabel, routerValueLabel));
 		box.add(Util.getPanelFor(linksListLabel, Util
 				.standardScrollPane(linksList)));
-		box.add(Util.getPanelFor(descrLabel, descrField));
+		//box.add(Util.getPanelFor(descrLabel, descrField));
 		box.add(Util.getPanelFor(samplingLabel, samplingField));
+                samplingField.setEditable(false);
+                samplingField.setForeground(Color.GRAY);
 		box.add(Util.getPanelFor(activeLabel, activeBox));
 		box.add(Util
 				.getPanelFor(Util.standardLabel(""), okButton, cancelButton));
