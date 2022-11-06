@@ -48,7 +48,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "com.jtattoo.plaf.acryl.AcrylLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.78, build 05-11-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.79, build 06-11-2022";
 
     public PjFrame() {
         initComponents();
@@ -1481,7 +1481,7 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar1.add(jSeparator74);
 
         btnMRTG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mrtg.png"))); // NOI18N
-        btnMRTG.setText("SNMP-MRTG ");
+        btnMRTG.setText("MRTG SNMP-poller ");
         btnMRTG.setFocusable(false);
         btnMRTG.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnMRTG.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

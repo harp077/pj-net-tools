@@ -37,6 +37,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.net.SocketException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jpacketgenerator.JPacketGeneratorGUI;
@@ -47,15 +48,15 @@ public class ClientMRTG extends JFrame {
     
         public static ClientMRTG frameClientMRTG;
     
-	static final String RESOURCE_PATH = "mrtg/icons/";
+	//static final String RESOURCE_PATH = "mrtg/icons/";
         
         static final String helpStr = "Started SNMP-polling after running pj-net-tools and ending SNMP-polling after killing pj-net-tools. \nKeeps SNMP-polling even after closing MRTG-window. \nUse 32-bit counters for speed <= 100 Mbit/s.\nPolling every 300 sec.";
 
-	static final String TITLE = "MRTG  ( keeps polling even after closing this window )";
+	static final String TITLE = "MRTG SNMP-poller ( keeps polling even after closing this window )";
 
-	static final String SUBTITLE = "http://netwhistler.spb.ru";
+	//static final String SUBTITLE = "http://netwhistler.spb.ru";
 
-	static final String COPYRIGHT = "Copyright \u00A9 2005 NetWhistler";
+	//static final String COPYRIGHT = "Copyright \u00A9 2005 NetWhistler";
 
 	static Dimension MAIN_TREE_SIZE = new Dimension(400, 400);
 
@@ -100,10 +101,9 @@ public class ClientMRTG extends JFrame {
 
 	JMenuItem deleteLinkItem = new JMenuItem("Remove Interface", KeyEvent.VK_V);
 
-	JMenuItem quickGraphItem = new JMenuItem("Quick Graph (last 24hr)...",
-			KeyEvent.VK_Q);
+	JMenuItem quickGraphItem = new JMenuItem("Daily Graph (last 24hr)...", KeyEvent.VK_Q);
 
-	JMenuItem dailyGraphItem = new JMenuItem("Daily Graph...", KeyEvent.VK_D);
+	//JMenuItem dailyGraphItem = new JMenuItem("Daily Graph...", KeyEvent.VK_D);
 
 	JMenuItem weeklyGraphItem = new JMenuItem("Weekly Graph...", KeyEvent.VK_W);
 
@@ -146,10 +146,9 @@ public class ClientMRTG extends JFrame {
 
 	JMenuItem linksPopupRemoveLinkMenuItem = new JMenuItem("Remove Interface");
 
-	JMenuItem linksPopupQuickGraphMenuItem = new JMenuItem(
-			"Quick Graph (last 24hr)...");
+	JMenuItem linksPopupQuickGraphMenuItem = new JMenuItem("Daily Graph (last 24hr)...");
 
-	JMenuItem linksPopupDailyGraphMenuItem = new JMenuItem("Daily Graph...");
+	//JMenuItem linksPopupDailyGraphMenuItem = new JMenuItem("Daily Graph...");
 
 	JMenuItem linksPopupWeeklyGraphMenuItem = new JMenuItem("Weekly Graph...");
 
@@ -317,12 +316,12 @@ public class ClientMRTG extends JFrame {
 			}
 		});
 		linksMenu.add(quickGraphItem);
-		dailyGraphItem.addActionListener(new ActionListener() {
+		/*dailyGraphItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				graph(GraphFrame.TYPE_DAILY);
 			}
 		});
-		linksMenu.add(dailyGraphItem);
+		linksMenu.add(dailyGraphItem);*/
 		weeklyGraphItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				graph(GraphFrame.TYPE_WEEKLY);
@@ -419,12 +418,12 @@ public class ClientMRTG extends JFrame {
 			}
 		});
 		linksPopupMenu.add(linksPopupQuickGraphMenuItem);
-		linksPopupDailyGraphMenuItem.addActionListener(new ActionListener() {
+		/*linksPopupDailyGraphMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				graph(GraphFrame.TYPE_DAILY);
 			}
 		});
-		linksPopupMenu.add(linksPopupDailyGraphMenuItem);
+		linksPopupMenu.add(linksPopupDailyGraphMenuItem);*/
 		linksPopupWeeklyGraphMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				graph(GraphFrame.TYPE_WEEKLY);
@@ -764,6 +763,9 @@ public class ClientMRTG extends JFrame {
 	}
 
 	private LinkInfo findSelectedLink() {
+            System.out.println(Arrays.toString(mainTree.getComponents()));
+            //System.out.println(mrtgData.);
+            Arrays.asList(mrtgData.getInfo()).stream().forEach(x -> System.out.println(x.getLinkInfo()));
 		TreePath path = mainTree.getSelectionPath();
 		if (path == null || path.getPathCount() < 3) {
 			return null;
@@ -803,6 +805,7 @@ public class ClientMRTG extends JFrame {
                     frameClientMRTG = new ClientMRTG();
                     ImageIcon icone = new ImageIcon(getClass().getResource("/mrtg.png"));
                     frameClientMRTG.setIconImage(icone.getImage());
+                    //System.out.println(mrtgData.getMrtgHost());
                 } catch (IOException ex) {
                     Logger.getLogger(ClientMRTG.class.getName()).log(Level.SEVERE, null, ex);
                 }

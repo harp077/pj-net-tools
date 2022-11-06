@@ -34,6 +34,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -42,8 +43,12 @@ import nnm.util.ConfirmDialog;
 
 public class GraphFrame extends JFrame {
 
-	static final int TYPE_QUICK = 1, TYPE_DAILY = 2, TYPE_WEEKLY = 3,
-			TYPE_MONTHLY = 4, TYPE_YEARLY = 5, TYPE_CUSTOM = 6;
+	static final int TYPE_QUICK = 1, 
+                         //TYPE_DAILY = 2, 
+                         TYPE_WEEKLY = 3,
+			 TYPE_MONTHLY = 4, 
+                         //TYPE_YEARLY = 5, 
+                         TYPE_CUSTOM = 6;
 
 	static int START_YEAR = 2022, END_YEAR = 2032;
 
@@ -96,7 +101,7 @@ public class GraphFrame extends JFrame {
 	private JLabel infoLabel = new JLabel();
 
 	GraphFrame(JFrame parent, RouterInfo routerInfo, LinkInfo linkInfo, int type) {
-		super(linkInfo.getIfDescr() + "@" + routerInfo.getHost());
+		super(routerInfo.getHost()  + "@" + linkInfo.getIfDescr() );
 		setResizable(false);
 		this.routerInfo = routerInfo;
 		this.linkInfo = linkInfo;
@@ -376,10 +381,10 @@ public class GraphFrame extends JFrame {
 		GregorianCalendar end = getDate(true);
 		switch (type) {
 		case TYPE_QUICK:
-		case TYPE_DAILY:
+		/*case TYPE_DAILY:
 			start.add(Calendar.DAY_OF_MONTH, sign * 1);
 			end.add(Calendar.DAY_OF_MONTH, sign * 1);
-			break;
+			break;*/
 		case TYPE_WEEKLY:
 			start.add(Calendar.DAY_OF_MONTH, sign * 7);
 			end.add(Calendar.DAY_OF_MONTH, sign * 7);
@@ -388,10 +393,10 @@ public class GraphFrame extends JFrame {
 			start.add(Calendar.MONTH, sign * 1);
 			end.add(Calendar.MONTH, sign * 1);
 			break;
-		case TYPE_YEARLY:
+		/*case TYPE_YEARLY:
 			start.add(Calendar.YEAR, sign * 1);
 			end.add(Calendar.YEAR, sign * 1);
-			break;
+			break;*/
 		}
 		setDate(start, false);
 		setDate(end, true);
@@ -441,6 +446,9 @@ public class GraphFrame extends JFrame {
 		int day = dayCombo.getSelectedIndex() + 1;
 		int month = monthCombo.getSelectedIndex();
 		int year = yearCombo.getSelectedIndex() + START_YEAR;
+                //System.out.println(year);
+                //int year = Year.now().getValue();
+                //int year = Calendar.getInstance().get(Calendar.YEAR);
 		return new GregorianCalendar(year, month, day, hour, 0);
 	}
 
@@ -488,16 +496,27 @@ public class GraphFrame extends JFrame {
 
 	private void setInitialDates() {
 		GregorianCalendar start = null, end = null, gc = new GregorianCalendar();
+                GregorianCalendar startGC=new GregorianCalendar();
+                GregorianCalendar endGC=new GregorianCalendar();
+                long ticksNow = System.currentTimeMillis();
 		switch (type) {
 		case TYPE_QUICK:
-			start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
-					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) - 1, gc
-					.get(Calendar.HOUR_OF_DAY) + 1, 0);
-			end = new GregorianCalendar(gc.get(Calendar.YEAR), gc
-					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH), gc
-					.get(Calendar.HOUR_OF_DAY) + 1, 0);
-			break;
-		case TYPE_DAILY:
+                    startGC.setTimeInMillis(ticksNow - 24*60*60*1000L);
+                    start = startGC;
+                    endGC.setTimeInMillis(ticksNow + 1*60*60*1000L);
+                    end = endGC;                    
+                    /*start = new GregorianCalendar(
+                            gc.get(Calendar.YEAR), 
+                            gc.get(Calendar.MONTH), 
+                            gc.get(Calendar.DAY_OF_MONTH) - 1, 
+                            gc.get(Calendar.HOUR_OF_DAY) + 1, 0);*/
+                    /*end = new GregorianCalendar(
+                            gc.get(Calendar.YEAR), 
+                            gc.get(Calendar.MONTH), 
+                            gc.get(Calendar.DAY_OF_MONTH), 
+                            gc.get(Calendar.HOUR_OF_DAY) + 1, 0);*/
+                    break;
+		//case TYPE_DAILY:
 		case TYPE_CUSTOM:
 			start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH));
@@ -505,26 +524,36 @@ public class GraphFrame extends JFrame {
 					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) + 1);
 			break;
 		case TYPE_WEEKLY:
-			int shift = gc.get(Calendar.DAY_OF_WEEK) - 1;
+                    startGC.setTimeInMillis(ticksNow - 7*24*60*60*1000L);
+                    start = startGC;
+                    endGC.setTimeInMillis(ticksNow + 1*60*60*1000L);
+                    end = endGC;                    
+			/*int shift = gc.get(Calendar.DAY_OF_WEEK) - 1;
 			start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) - shift);
 			end = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) - shift
-					+ 7);
-			break;
+					+ 7);*/
+                    break;
 		case TYPE_MONTHLY:
-			start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
+                    startGC.setTimeInMillis(ticksNow - 30*24*60*60*1000L);
+                    start = startGC;
+                    endGC.setTimeInMillis(ticksNow + 1*60*60*1000L);
+                    end = endGC;                      
+			/*start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), 1);
 			end = new GregorianCalendar(gc.get(Calendar.YEAR), gc
-					.get(Calendar.MONTH) + 1, 1);
-			break;
-		case TYPE_YEARLY:
+					.get(Calendar.MONTH) + 1, 1);*/
+                    break;
+		/*case TYPE_YEARLY:
 			start = new GregorianCalendar(gc.get(Calendar.YEAR), 0, 1);
 			end = new GregorianCalendar(gc.get(Calendar.YEAR) + 1, 0, 1);
-			break;
+			break;*/
 		}
 		setDate(start, false);
 		setDate(end, true);
+                //System.out.println(start);
+                //System.out.println(end);
 	}
 
 	class Refresher extends Thread {
