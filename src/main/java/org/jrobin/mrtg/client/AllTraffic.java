@@ -1,7 +1,10 @@
 package org.jrobin.mrtg.client;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.util.Date;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JScrollBar;
@@ -27,12 +30,16 @@ public class AllTraffic extends javax.swing.JFrame {
         jToolBar1 = new JToolBar();
         jToolBar1.setOrientation(JToolBar.VERTICAL);
         jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(false);
+        jToolBar1.setMargin(new Insets(11,11,11,11));
+        //jToolBar1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.DARK_GRAY,1,true), tip));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
+        //
         MrtgData mrtg = ClientMRTG.getMrtgData();
         for (RouterInfo ri : mrtg.getInfo()) {
             System.out.println(ri.getInfo());
             for (LinkInfo li : ri.getLinkInfo()) {
+                this.jToolBar1.addSeparator();//.add(separator);
                 this.jToolBar1.add(new JSeparator());
                 ImageIcon icon=null;
                 try {
@@ -55,10 +62,12 @@ public class AllTraffic extends javax.swing.JFrame {
                     Util.error(this, "Graph could not be generated:\n" + e);
                 }
                 this.jToolBar1.add(new javax.swing.JLabel(icon));
-                System.out.println(li.getInfo());
+                this.jToolBar1.add(new JSeparator());
+                this.jToolBar1.addSeparator();//.add(separator);
             }
         }
         jScrollPane1.setViewportView(jToolBar1);
+        //jScrollPane1.setAlignmentY(11.0f);
         jScrollPane1.setVerticalScrollBar(new JScrollBar());
         jScrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         this.add(jScrollPane1);
@@ -72,9 +81,9 @@ public class AllTraffic extends javax.swing.JFrame {
                 frameAllTraffic.setTitle(" All interfaces traffic - " + tip);
                 ImageIcon icone = new ImageIcon(getClass().getResource("/mrtg.png"));
                 frameAllTraffic.setIconImage(icone.getImage());
-                frameAllTraffic.setLocation(333, 111);
+                frameAllTraffic.setLocation(333, 222);
                 //frameAllTraffic.setPreferredSize(GRAPH_SIZE);
-                frameAllTraffic.setSize(660, 800);
+                frameAllTraffic.setSize(680, 640);
                 frameAllTraffic.setVisible(true);
             }
         });

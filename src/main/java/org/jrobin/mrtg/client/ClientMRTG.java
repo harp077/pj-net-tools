@@ -48,15 +48,9 @@ public class ClientMRTG extends JFrame {
     
         public static ClientMRTG frameClientMRTG;
     
-	//static final String RESOURCE_PATH = "mrtg/icons/";
-        
         static final String helpStr = "Started SNMP-polling after running pj-net-tools and ending SNMP-polling after killing pj-net-tools. \nKeeps SNMP-polling even after closing MRTG-window. \nUse 32-bit counters for speed <= 100 Mbit/s.\nPolling every 300 sec.";
 
 	static final String TITLE = "MRTG SNMP-poller ( keeps polling even after closing this window )";
-
-	//static final String SUBTITLE = "http://netwhistler.spb.ru";
-
-	//static final String COPYRIGHT = "Copyright \u00A9 2005 NetWhistler";
 
 	static Dimension MAIN_TREE_SIZE = new Dimension(400, 400);
 
@@ -96,29 +90,23 @@ public class ClientMRTG extends JFrame {
 
 	JMenuItem newLinkItem = new JMenuItem("Add Interface(s)...", KeyEvent.VK_N);
 
-	JMenuItem editLinkItem = new JMenuItem("Edit Interface data...",
-			KeyEvent.VK_E);
+	JMenuItem editLinkItem = new JMenuItem("Edit this Interface");
 
-	JMenuItem deleteLinkItem = new JMenuItem("Remove Interface", KeyEvent.VK_V);
+	JMenuItem deleteLinkItem = new JMenuItem("Remove this Interface", KeyEvent.VK_V);
 
-	JMenuItem quickGraphItem = new JMenuItem("Daily Graph (last 24hr)...");
+	JMenuItem quickGraphItem = new JMenuItem("Daily Graph this");
 
-	//JMenuItem dailyGraphItem = new JMenuItem("Daily Graph...", KeyEvent.VK_D);
+	JMenuItem weeklyGraphItem = new JMenuItem("Weekly Graph this");
 
-	JMenuItem weeklyGraphItem = new JMenuItem("Weekly Graph...");
+	JMenuItem monthlyGraphItem = new JMenuItem("Monthly Graph this");
 
-	JMenuItem monthlyGraphItem = new JMenuItem("Monthly Graph...",
-			KeyEvent.VK_O);
-
-	//JMenuItem yearlyGraphItem = new JMenuItem("Yearly Graph...", KeyEvent.VK_Y);
-
-	JMenuItem customGraphItem = new JMenuItem("Custom Graph...");
-        JMenuItem allGraphMenuItemDay = new JMenuItem("Daily all ");
-        JMenuItem allGraphMenuItemWeek = new JMenuItem("Weekly all ");
-        JMenuItem allGraphMenuItemMonth = new JMenuItem("Monthly all ");
-        JMenuItem allGraphMenuItemPopupDay = new JMenuItem("Daily all ");
-        JMenuItem allGraphMenuItemPopupWeek = new JMenuItem("Weekly all ");
-        JMenuItem allGraphMenuItemPopupMonth = new JMenuItem("Monthly all ");        
+	JMenuItem customGraphItem = new JMenuItem("Custom Graph this");
+        JMenuItem allGraphMenuItemDay = new JMenuItem("Daily Graph all ");
+        JMenuItem allGraphMenuItemWeek = new JMenuItem("Weekly Graph all ");
+        JMenuItem allGraphMenuItemMonth = new JMenuItem("Monthly Graph all ");
+        JMenuItem allGraphMenuItemPopupDay = new JMenuItem("Daily Graph all ");
+        JMenuItem allGraphMenuItemPopupWeek = new JMenuItem("Weekly Graph all ");
+        JMenuItem allGraphMenuItemPopupMonth = new JMenuItem("Monthly Graph all ");        
 
 	// Help menu
 	JMenu helpMenu = new JMenu("Info");
@@ -147,73 +135,22 @@ public class ClientMRTG extends JFrame {
 	// INTERFACES popup menu
 	JPopupMenu linksPopupMenu = new JPopupMenu();
 
-	JMenuItem linksPopupEditLinkMenuItem = new JMenuItem(
-			"Edit Interface Data...");
+	JMenuItem linksPopupEditLinkMenuItem = new JMenuItem("Edit this Interface");
 
-	JMenuItem linksPopupRemoveLinkMenuItem = new JMenuItem("Remove Interface");
+	JMenuItem linksPopupRemoveLinkMenuItem = new JMenuItem("Remove this Interface");
 
-	JMenuItem linksPopupQuickGraphMenuItem = new JMenuItem("Daily Graph (last 24hr)...");
+	JMenuItem linksPopupQuickGraphMenuItem = new JMenuItem("Daily Graph this");
 
-	//JMenuItem linksPopupDailyGraphMenuItem = new JMenuItem("Daily Graph...");
+	JMenuItem linksPopupWeeklyGraphMenuItem = new JMenuItem("Weekly Graph this");
 
-	JMenuItem linksPopupWeeklyGraphMenuItem = new JMenuItem("Weekly Graph...");
+	JMenuItem linksPopupMonthlyGraphMenuItem = new JMenuItem("Monthly Graph this");
 
-	JMenuItem linksPopupMonthlyGraphMenuItem = new JMenuItem("Monthly Graph...");
-
-	//JMenuItem linksPopupYearlyGraphMenuItem = new JMenuItem("Yearly Graph...");
-
-	JMenuItem linksPopupCustomGraphMenuItem = new JMenuItem("Custom Graph...");
+	JMenuItem linksPopupCustomGraphMenuItem = new JMenuItem("Custom Graph this");
 
 	private static MrtgData mrtgData = MrtgData.getInstance();
 
 	public ClientMRTG() throws IOException {
 		super(TITLE);
-		/*menuBar.setBackground(NetworkManagerGUI.sysBackColor);
-		mrtgMenu.setFont(NetworkManagerGUI.baseFont);
-		reloadMenuItem.setFont(NetworkManagerGUI.baseFont);
-		exitMenuItem.setFont(NetworkManagerGUI.baseFont);
-
-		// Routers menu
-		routersMenu.setFont(NetworkManagerGUI.baseFont);
-		newRouterItem.setFont(NetworkManagerGUI.baseFont);
-		editRouterItem.setFont(NetworkManagerGUI.baseFont);
-		deleteRouterItem.setFont(NetworkManagerGUI.baseFont);
-		// Interfaces menu
-		linksMenu.setFont(NetworkManagerGUI.baseFont);
-		newLinkItem.setFont(NetworkManagerGUI.baseFont);
-		editLinkItem.setFont(NetworkManagerGUI.baseFont);
-		deleteLinkItem.setFont(NetworkManagerGUI.baseFont);
-		quickGraphItem.setFont(NetworkManagerGUI.baseFont);
-		dailyGraphItem.setFont(NetworkManagerGUI.baseFont);
-		weeklyGraphItem.setFont(NetworkManagerGUI.baseFont);
-		monthlyGraphItem.setFont(NetworkManagerGUI.baseFont);
-		//yearlyGraphItem.setFont(NetworkManagerGUI.baseFont);
-		customGraphItem.setFont(NetworkManagerGUI.baseFont);
-		// Help menu
-		helpMenu.setFont(NetworkManagerGUI.baseFont);
-		helpItem.setFont(NetworkManagerGUI.baseFont);
-		// MRTG popup menu
-		mrtgPopupMenu.setFont(NetworkManagerGUI.baseFont);
-		mrtgPopupReloadMenuItem.setFont(NetworkManagerGUI.baseFont);
-		mrtgPopupAddRouterMenuItem.setFont(NetworkManagerGUI.baseFont);
-		mrtgPopupExitMenuItem.setFont(NetworkManagerGUI.baseFont);
-		// ROUTER popup menu
-		routerPopupMenu.setFont(NetworkManagerGUI.baseFont);
-		routerPopupEditRouterMenuItem.setFont(NetworkManagerGUI.baseFont);
-		routerPopupAddLinksMenuItem.setFont(NetworkManagerGUI.baseFont);
-		routerPopupRemoveRouterMenuItem.setFont(NetworkManagerGUI.baseFont);
-		// INTERFACES popup menu
-
-		linksPopupEditLinkMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupRemoveLinkMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupQuickGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupDailyGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupWeeklyGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupMonthlyGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-		//linksPopupYearlyGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-		linksPopupCustomGraphMenuItem.setFont(NetworkManagerGUI.baseFont);
-
-		NetworkManagerGUI.recursivelySetFonts(this, NetworkManagerGUI.baseFont);*/
 		constructUI();
 		pack();
 	}
