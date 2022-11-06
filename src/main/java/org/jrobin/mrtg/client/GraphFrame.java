@@ -101,7 +101,7 @@ public class GraphFrame extends JFrame {
 	private JLabel infoLabel = new JLabel();
 
 	GraphFrame(JFrame parent, RouterInfo routerInfo, LinkInfo linkInfo, int type) {
-		super(routerInfo.getHost()  + "@" + linkInfo.getIfDescr() );
+		super(routerInfo.getHost()  + "@" + linkInfo.getIfDescr() + (" - "+type).replace("1", "Daily: every 5 min average").replace("3", "Weekly: every 30 min average").replace("4", "Monthly: every 120 min average").replace("6", "Custom"));
 		setResizable(false);
 		this.routerInfo = routerInfo;
 		this.linkInfo = linkInfo;

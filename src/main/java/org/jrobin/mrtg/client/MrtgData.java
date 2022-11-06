@@ -34,6 +34,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 public class MrtgData {
+    
 	private static MrtgData instance;
 
 	private Vector hardwareInfo = new Vector();

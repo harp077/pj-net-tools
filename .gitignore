@@ -1,4 +1,4 @@
 /target/
-/mrtg/
+/mrtg/*
 /log/app.log
 /log/app.log.*

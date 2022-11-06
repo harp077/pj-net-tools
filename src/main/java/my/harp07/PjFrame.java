@@ -45,10 +45,10 @@ public class PjFrame extends javax.swing.JFrame {
     public static int FH = 600;
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF = "com.jtattoo.plaf.acryl.AcrylLookAndFeel";
+    public static String currentLAF = "com.jtattoo.plaf.mint.MintLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.79, build 06-11-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.80, build 06-11-2022";
 
     public PjFrame() {
         initComponents();

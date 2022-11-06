@@ -101,18 +101,19 @@ public class ClientMRTG extends JFrame {
 
 	JMenuItem deleteLinkItem = new JMenuItem("Remove Interface", KeyEvent.VK_V);
 
-	JMenuItem quickGraphItem = new JMenuItem("Daily Graph (last 24hr)...", KeyEvent.VK_Q);
+	JMenuItem quickGraphItem = new JMenuItem("Daily Graph (last 24hr)...");
 
 	//JMenuItem dailyGraphItem = new JMenuItem("Daily Graph...", KeyEvent.VK_D);
 
-	JMenuItem weeklyGraphItem = new JMenuItem("Weekly Graph...", KeyEvent.VK_W);
+	JMenuItem weeklyGraphItem = new JMenuItem("Weekly Graph...");
 
 	JMenuItem monthlyGraphItem = new JMenuItem("Monthly Graph...",
 			KeyEvent.VK_O);
 
 	//JMenuItem yearlyGraphItem = new JMenuItem("Yearly Graph...", KeyEvent.VK_Y);
 
-	JMenuItem customGraphItem = new JMenuItem("Custom Graph...", KeyEvent.VK_C);
+	JMenuItem customGraphItem = new JMenuItem("Custom Graph...");
+        JMenuItem allGraphMenuItem = new JMenuItem("All Graph...");
 
 	// Help menu
 	JMenu helpMenu = new JMenu("Info");
@@ -158,7 +159,7 @@ public class ClientMRTG extends JFrame {
 
 	JMenuItem linksPopupCustomGraphMenuItem = new JMenuItem("Custom Graph...");
 
-	private MrtgData mrtgData = MrtgData.getInstance();
+	private static MrtgData mrtgData = MrtgData.getInstance();
 
 	public ClientMRTG() throws IOException {
 		super(TITLE);
@@ -347,7 +348,15 @@ public class ClientMRTG extends JFrame {
 			}
 		});
 		linksMenu.add(customGraphItem);
-		linksMenu.setMnemonic(KeyEvent.VK_I);
+		//linksMenu.setMnemonic(KeyEvent.VK_I);
+                linksMenu.addSeparator();
+		allGraphMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Thread(()-> AllTraffic.go()).start();
+                                //AllTraffic.go();
+			}
+		});
+		linksMenu.add(allGraphMenuItem);                
 		menuBar.add(linksMenu);
 
 		// help menu
@@ -763,9 +772,9 @@ public class ClientMRTG extends JFrame {
 	}
 
 	private LinkInfo findSelectedLink() {
-            System.out.println(Arrays.toString(mainTree.getComponents()));
+            //System.out.println(Arrays.toString(mainTree.getComponents()));
             //System.out.println(mrtgData.);
-            Arrays.asList(mrtgData.getInfo()).stream().forEach(x -> System.out.println(x.getLinkInfo()));
+            //Arrays.asList(mrtgData.getInfo()).stream().forEach(x -> System.out.println(x.getLinkInfo()));
 		TreePath path = mainTree.getSelectionPath();
 		if (path == null || path.getPathCount() < 3) {
 			return null;
@@ -812,5 +821,9 @@ public class ClientMRTG extends JFrame {
             }
         });
     }        
+
+    public static MrtgData getMrtgData() {
+        return mrtgData;
+    }
 
 }
