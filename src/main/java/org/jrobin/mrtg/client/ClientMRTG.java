@@ -113,7 +113,12 @@ public class ClientMRTG extends JFrame {
 	//JMenuItem yearlyGraphItem = new JMenuItem("Yearly Graph...", KeyEvent.VK_Y);
 
 	JMenuItem customGraphItem = new JMenuItem("Custom Graph...");
-        JMenuItem allGraphMenuItem = new JMenuItem("All Graph...");
+        JMenuItem allGraphMenuItemDay = new JMenuItem("Daily all ");
+        JMenuItem allGraphMenuItemWeek = new JMenuItem("Weekly all ");
+        JMenuItem allGraphMenuItemMonth = new JMenuItem("Monthly all ");
+        JMenuItem allGraphMenuItemPopupDay = new JMenuItem("Daily all ");
+        JMenuItem allGraphMenuItemPopupWeek = new JMenuItem("Weekly all ");
+        JMenuItem allGraphMenuItemPopupMonth = new JMenuItem("Monthly all ");        
 
 	// Help menu
 	JMenu helpMenu = new JMenu("Info");
@@ -350,13 +355,29 @@ public class ClientMRTG extends JFrame {
 		linksMenu.add(customGraphItem);
 		//linksMenu.setMnemonic(KeyEvent.VK_I);
                 linksMenu.addSeparator();
-		allGraphMenuItem.addActionListener(new ActionListener() {
+		allGraphMenuItemDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Thread(()-> AllTraffic.go()).start();
-                                //AllTraffic.go();
+                            AllTraffic.go("Day");
+                            //new Thread(()-> AllTraffic.go("day")).start();
 			}
 		});
-		linksMenu.add(allGraphMenuItem);                
+		linksMenu.add(allGraphMenuItemDay); 
+                //
+		allGraphMenuItemWeek.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            AllTraffic.go("Week");
+                            //new Thread(()-> AllTraffic.go("day")).start();
+			}
+		});
+		linksMenu.add(allGraphMenuItemWeek);  
+                //
+		allGraphMenuItemMonth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            AllTraffic.go("Month");
+                            //new Thread(()-> AllTraffic.go("day")).start();
+			}
+		});
+		linksMenu.add(allGraphMenuItemMonth);                  
 		menuBar.add(linksMenu);
 
 		// help menu
@@ -464,6 +485,31 @@ public class ClientMRTG extends JFrame {
 				removeLink();
 			}
 		});
+                //linksPopupMenu.addSeparator();
+		allGraphMenuItemPopupDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            AllTraffic.go("Day");
+                            //new Thread(()-> AllTraffic.go("day")).start();
+			}
+		});
+		linksPopupMenu.add(allGraphMenuItemPopupDay); 
+                //
+		allGraphMenuItemPopupWeek.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            AllTraffic.go("Week");
+                            //new Thread(()-> AllTraffic.go("day")).start();
+			}
+		});
+		linksPopupMenu.add(allGraphMenuItemPopupWeek);  
+                //
+		allGraphMenuItemPopupMonth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                            AllTraffic.go("Month");
+                            //new Thread(()-> AllTraffic.go("day")).start();
+			}
+		});
+		linksPopupMenu.add(allGraphMenuItemPopupMonth); 
+                linksPopupMenu.addSeparator();
 		linksPopupMenu.add(linksPopupRemoveLinkMenuItem);
 
 		MouseAdapter adapter = new MouseAdapter() {
