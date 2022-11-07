@@ -48,7 +48,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "com.jtattoo.plaf.mint.MintLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.82, build 06-11-2022";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.83, build 07-11-2022";
 
     public PjFrame() {
         initComponents();
@@ -401,7 +401,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator74 = new javax.swing.JToolBar.Separator();
         btnMRTG = new javax.swing.JButton();
         jSeparator76 = new javax.swing.JToolBar.Separator();
-        btnExit = new javax.swing.JButton();
         jToolBar4 = new javax.swing.JToolBar();
         jSeparator34 = new javax.swing.JToolBar.Separator();
         nizInfoLabel = new javax.swing.JLabel();
@@ -1493,18 +1492,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar1.add(btnMRTG);
         jToolBar1.add(jSeparator76);
 
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/quit-16.png"))); // NOI18N
-        btnExit.setFocusable(false);
-        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnExit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnExit);
-
         getContentPane().add(jToolBar1, java.awt.BorderLayout.NORTH);
 
         jToolBar4.setBorder(javax.swing.BorderFactory.createTitledBorder("Info:"));
@@ -1639,13 +1626,6 @@ public class PjFrame extends javax.swing.JFrame {
     private void btnSaveCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCalcActionPerformed
         PjSaveResult.Save(taCalcResult);
     }//GEN-LAST:event_btnSaveCalcActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        int r = JOptionPane.showConfirmDialog(frame, "Really Quit ?", "Quit ?", JOptionPane.YES_NO_OPTION);
-        if (r == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btnExitActionPerformed
 
     private void tfTraceInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTraceInputKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1952,7 +1932,6 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCalcRun;
     private javax.swing.JButton btnDnsReset;
     private javax.swing.JButton btnDnsRun;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnMRTG;
     public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;

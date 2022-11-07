@@ -3,6 +3,7 @@ package org.jrobin.mrtg.client;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.util.Arrays;
 import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -25,37 +26,38 @@ public class AllTraffic extends javax.swing.JFrame {
     private static String tip;
 
     public AllTraffic(String tip) {
-        
+
         jScrollPane1 = new javax.swing.JScrollPane();
         jToolBar1 = new JToolBar();
         jToolBar1.setOrientation(JToolBar.VERTICAL);
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(false);
-        jToolBar1.setMargin(new Insets(11,11,11,11));
+        jToolBar1.setMargin(new Insets(11, 11, 11, 11));
         //jToolBar1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.DARK_GRAY,1,true), tip));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         //
         MrtgData mrtg = ClientMRTG.getMrtgData();
+        // LINEAR CALCULATE
         for (RouterInfo ri : mrtg.getInfo()) {
             System.out.println(ri.getInfo());
             for (LinkInfo li : ri.getLinkInfo()) {
                 this.jToolBar1.addSeparator();//.add(separator);
                 this.jToolBar1.add(new JSeparator());
-                ImageIcon icon=null;
+                ImageIcon icon = null;
                 try {
                     if (client == null) {
                         client = new RpcClient(mrtg.getMrtgHost());
                     }
-                    switch(tip) {
-                        case "Day": 
-                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() -  1*24*60*60*1000L), new Date(System.currentTimeMillis() + 1*60*60*1000L));
+                    switch (tip) {
+                        case "Day":
+                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 1 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
                             break;
-                        case "Week": 
-                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() -  7*24*60*60*1000L), new Date(System.currentTimeMillis() + 1*60*60*1000L));
-                            break;  
-                        case "Month": 
-                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 30*24*60*60*1000L), new Date(System.currentTimeMillis() + 1*60*60*1000L));
-                            break;                            
+                        case "Week":
+                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 7 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                            break;
+                        case "Month":
+                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 30 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                            break;
                     }
                     icon = new ImageIcon(graphBytes, "PNG graph");
                 } catch (Exception e) {
@@ -66,6 +68,42 @@ public class AllTraffic extends javax.swing.JFrame {
                 this.jToolBar1.addSeparator();//.add(separator);
             }
         }
+        //
+        // PARRALLEL CALCULATE
+        /*Arrays.asList(mrtg.getInfo())
+            .parallelStream()
+            //.stream()
+            //.flatMap(ri -> Arrays.asList(ri.getLinkInfo()).stream())
+            .forEach(ri -> { Arrays.asList(ri.getLinkInfo()).parallelStream()
+                .forEach(li -> {
+                    this.jToolBar1.addSeparator();//.add(separator);
+                    this.jToolBar1.add(new JSeparator());
+                    ImageIcon icon = null;
+                    try {
+                        if (client == null) {
+                            client = new RpcClient(mrtg.getMrtgHost());
+                        }
+                        switch (tip) {
+                            case "Day":
+                                graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 1 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                                break;
+                            case "Week":
+                                graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 7 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                                break;
+                            case "Month":
+                                graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 30 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                                break;
+                        }
+                        icon = new ImageIcon(graphBytes, "PNG graph");
+                    } catch (Exception e) {
+                        Util.error(this, "Graph could not be generated:\n" + e);
+                    }
+                    this.jToolBar1.add(new javax.swing.JLabel(icon));
+                    this.jToolBar1.add(new JSeparator());
+                    this.jToolBar1.addSeparator();//.add(separator);
+                });                   
+            });*/
+        //
         jScrollPane1.setViewportView(jToolBar1);
         //jScrollPane1.setAlignmentY(11.0f);
         jScrollPane1.setVerticalScrollBar(new JScrollBar());
@@ -88,5 +126,5 @@ public class AllTraffic extends javax.swing.JFrame {
             }
         });
     }
-    
+
 }
