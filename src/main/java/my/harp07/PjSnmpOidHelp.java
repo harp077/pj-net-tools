@@ -8,7 +8,7 @@ public class PjSnmpOidHelp {
 
     public static void runSnmpHelp(JTextArea ta) {
 
-        info = "\n      Main generic snmp-oids:\n";
+        info = "\n      Main generic standard snmp-oids:\n";
 
         info = info + "\n   1.3.6.1.2.1.2.2.1.* = standard interface MIB with only 32-bit counters:\n";
         info = info + "   1.3.6.1.2.1.2.2.1.1 = snmp-indexes of interfaces \n";
@@ -55,14 +55,17 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.1.5.0 = system name \n";
         info = info + "   1.3.6.1.2.1.1.6.0 = system location \n";
         
-        info = info + "\n   1.3.6.1.2.1.4.* = IP-mib:\n";
+        info = info + "\n   1.3.6.1.2.1.4.* = IP, IP-forward mib`s:\n";
         info = info + "   1.3.6.1.2.1.4.7.0 =  ip in unknown protocol\n";
         info = info + "   1.3.6.1.2.1.4.8.0 =  ip in discards \n";
         info = info + "   1.3.6.1.2.1.4.11.0 = ip out discards \n";
         info = info + "   1.3.6.1.2.1.4.12.0 = ip out no routes \n";
+        info = info + "   1.3.6.1.2.1.4.22.1.2 = ip Net To Media Physical Address \n";  
+        info = info + "   1.3.6.1.2.1.4.22.1.3 = ip Net To Media Network Address \n";        
         info = info + "   1.3.6.1.2.1.4.23.0 = ip routing discards\n"; 
         info = info + "   1.3.6.1.2.1.4.24.3.0 = ip routes number\n";
         info = info + "   1.3.6.1.2.1.4.24.6.0 = inet routes number\n";
+        info = info + "   1.3.6.1.2.1.4.35.1.4 = ip Net-To-Physical-Phys-Address\n";        
 
         info = info + "\n   1.3.6.1.2.1.5.* = ICMP-mib\n";
         info = info + "   1.3.6.1.2.1.5.2.0 = icmp input errors\n";
@@ -72,14 +75,37 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.6.14.0 = tcp input errors  \n";
         info = info + "   1.3.6.1.2.1.6.5.0 = tcp active opens\n";
         info = info + "   1.3.6.1.2.1.6.6.0 = tcp passive opens\n";
+        info = info + "   1.3.6.1.2.1.6.13.1.1 = tcp Connection state\n";
+        info = info + "   1.3.6.1.2.1.6.13.1.2 = tcp Connection Local Address\n";
+        info = info + "   1.3.6.1.2.1.6.13.1.3 = tcp Connection Local Port\n";
+        info = info + "   1.3.6.1.2.1.6.13.1.4 = tcp Connection Remote Address\n";
+        info = info + "   1.3.6.1.2.1.6.13.1.5 = tcp Connection Remote Port\n";
+        info = info + "   1.3.6.1.2.1.6.7.0 = tcp Attempt Fails\n";
+        info = info + "   1.3.6.1.2.1.6.8.0 = tcp Estab Resets\n";
+        info = info + "   1.3.6.1.2.1.6.9.0 = tcp Current Established\n";
+        info = info + "   1.3.6.1.2.1.6.10.0 = tcp Inp Segs\n";
+        info = info + "   1.3.6.1.2.1.6.11.0 = tcp Out Segs\n";
+        info = info + "   1.3.6.1.2.1.6.12.0 = tcp Retrans Segs\n";
+        info = info + "   1.3.6.1.2.1.6.15.0 = tcp Out Rsts\n";       
 
         info = info + "\n   1.3.6.1.2.1.7.* = UDP-mib:\n";
         info = info + "   1.3.6.1.2.1.7.2.0 = udp no-ports\n";
         info = info + "   1.3.6.1.2.1.7.3.0 = udp input errors\n";
+        info = info + "   1.3.6.1.2.1.7.1.0 = udp input datagrams\n";
+        info = info + "   1.3.6.1.2.1.7.4.0 = udp output datagrams\n";  
+        
+        info = info + "\n   1.3.6.1.2.1.10.* = EtherLike-mib:\n";
+        info = info + "   1.3.6.1.2.1.10.7.2.1.19 = Ethernet-Port Duplex \n";       
 
         info = info + "\n   1.3.6.1.2.1.11.* = SNMP-mib\n";
         info = info + "   1.3.6.1.2.1.11.3.0 = snmp in bad versions\n";
         info = info + "   1.3.6.1.2.1.11.4.0 = snmp in bad community names\n";
+        
+        info = info + "\n   1.3.6.1.2.1.17.* = BRIDGE-mib\n"; 
+        info = info + "   1.3.6.1.2.1.17.2.2.0 = dot1d-Stp-Priority\n";
+        info = info + "   1.3.6.1.2.1.17.2.3.0 = dot1d-Stp-Time-Since-Topology-Change\n";
+        info = info + "   1.3.6.1.2.1.17.2.5.0 = dot1d-Stp-Designated-Root\n";
+        info = info + "   1.3.6.1.2.1.17.2.7.0 = dot1d-Stp-Root-Port\n";        
 
         info = info + "\n   1.3.6.1.2.1.25.* = HOST-RESOURCES-mib \n";
         info = info + "   1.3.6.1.2.1.25.1.1.0 = System Uptime\n";
