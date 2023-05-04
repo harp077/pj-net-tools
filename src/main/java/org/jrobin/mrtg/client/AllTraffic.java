@@ -56,7 +56,7 @@ public class AllTraffic extends javax.swing.JFrame {
                             graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 7 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
                             break;
                         case "Month":
-                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 30 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1 * 60 * 60 * 1000L));
+                            graphBytes = client.getPngGraph(ri, li, new Date(System.currentTimeMillis() - 31 * 24 * 60 * 60 * 1000L), new Date(System.currentTimeMillis() + 1*24 * 60 * 60 * 1000L));
                             break;
                     }
                     icon = new ImageIcon(graphBytes, "PNG graph");

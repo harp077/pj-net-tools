@@ -544,9 +544,9 @@ public class GraphFrame extends JFrame {
 					+ 7);*/
                     break;
 		case TYPE_MONTHLY:
-                    startGC.setTimeInMillis(ticksNow - 30*24*60*60*1000L);
+                    startGC.setTimeInMillis(ticksNow - 31*24*60*60*1000L);
                     start = startGC;
-                    endGC.setTimeInMillis(ticksNow + 1*60*60*1000L);
+                    endGC.setTimeInMillis(ticksNow + 1*24*60*60*1000L);
                     end = endGC;                      
 			/*start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), 1);
