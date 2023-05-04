@@ -51,7 +51,7 @@ public class GraphFrame extends JFrame {
                          TYPE_CUSTOM = 6;
 
         // YEAR BUG FIXED !!!!
-	static int START_YEAR = Year.now().getValue(); // - 1; //2022;
+	static int START_YEAR = Year.now().getValue() - 1; //2022;
         static int END_YEAR   = Year.now().getValue() + 1;//2032;
 
 	static Dimension GRAPH_SIZE = new Dimension(680, 480);
@@ -448,7 +448,7 @@ public class GraphFrame extends JFrame {
 		int day = dayCombo.getSelectedIndex() + 1;
 		int month = monthCombo.getSelectedIndex();
                 // YEAR BUG FIXED !!!!
-		int year = yearCombo.getSelectedIndex() + Year.now().getValue();
+		int year = Integer.parseInt((String)yearCombo.getSelectedItem()); //.getSelectedIndex() + Year.now().getValue();
                 //System.out.println(year);
                 //int year = Year.now().getValue();
                 //int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -476,7 +476,7 @@ public class GraphFrame extends JFrame {
 			combo.insertItemAt("" + i, i - START_YEAR);
 		}
                 // YEAR BUG FIXED !!!!
-		combo.setSelectedIndex(0);
+		combo.setSelectedIndex(1); // 1 = current year !!
 	}
 
 	private void fillHours(JComboBox combo) {
