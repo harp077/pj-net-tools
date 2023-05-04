@@ -45,7 +45,7 @@ public interface MrtgConstants {
 	int POOL_CAPACITY = 100;
 
 	// graph dimensions
-	int GRAPH_WIDTH = 502, GRAPH_HEIGHT = 234;
+	int GRAPH_WIDTH = 512, GRAPH_HEIGHT = 244;
 
 	// should we remove a RRD file if link is removed from the client
 	boolean REMOVE_RRD_FOR_DEACTIVATED_LINK = true;
@@ -183,12 +183,12 @@ public interface MrtgConstants {
 			+ "        <area>                                                           \n"
 			+ "            <datasource>out8</datasource>                                \n"
 			+ "            <color>#00FF00</color>                                       \n"
-			+ "            <legend>output traffic</legend>                              \n"
+			+ "            <legend> : output traffic@l</legend>                            \n"
 			+ "        </area>                                                          \n"
 			+ "        <line>                                                           \n"
 			+ "            <datasource>in8</datasource>                                 \n"
 			+ "            <color>#0000FF</color>                                       \n"
-			+ "            <legend>input traffic@l</legend>                             \n"
+			+ "            <legend> : input traffic@l</legend>                             \n"
 			+ "        </line>                                                          \n"
 			+ "        <gprint>                                                         \n"
 			+ "            <datasource>out8</datasource>                                \n"
