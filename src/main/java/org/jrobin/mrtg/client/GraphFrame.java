@@ -522,11 +522,15 @@ public class GraphFrame extends JFrame {
                     break;
 		//case TYPE_DAILY:
 		case TYPE_CUSTOM:
-			start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
+			/*start = new GregorianCalendar(gc.get(Calendar.YEAR), gc
 					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH));
 			end = new GregorianCalendar(gc.get(Calendar.YEAR), gc
-					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) + 1);
-			break;
+					.get(Calendar.MONTH), gc.get(Calendar.DAY_OF_MONTH) + 1);*/
+                    startGC.setTimeInMillis(ticksNow - 4*60*60*1000L);
+                    start = startGC;
+                    endGC.setTimeInMillis(ticksNow + 4*60*60*1000L);
+                    end = endGC;                    
+                    break;
 		case TYPE_WEEKLY:
                     startGC.setTimeInMillis(ticksNow - 7*24*60*60*1000L);
                     start = startGC;
