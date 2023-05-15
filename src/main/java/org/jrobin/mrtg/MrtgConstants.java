@@ -45,7 +45,7 @@ public interface MrtgConstants {
 	int POOL_CAPACITY = 100;
 
 	// graph dimensions
-	int GRAPH_WIDTH = 512, GRAPH_HEIGHT = 244;
+	int GRAPH_WIDTH = 600, GRAPH_HEIGHT = 224;
 
 	// should we remove a RRD file if link is removed from the client
 	boolean REMOVE_RRD_FOR_DEACTIVATED_LINK = true;

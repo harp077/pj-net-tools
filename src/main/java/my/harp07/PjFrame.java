@@ -45,10 +45,10 @@ public class PjFrame extends javax.swing.JFrame {
     public static int FH = 600;
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF = "com.jtattoo.plaf.mint.MintLookAndFeel";
+    public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.89, build 04-05-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.90, build 15-05-2023";
 
     public PjFrame() {
         initComponents();
@@ -103,8 +103,34 @@ public class PjFrame extends javax.swing.JFrame {
     public static void InstallLF() {
         //MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceAutumnLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeCoffeeLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceModerateLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMagellanLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMistSilverLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeBlue2007LookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeBlack2007LookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceOfficeSilver2007LookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceNebulaBrickWallLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGeminiLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceDustLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceRavenLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteAquaLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessBlueSteelLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMarinerLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCeruleanLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");
         //
-        MyInstLF("com.jtattoo.plaf.acryl.AcrylLookAndFeel"); 
+        /*MyInstLF("com.jtattoo.plaf.acryl.AcrylLookAndFeel"); 
         MyInstLF("com.jtattoo.plaf.aero.AeroLookAndFeel");
         MyInstLF("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
         MyInstLF("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
@@ -116,7 +142,7 @@ public class PjFrame extends javax.swing.JFrame {
         MyInstLF("com.jtattoo.plaf.smart.SmartLookAndFeel");
         MyInstLF("com.jtattoo.plaf.luna.LunaLookAndFeel");
         MyInstLF("com.jtattoo.plaf.texture.TextureLookAndFeel");
-        MyInstLF("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");       
+        MyInstLF("com.jtattoo.plaf.graphite.GraphiteLookAndFeel"); */      
     }
 
     public static void setLF() {

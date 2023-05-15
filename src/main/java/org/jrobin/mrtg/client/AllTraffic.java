@@ -41,8 +41,9 @@ public class AllTraffic extends javax.swing.JFrame {
         for (RouterInfo ri : mrtg.getInfo()) {
             System.out.println(ri.getInfo());
             for (LinkInfo li : ri.getLinkInfo()) {
-                this.jToolBar1.addSeparator();//.add(separator);
+                //this.jToolBar1.addSeparator();//.add(separator);
                 this.jToolBar1.add(new JSeparator());
+                this.jToolBar1.add(new javax.swing.JLabel(" "));
                 ImageIcon icon = null;
                 try {
                     if (client == null) {
@@ -64,8 +65,9 @@ public class AllTraffic extends javax.swing.JFrame {
                     Util.error(this, "Graph could not be generated:\n" + e);
                 }
                 this.jToolBar1.add(new javax.swing.JLabel(icon));
+                this.jToolBar1.add(new javax.swing.JLabel(" "));
                 this.jToolBar1.add(new JSeparator());
-                this.jToolBar1.addSeparator();//.add(separator);
+                //this.jToolBar1.addSeparator();//.add(separator);
             }
         }
         //
@@ -121,7 +123,7 @@ public class AllTraffic extends javax.swing.JFrame {
                 frameAllTraffic.setIconImage(icone.getImage());
                 frameAllTraffic.setLocation(333, 222);
                 //frameAllTraffic.setPreferredSize(GRAPH_SIZE);
-                frameAllTraffic.setSize(680, 640);
+                frameAllTraffic.setSize(768, 640);
                 frameAllTraffic.setVisible(true);
             }
         });

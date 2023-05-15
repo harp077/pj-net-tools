@@ -109,7 +109,7 @@ public class GraphFrame extends JFrame {
 		this.linkInfo = linkInfo;
 		this.type = type;
                 ImageIcon icone = new ImageIcon(getClass().getResource("/mrtg.png"));
-                this.setIconImage(icone.getImage());                
+                this.setIconImage(icone.getImage()); 
 		constructUI();
 		setInitialDates();
 		createGraph();
@@ -125,11 +125,20 @@ public class GraphFrame extends JFrame {
 		content.setLayout(new BorderLayout(3, 3));
 
 		JPanel topPanel = new JPanel();
-		topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		//topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JLabel from = new JLabel("From: ");
 		//from.setFont(NetworkManagerGUI.baseFont);
 		topPanel.add(from);
-		//startMonth.setFont(NetworkManagerGUI.baseFont);
+		// populate controls
+		fillDays(startDay);
+		fillDays(endDay);
+		fillMonths(startMonth);
+		fillMonths(endMonth);
+		fillYears(startYear);
+		fillYears(endYear);
+		fillHours(startHour);
+		fillHours(endHour);                
+		//startMonth.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		//startMonth.setBackground(NetworkManagerGUI.sysBackColor);
 		topPanel.add(startMonth);
 		//startDay.setFont(NetworkManagerGUI.baseFont);
@@ -141,7 +150,7 @@ public class GraphFrame extends JFrame {
 		//startHour.setFont(NetworkManagerGUI.baseFont);
 		//startHour.setBackground(NetworkManagerGUI.sysBackColor);
 		topPanel.add(startHour);
-		JLabel to = new JLabel("To: ");
+		JLabel to = new JLabel("  To: ");
 		//to.setFont(NetworkManagerGUI.baseFont);
 		topPanel.add(to);
 		//endMonth.setFont(NetworkManagerGUI.baseFont);
@@ -293,14 +302,14 @@ public class GraphFrame extends JFrame {
 		graphLabel.addMouseListener(adapter);
 
 		// populate controls
-		fillDays(startDay);
+		/*fillDays(startDay);
 		fillDays(endDay);
 		fillMonths(startMonth);
 		fillMonths(endMonth);
 		fillYears(startYear);
 		fillYears(endYear);
 		fillHours(startHour);
-		fillHours(endHour);
+		fillHours(endHour);*/
 
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
