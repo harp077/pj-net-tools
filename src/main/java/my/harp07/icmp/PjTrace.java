@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.icmp;
 
 import java.io.BufferedReader;
 import java.io.IOException;

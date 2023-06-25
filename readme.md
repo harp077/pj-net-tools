@@ -7,7 +7,7 @@ Include:
 01) ICMP-ping, 
 02) ICMP-traceroute, 
 03) DNS-check resolver, 
-04) TCP-scanner, 
+04) Host TCP-scanner, 
 05) IP-calculator, 
 06) Syslog-server,  
 07) Telnet-client, 
@@ -18,7 +18,8 @@ Include:
 12) UDP  flood utility. 
 13) TFTP-server.
 14) NTP-server.
-15) SNMP-MRTG traffic monitor.
+15) Host TCP-ping.
+16) SNMP-MRTG traffic monitor.
 
 Need JRE-1.8:
 

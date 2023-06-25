@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.tcp;
 
 import java.io.IOException;
 import java.net.ConnectException;
@@ -54,7 +54,7 @@ public class PjTcp {
 
     public static String getResult(JTextField tf, JTextArea ta) {
         name = tf.getText().trim();
-        String res = "Open TCP-services for " + name + ":\n-------------\n";
+        String res = "Scan for generic TCP-ports.\nOpen TCP-services for " + name + ":\n-------------\n";
         ta.setText(res);
         for (String buf : allTcpList.stream().map(x -> x.split(":")[0]).collect(Collectors.toList())) {
             double dbl = scanTCP(name.trim(), Integer.parseInt(buf));

@@ -1,10 +1,11 @@
-package my.harp07;
+package my.harp07.icmp;
 
 import java.util.Arrays;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import my.harp07.PjFrame;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.pingIp;
 import static my.harp07.GenericPJ.ping_remark;

@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.udp;
 
 import static jpacketgenerator.JPacketGeneratorGUI.goUdpFlood;
 

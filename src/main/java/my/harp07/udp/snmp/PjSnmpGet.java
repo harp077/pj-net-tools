@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.udp.snmp;
 
 import java.io.IOException;
 import java.util.HashMap;

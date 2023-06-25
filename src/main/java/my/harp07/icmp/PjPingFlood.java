@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.icmp;
 
 import java.util.concurrent.ConcurrentHashMap;
 import javax.swing.JTextArea;
@@ -18,11 +18,11 @@ public class PjPingFlood {
     private static ConcurrentHashMap<Integer, String> chm = new ConcurrentHashMap<>();
     private static long k;
     public static final String[] floodTIMEOUTS = {
-        "20",
-        "40",
-        "60",
-        "80",
-        "100"
+        "100",
+        "200",
+        "300",
+        "400",
+        "500"
     };    
 
     public static void runPingFlood(String ip, int timeout, JTextArea ta) {

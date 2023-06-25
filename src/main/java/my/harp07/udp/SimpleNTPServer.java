@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.udp;
 
 import org.apache.commons.net.ntp.NtpUtils;
 import org.apache.commons.net.ntp.NtpV3Impl;

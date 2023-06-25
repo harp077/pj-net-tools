@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.udp.snmp;
 
 import javax.swing.JTextArea;
 
@@ -93,6 +93,8 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.7.3.0 = udp input errors\n";
         info = info + "   1.3.6.1.2.1.7.1.0 = udp input datagrams\n";
         info = info + "   1.3.6.1.2.1.7.4.0 = udp output datagrams\n";  
+        info = info + "   1.3.6.1.2.1.7.5.1.1 = local IP-address of UDP-listener\n"; 
+        info = info + "   1.3.6.1.2.1.7.5.1.2 = local UDP-port of UDP-listener\n";                
         
         info = info + "\n   1.3.6.1.2.1.10.* = EtherLike-mib:\n";
         info = info + "   1.3.6.1.2.1.10.7.2.1.19 = Ethernet-Port Duplex \n";       
@@ -111,6 +113,15 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.25.1.1.0 = System Uptime\n";
         info = info + "   1.3.6.1.2.1.25.1.6.0 = System Processes\n";
         info = info + "   1.3.6.1.2.1.25.2.2.0 = Memory Size\n";
+        info = info + "   1.3.6.1.2.1.25.2.3.1.5 = Storage Size\n"; 
+        info = info + "   1.3.6.1.2.1.25.2.3.1.1 = Storage Index\n"; 
+        info = info + "   1.3.6.1.2.1.25.2.3.1.6 = Storage Used\n";
+        info = info + "   1.3.6.1.2.1.25.2.3.1.4 = Storage Allocation Units\n"; 
+        info = info + "   1.3.6.1.2.1.25.3.2.1.1 = Device Index\n"; 
+        info = info + "   1.3.6.1.2.1.25.3.2.1.2 = Device Type\n"; 
+        info = info + "   1.3.6.1.2.1.25.3.4.1.1 = Network If Index\n"; 
+        info = info + "   1.3.6.1.2.1.25.3.2.1.6 = Device Errors\n"; 
+        info = info + "   1.3.6.1.2.1.25.3.3.1.2 = Processor Load\n";        
 
         info = info + "\n   1.3.6.1.2.1.33.* = UPS-mib:\n";
         info = info + "   1.3.6.1.2.1.33.1.2.2.0 = Seconds-On-Battery\n";

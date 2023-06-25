@@ -1,4 +1,4 @@
-package my.harp07;
+package my.harp07.tcp;
 
 import javax.swing.SwingUtilities;
 import nnm.inet.telnet.JTerm;
