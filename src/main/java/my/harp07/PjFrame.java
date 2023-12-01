@@ -55,14 +55,14 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static PjFrame frame;
     public static Thread mrtgThread;
-    public static int FW = 999;
+    public static int FW = 960;
     public static int FH = 600;
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
-    public static String currentLAF = "org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel";
+    public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.91, build 25-06-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.92, build 01-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -115,7 +115,7 @@ public class PjFrame extends javax.swing.JFrame {
     }
 
     public static void InstallLF() {
-        //MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
+        MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceAutumnLookAndFeel");
@@ -161,7 +161,7 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static void setLF() {
         if (currentLAF.contains("tinyl")) {
-            //de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
+            de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
         }
         try {
             UIManager.setLookAndFeel(currentLAF);

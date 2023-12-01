@@ -32,7 +32,7 @@ public class PjPingFlood {
             chm.put(j, ip);
         }
         new Thread(() -> {
-            ta.append("start ping-flood thread = "+Thread.currentThread().getName()+"\n");
+            ta.append("start ping-flood thread = "+Thread.currentThread().getName()+"\nPPS = Packets Per Second\n");
             while (pingFloodEnabled) {
                 k++;
                 chm.values().parallelStream()

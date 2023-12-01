@@ -1,5 +1,5 @@
 Pure Java Network Tools. Free portable cross-platform. 
-ICMP-ping works well only when run as Root on Linux ! 
+ICMP-ping works well only when run as Admin in Windows or Root in Linux ! 
 You can check this by iptraf linux utility. 
 Run as root user !
 Include:

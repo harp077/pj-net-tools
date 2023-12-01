@@ -91,7 +91,7 @@ public class JTerminal extends JPanel implements ATerminal {
             BACK, TEXT, FORMAT;
 
         Default() {
-            this(80, 24, 999);
+            this(111, 35, 9999);
         }
 
         Default(final int width, final int height, final int buffer) {
@@ -102,11 +102,11 @@ public class JTerminal extends JPanel implements ATerminal {
             //BACK   = (short)0x1; TEXT   = (short)0xE; // Blues
             //BACK = (short) 0x7; TEXT = (short) 0x1; // New-Age
             //BACK = (short) 0x7; TEXT = (short) 0x0; // Netwhistler
-            //BACK   = (short)0xF; TEXT   = (short)0x0; // Whitney
+            BACK   = (short)0xF; TEXT   = (short)0x0; // Whitney
             //BACK   = (short)0x0; TEXT   = (short)0x7; // Midnight
             ///////////////////////////////////////////////////////////////////////////
             //BACK   = (short)0x0; TEXT   = (short)0xA; // my black + green
-            BACK   = (short)0x0; TEXT   = (short)0xB; // my black + cyan
+            //BACK   = (short)0x0; TEXT   = (short)0xB; // my black + cyan
             //BACK   = (short)0x0; TEXT   = (short)0xC; // my black + red
             //BACK   = (short)0x0; TEXT   = (short)0xD; // my black + magenta
             //BACK   = (short)0x0; TEXT   = (short)0xE; //  black + yellow

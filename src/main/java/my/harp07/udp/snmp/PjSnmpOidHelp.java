@@ -131,7 +131,12 @@ public class PjSnmpOidHelp {
         info = info + "   1.3.6.1.2.1.33.1.3.3.1.3.1 = Input-Voltage\n";
         info = info + "   1.3.6.1.2.1.33.1.4.2.0 = Output-Frequency\n";
         info = info + "   1.3.6.1.2.1.33.1.4.4.1.5.1 = Output-Percent-Load \n";  
-        info = info + "   1.3.6.1.2.1.33.1.4.4.1.2.1 = Output-Voltage  \n";          
+        info = info + "   1.3.6.1.2.1.33.1.4.4.1.2.1 = Output-Voltage  \n";   
+        
+        info = info + "\n   1.3.6.1.2.1.43.* = Printer-mib:\n";
+        info = info + "   1.3.6.1.2.1.43.11.1.1.6.1.1 = black-toner-info\n";
+        info = info + "   1.3.6.1.2.1.43.11.1.1.8.1.1 = black-toner-max\n";
+        info = info + "   1.3.6.1.2.1.43.11.1.1.9.1.1 = black-toner-current\n"; 
 
         info = info + "\n";
         ta.setText(info);

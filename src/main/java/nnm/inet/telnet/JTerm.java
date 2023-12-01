@@ -47,7 +47,7 @@ public class JTerm {
         port=selectedPort;
 
         final JFrame frame = new JFrame("Telnet-client:  connect to IP-address=" + server + ", port=" + port);
-        frame.setSize(400,400);
+        frame.setSize(640,640);
         //NetworkManagerGUI.imageURL = NetworkManagerGUI.class.getResource("icons/nw.gif");
 
         //ImageIcon icon = new ImageIcon(NetworkManagerGUI.imageURL );
