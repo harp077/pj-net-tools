@@ -46,6 +46,7 @@ import static my.harp07.icmp.PjPingFlood.floodTIMEOUTS;
 import static my.harp07.icmp.PjPingScanner.arrayUpDown;
 import static my.harp07.icmp.PjPingScanner.scannerCIDRS_MASKS;
 import static my.harp07.icmp.PjPingScanner.scannerTIMEOUTS;
+import my.harp07.tcp.FTPServer;
 import my.harp07.tcp.PingTCP;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -62,7 +63,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.92, build 01-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.93, build 03-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -455,6 +456,18 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveTcpPing = new javax.swing.JButton();
         jSeparator87 = new javax.swing.JToolBar.Separator();
         btnTcpPingClear = new javax.swing.JButton();
+        jScrollPane33 = new javax.swing.JScrollPane();
+        jPanel17 = new javax.swing.JPanel();
+        jScrollPane34 = new javax.swing.JScrollPane();
+        taFtpResult = new javax.swing.JTextArea();
+        jToolBar29 = new javax.swing.JToolBar();
+        jSeparator89 = new javax.swing.JToolBar.Separator();
+        btnBooleanFtp = new javax.swing.JToggleButton();
+        jSeparator90 = new javax.swing.JToolBar.Separator();
+        btnFtpSave = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        tfFtpFolder = new javax.swing.JTextField();
+        jSeparator91 = new javax.swing.JToolBar.Separator();
         jToolBar1 = new javax.swing.JToolBar();
         jSeparator33 = new javax.swing.JToolBar.Separator();
         btnUdpFlood = new javax.swing.JButton();
@@ -1597,6 +1610,61 @@ public class PjFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Host TCP-ping", new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ping-pong-16.png")), jScrollPane31); // NOI18N
 
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Anonymous FTP-Server on TCP/21"));
+        jPanel17.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane34.setBorder(javax.swing.BorderFactory.createTitledBorder("Received messages:"));
+
+        taFtpResult.setEditable(false);
+        taFtpResult.setColumns(20);
+        taFtpResult.setRows(5);
+        jScrollPane34.setViewportView(taFtpResult);
+
+        jPanel17.add(jScrollPane34, java.awt.BorderLayout.CENTER);
+
+        jToolBar29.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar29.setFloatable(false);
+        jToolBar29.add(jSeparator89);
+
+        btnBooleanFtp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnBooleanFtp.setText("Run FTP-server ");
+        btnBooleanFtp.setFocusable(false);
+        btnBooleanFtp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnBooleanFtp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBooleanFtp.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                btnBooleanFtpItemStateChanged(evt);
+            }
+        });
+        jToolBar29.add(btnBooleanFtp);
+        jToolBar29.add(jSeparator90);
+
+        btnFtpSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/folder-green-16.png"))); // NOI18N
+        btnFtpSave.setText("Folder ");
+        btnFtpSave.setFocusable(false);
+        btnFtpSave.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnFtpSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnFtpSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFtpSaveActionPerformed(evt);
+            }
+        });
+        jToolBar29.add(btnFtpSave);
+
+        jLabel27.setText(" = ");
+        jToolBar29.add(jLabel27);
+
+        tfFtpFolder.setEditable(false);
+        tfFtpFolder.setText("/tmp");
+        jToolBar29.add(tfFtpFolder);
+        jToolBar29.add(jSeparator91);
+
+        jPanel17.add(jToolBar29, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane33.setViewportView(jPanel17);
+
+        jTabbedPane1.addTab("FTP-server", new javax.swing.ImageIcon(getClass().getResource("/img/ftp-16.png")), jScrollPane33); // NOI18N
+
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         jToolBar1.setFloatable(false);
@@ -2041,6 +2109,36 @@ public class PjFrame extends javax.swing.JFrame {
         taPingTCPout.setText("");
     }//GEN-LAST:event_btnTcpPingClearActionPerformed
 
+    private void btnBooleanFtpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanFtpItemStateChanged
+        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            btnBooleanFtp.setText("Stop FTP-server ");
+            btnBooleanFtp.setIcon(iconOf);
+            btnFtpSave.setEnabled(false);
+            new Thread(() -> {
+                FTPServer.go();
+            }).start();            
+        } else if (evt.getStateChange() == ItemEvent.DESELECTED) {
+            btnBooleanFtp.setText("Run FTP-server ");
+            btnBooleanFtp.setIcon(iconOn);
+            btnFtpSave.setEnabled(true);
+            FTPServer.stop();
+        }
+    }//GEN-LAST:event_btnBooleanFtpItemStateChanged
+
+    private void btnFtpSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFtpSaveActionPerformed
+        JFileChooser myd = new JFileChooser();
+        myd.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        switch (myd.showDialog(frame, "Select Folder")) {
+            case JFileChooser.APPROVE_OPTION:
+                tfFtpFolder.setText(myd.getSelectedFile().getPath());
+                break;
+            case JFileChooser.CANCEL_OPTION:
+                break;
+        }//switch
+    }//GEN-LAST:event_btnFtpSaveActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             //FlatLightLaf.setup();
@@ -2061,7 +2159,7 @@ public class PjFrame extends javax.swing.JFrame {
             //frame.setResizable(false);
             PjLocal.runLocalInfo(taLocalResult);
             //PjSnmpOidHelp.runSnmpHelp(taSnmpOidHelp);
-            frame.setLocation(211, 211);
+            frame.setLocation(222, 222);
             frame.setVisible(true);
             System.out.println("Main Thead = " + Thread.currentThread().getName());
             mrtgThread = new Thread(() -> ClientMRTG.runMRTG());
@@ -2074,6 +2172,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JButton btnArpALL;
     private javax.swing.JButton btnArpReset;
     public javax.swing.JButton btnArpRun;
+    public static javax.swing.JToggleButton btnBooleanFtp;
     public static javax.swing.JToggleButton btnBooleanNtp;
     public static javax.swing.JToggleButton btnBooleanPingFlood;
     public static javax.swing.JToggleButton btnBooleanSyslog;
@@ -2082,6 +2181,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCalcRun;
     private javax.swing.JButton btnDnsReset;
     private javax.swing.JButton btnDnsRun;
+    public static javax.swing.JButton btnFtpSave;
     private javax.swing.JButton btnMRTG;
     public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;
@@ -2138,6 +2238,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2153,6 +2254,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2187,6 +2289,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane30;
     private javax.swing.JScrollPane jScrollPane31;
     private javax.swing.JScrollPane jScrollPane32;
+    private javax.swing.JScrollPane jScrollPane33;
+    private javax.swing.JScrollPane jScrollPane34;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -2280,7 +2384,10 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator86;
     private javax.swing.JToolBar.Separator jSeparator87;
     private javax.swing.JToolBar.Separator jSeparator88;
+    private javax.swing.JToolBar.Separator jSeparator89;
     private javax.swing.JToolBar.Separator jSeparator9;
+    private javax.swing.JToolBar.Separator jSeparator90;
+    private javax.swing.JToolBar.Separator jSeparator91;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar10;
@@ -2303,6 +2410,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar26;
     private javax.swing.JToolBar jToolBar27;
     private javax.swing.JToolBar jToolBar28;
+    private javax.swing.JToolBar jToolBar29;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar5;
@@ -2315,6 +2423,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taArpResult;
     public static javax.swing.JTextArea taCalcResult;
     public static javax.swing.JTextArea taDnsResult;
+    public static javax.swing.JTextArea taFtpResult;
     public static javax.swing.JTextArea taLocalResult;
     public static javax.swing.JTextArea taNtpResult;
     public static javax.swing.JTextArea taPingFloodResult;
@@ -2330,6 +2439,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextField tfArpInput;
     public static javax.swing.JTextField tfCalcInput;
     public static javax.swing.JTextField tfDnsInput;
+    public static javax.swing.JTextField tfFtpFolder;
     public static javax.swing.JTextField tfPingFloodIP;
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfPingScannerInput;
