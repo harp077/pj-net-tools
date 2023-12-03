@@ -33,11 +33,11 @@ public class PjSyslog {
         }
         try {
             sd = new DatagramSocket(port);
-            ta.append("udp-port " + port + " was free and START listen\n");
-            ta.append("Service syslog START on udp-port " + port + ", potok = " + Thread.currentThread().getName() + " start\n");
+            ta.append("\nUDP-port " + port + " was free and START listen");
+            ta.append("\nService syslog START on udp-port " + port + ", potok = " + Thread.currentThread().getName() + " start\n");
         } catch (SocketException e) {
             frame.btnBooleanSyslog.setSelected(false);
-            ta.append("Can't start listening: " + e.getMessage()+"\n");
+            ta.append("\nException - can't start listening: " + e.getMessage()+"\n");
             //System.out.println("\nCan't start listening: " + e.getMessage());
             if (sd != null) {
                 sd.close();

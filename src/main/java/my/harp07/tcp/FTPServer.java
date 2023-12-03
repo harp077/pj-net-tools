@@ -3,6 +3,10 @@ package my.harp07.tcp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import static my.harp07.PjFrame.btnBooleanFtp;
+import static my.harp07.PjFrame.btnFtpSave;
+import static my.harp07.PjFrame.iconOn;
 import static my.harp07.PjFrame.taFtpResult;
 import static my.harp07.PjFrame.tfFtpFolder;
 import org.apache.ftpserver.ConnectionConfig;
@@ -23,7 +27,7 @@ import org.apache.ftpserver.usermanager.impl.WritePermission;
 public class FTPServer {
 
     public static FtpServer server;
-    public static Boolean running = false;
+    //public static Boolean running = false;
     public static SimpleDateFormat sdtf = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
     public static int timeout=999;
     public static int maxLogins=11;
@@ -81,9 +85,14 @@ public class FTPServer {
             taFtpResult.append("\nWritable = true");
             taFtpResult.append("\nFolder = " + tfFtpFolder.getText());
             taFtpResult.append("\nFTP-server main thread = " + Thread.currentThread().getName());
-            running = true;
-        } catch (FtpServerConfigurationException | FtpException ff) {
-            taFtpResult.append("Exception at start FTP-server: " + ff.getMessage());
+            //running = true;
+        } catch (Exception ff) {
+            taFtpResult.setText("");
+            taFtpResult.append("\nException at start FTP-server: " + ff.getMessage());
+            taFtpResult.append("\nFTP-server stopped = " + server.isStopped());
+            btnBooleanFtp.setText("Run FTP-server ");
+            btnBooleanFtp.setIcon(iconOn);
+            btnFtpSave.setEnabled(true);            
         }
     }
 
@@ -91,11 +100,14 @@ public class FTPServer {
         try {
             server.stop();
             taFtpResult.setText("");
-            taFtpResult.append("\nServer running = " + !server.isStopped());
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(FTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            taFtpResult.append("\nFTP-server running = " + !server.isStopped());
+        } catch (Exception ff) {
+            //java.util.logging.Logger.getLogger(FTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            taFtpResult.setText("");
+            taFtpResult.append("\nException at stop FTP-server: " + ff.getMessage());
+            //taFtpResult.append("\nFTP-server stopped = " + server.isStopped());
         }
-        taFtpResult.append("\nServer shut down = " + server.isStopped());
+        taFtpResult.append("\nFTP-server stopped = " + server.isStopped());
     }
 
 }

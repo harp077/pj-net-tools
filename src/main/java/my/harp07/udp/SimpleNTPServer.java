@@ -8,6 +8,8 @@ import org.apache.commons.net.ntp.TimeStamp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import static my.harp07.PjFrame.btnBooleanNtp;
+import static my.harp07.PjFrame.iconOn;
 import static my.harp07.PjFrame.spinnerNTP;
 import static my.harp07.PjFrame.taNtpResult;
 
@@ -85,9 +87,9 @@ public class SimpleNTPServer implements Runnable {
             if (port == 0) {
                 port = socket.getLocalPort();
             }
-            System.out.println("NTP-server running on port " + port + "/UDP");
+            //System.out.println("NTP-server running on port " + port + "/UDP");
             taNtpResult.setText("");
-            taNtpResult.append("NTP-server running on port " + port + "/UDP\n");
+            taNtpResult.append("\nNTP-server running on port " + port + "/UDP\n");
             taNtpResult.append("NTP-server thread = " + Thread.currentThread().getName() + "\n");
         }
     }
@@ -192,8 +194,12 @@ public class SimpleNTPServer implements Runnable {
         final SimpleNTPServer timeServer = new SimpleNTPServer(port);
         try {
             timeServer.start();
-        } catch (final IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            taNtpResult.append("\nException at start server = " + e.getMessage());
+            btnBooleanNtp.setText("Run NTP-server ");
+            btnBooleanNtp.setIcon(iconOn);
+            spinnerNTP.setEnabled(true);            
+            //e.printStackTrace();
         }
     }
     

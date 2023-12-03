@@ -18,6 +18,9 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import static my.harp07.PjFrame.btnBooleanTftp;
+import static my.harp07.PjFrame.btnTftpSave;
+import static my.harp07.PjFrame.iconOn;
 import static my.harp07.PjFrame.taTftpResult;
 import static my.harp07.PjFrame.tfTftpFolder;
 import org.apache.commons.net.io.FromNetASCIIOutputStream;
@@ -762,50 +765,41 @@ public class TFTPServer implements Runnable {
     }
 
     public static void go() {
-        /*if (args.length != 1) {
-            System.out.println("You must provide 1 argument - the base path for the server to serve from.");
-            System.exit(1);
-        }*/
-
         //TFTPServer ts;
         try {
             ts = new TFTPServer(new File(tfTftpFolder.getText()), new File(tfTftpFolder.getText()), ServerMode.GET_AND_PUT);
             ts.setSocketTimeout(2000);
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        jul.log(Level.INFO, "Fully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
-        taTftpResult.setText("");
-        taTftpResult.append("Fully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
-        taTftpResult.append("\nserver port = " + ts.port_);
-        taTftpResult.append("\nserver mode = " + ts.mode_);
-        taTftpResult.append("\nserver read-folder = " + ts.serverReadDirectory_);
-        taTftpResult.append("\nserver write-folder = " + ts.serverWriteDirectory_);
-        taTftpResult.append("\nserver main-thread name = " + ts.serverThread.getName());
-        //new InputStreamReader(System.in).read();
-        //Scanner sc = new Scanner(System.in);
-        /*new Thread(() -> {
-            while (true) {
-                    if (btnTftpSave.isEnabled()) {
-                    ts.shutdown();
-                    jul.log(Level.INFO, "Server shut down.");
-                    taTftpResult.append("\nServer shut down.");
-                    //System.exit(0);
-                }
-            }
-        }).start();*/
+            jul.log(Level.INFO, "Fully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
+            taTftpResult.setText("");
+            taTftpResult.append("\nFully multi-threaded TFTP Server running, folder = " + tfTftpFolder.getText());
+            taTftpResult.append("\nserver port = " + ts.port_);
+            taTftpResult.append("\nserver mode = " + ts.mode_);
+            taTftpResult.append("\nserver read-folder = " + ts.serverReadDirectory_);
+            taTftpResult.append("\nserver write-folder = " + ts.serverWriteDirectory_);
+            taTftpResult.append("\nserver main-thread name = " + ts.serverThread.getName());
+        } catch (Exception ff) {
+            //java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            taTftpResult.setText("");
+            taTftpResult.append("\nException at start TFTP-server: " + ff.getMessage());
+            btnBooleanTftp.setText("Run TFTP-server ");
+            btnBooleanTftp.setIcon(iconOn);
+            btnTftpSave.setEnabled(true);            
+        }        
     }
     
     public static void stop() {
-        ts.shutdown();
         try {
-            taTftpResult.append("\nServer running = " + ts.isRunning());
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            ts.shutdown();
+            taTftpResult.setText("");
+            taTftpResult.append("\n\nServer running = " + ts.isRunning());
+            //ts=null;
+            //taTftpResult.append("\nServer shut down.");            
+        } catch (Exception ff) {
+            //java.util.logging.Logger.getLogger(TFTPServer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            taTftpResult.setText("");
+            taTftpResult.append("\nException at stop TFTP-server: " + ff.getMessage()); 
+            ts=null;
         }
-        ts=null;
-        taTftpResult.append("\nServer shut down.");
     }
 
 }

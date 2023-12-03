@@ -20,7 +20,7 @@ Include:
 14) NTP-server.
 15) Host TCP-ping.
 16) SNMP-MRTG traffic monitor.
-17. Anonymous FTP-server.
+17) Anonymous FTP-server.
 
 Need JRE-1.8:
 

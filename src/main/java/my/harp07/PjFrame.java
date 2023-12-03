@@ -58,12 +58,14 @@ public class PjFrame extends javax.swing.JFrame {
     public static Thread mrtgThread;
     public static int FW = 960;
     public static int FH = 600;
+    public static ImageIcon iconOn = new ImageIcon(PjFrame.class.getResource("/img/go-green-krug-16.png"));
+    public static ImageIcon iconOf = new ImageIcon(PjFrame.class.getResource("/img/stop-16.png"));
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.93, build 03-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.94, build 03-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -118,7 +120,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static void InstallLF() {
         MyInstLF("de.muntjak.tinylookandfeel.TinyLookAndFeel");
         MyInstLF("javax.swing.plaf.metal.MetalLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
+        /*MyInstLF("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceAutumnLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCremeCoffeeLookAndFeel");
@@ -143,7 +145,7 @@ public class PjFrame extends javax.swing.JFrame {
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceBusinessLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceMarinerLookAndFeel");
         MyInstLF("org.pushingpixels.substance.api.skin.SubstanceCeruleanLookAndFeel");
-        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");
+        MyInstLF("org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel");*/
         //
         /*MyInstLF("com.jtattoo.plaf.acryl.AcrylLookAndFeel"); 
         MyInstLF("com.jtattoo.plaf.aero.AeroLookAndFeel");
@@ -1794,8 +1796,8 @@ public class PjFrame extends javax.swing.JFrame {
             btnBooleanSyslog.setSelected(false);
             return;
         }        
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
-        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             PjSyslog.go(taSyslogResult);
             btnBooleanSyslog.setText("Stop syslog-server ");
@@ -2013,8 +2015,8 @@ public class PjFrame extends javax.swing.JFrame {
             btnBooleanPingFlood.setSelected(false);
             return;
         }
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
-        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             PjPingFlood.go(taPingFloodResult);
             btnBooleanPingFlood.setText("Stop Ping Flood ");
@@ -2038,8 +2040,8 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUdpFloodActionPerformed
 
     private void btnBooleanTftpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanTftpItemStateChanged
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
-        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             btnBooleanTftp.setText("Stop TFTP-server ");
             btnBooleanTftp.setIcon(iconOf);
@@ -2073,8 +2075,8 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTftpSaveActionPerformed
 
     private void btnBooleanNtpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanNtpItemStateChanged
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
-        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             btnBooleanNtp.setText("Stop NTP-server ");
             btnBooleanNtp.setIcon(iconOf);
@@ -2110,8 +2112,8 @@ public class PjFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTcpPingClearActionPerformed
 
     private void btnBooleanFtpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanFtpItemStateChanged
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
-        ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
+        //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             btnBooleanFtp.setText("Stop FTP-server ");
             btnBooleanFtp.setIcon(iconOf);
