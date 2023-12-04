@@ -65,7 +65,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "lib/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.94, build 03-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.95, build 04-12-2023";
 
     public PjFrame() {
         initComponents();

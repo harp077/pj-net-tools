@@ -8,6 +8,7 @@ import java.util.Enumeration;
 import javax.swing.JTextArea;
 import org.apache.commons.lang3.StringUtils;
 import org.xbill.DNS.ResolverConfig;
+//import sun.net.dns.ResolverConfiguration;
 
 public class PjLocal {
 
@@ -47,13 +48,20 @@ public class PjLocal {
                 }
                 j++;
             }
-        } catch (SocketException | NullPointerException ex) {
+        } catch (Exception ex) {
             //Logger.getLogger(CdiSysInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
         info = info + "-----------\nLocal DNS-servers:\n";
-        Arrays.asList(ResolverConfig.getCurrentConfig().servers())
+        // throw NullPointerException !!!
+        try {
+            //Arrays.asList(ResolverConfiguration.open().nameservers())
+            ResolverConfig.getCurrentConfig().servers()
                 .stream()
                 .forEach(x -> info = info + x + "\n");
+            //System.out.println(ResolverConfig.getCurrentConfig().servers());
+        } catch (Exception ee) {
+            info = info + "no DNS-servers\n";
+        }
         info = info + "\n";
         ta.setText(info);
     }

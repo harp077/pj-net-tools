@@ -31,7 +31,7 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
         ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());        
         this.setSize(350, 280);
-        this.setLocation(222, 222);
+        this.setLocation(333, 333);
     }
     
     private void initSourceAddress() throws SocketException {
