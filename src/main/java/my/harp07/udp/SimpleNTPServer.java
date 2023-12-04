@@ -186,7 +186,8 @@ public class SimpleNTPServer implements Runnable {
             socket = null;
         }
         started = false;
-        taNtpResult.append("NTP-server stopped\n");
+        taNtpResult.setText("");
+        taNtpResult.append("\nNTP-server stopped\n");
     }
     
     public static void go() {

@@ -18,6 +18,7 @@ import java.awt.Image;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -63,9 +64,9 @@ public class PjFrame extends javax.swing.JFrame {
     public static List<String> lookAndFeelsDisplay = new ArrayList<>();
     public static List<String> lookAndFeelsRealNames = new ArrayList<>();
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
-    public static String currentTheme = "lib/themes/Default.theme";
+    public static String currentTheme = "/themes/Default.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.95, build 04-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.96, build 04-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -164,7 +165,11 @@ public class PjFrame extends javax.swing.JFrame {
 
     public static void setLF() {
         if (currentLAF.contains("tinyl")) {
-            de.muntjak.tinylookandfeel.Theme.loadTheme(new File(currentTheme));
+            try {
+                de.muntjak.tinylookandfeel.Theme.loadTheme(new File(PjFrame.class.getResource(currentTheme).toURI()));
+            } catch (Exception ex) {
+                Logger.getLogger(PjFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         try {
             UIManager.setLookAndFeel(currentLAF);
@@ -2022,14 +2027,14 @@ public class PjFrame extends javax.swing.JFrame {
             btnBooleanPingFlood.setText("Stop Ping Flood ");
             btnBooleanPingFlood.setIcon(iconOf);
             tfPingFloodIP.setEnabled(false);//.setEditable(false);
-            btnUdpFlood.setEnabled(false);
+            //btnUdpFlood.setEnabled(false);
             System.out.println("button is selected");
         } else if (evt.getStateChange() == ItemEvent.DESELECTED) {
             PjPingFlood.stop();
             btnBooleanPingFlood.setText("Run Ping Flood ");
             btnBooleanPingFlood.setIcon(iconOn);
             tfPingFloodIP.setEnabled(true);//.setEditable(true);
-            btnUdpFlood.setEnabled(true);
+            //btnUdpFlood.setEnabled(true);
             System.out.println("button is not selected");
         }
     }//GEN-LAST:event_btnBooleanPingFloodItemStateChanged

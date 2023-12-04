@@ -31,6 +31,7 @@ public class PjPingFlood {
         for (int j = 1; j < 1111; j++) {
             chm.put(j, ip);
         }
+        run = System.currentTimeMillis();
         new Thread(() -> {
             ta.append("start ping-flood thread = "+Thread.currentThread().getName()+"\nPPS = Packets Per Second\n");
             while (pingFloodEnabled) {
@@ -72,7 +73,7 @@ public class PjPingFlood {
         ip = frame.tfPingFloodIP.getText().trim();
         System.out.println("ip = " + ip);
         pingFloodEnabled = true;
-        run = System.currentTimeMillis();
+        //run = System.currentTimeMillis();
         time=Integer.parseInt(frame.comboPingFloodTimeouts.getSelectedItem().toString());
         ta.append("use timeout = "+time + " msec\n");
         runPingFlood(frame.tfPingFloodIP.getText().trim(), time, ta);
