@@ -154,7 +154,7 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
         getContentPane().add(S_streamSpeed);
         S_streamSpeed.setBounds(170, 100, 80, 20);
 
-        jtb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/get-16.png"))); // NOI18N
+        jtb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
         jtb.setText("Run");
         jtb.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -180,7 +180,7 @@ public class JPacketGeneratorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CB_srcAddressesActionPerformed
 
     private void jtbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jtbItemStateChanged
-        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
+        ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/go-green-krug-16.png"));
         ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             jtb.setText("Stop ");

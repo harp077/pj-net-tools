@@ -152,7 +152,7 @@
     <Component class="javax.swing.JToggleButton" name="jtb">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/get-16.png"/>
+          <Image iconType="3" name="/img/go-green-krug-16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Run"/>
       </Properties>
