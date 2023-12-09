@@ -41,13 +41,14 @@ import javax.swing.event.HyperlinkListener;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.PjCalc.CIDRS_MASKS;
-import static my.harp07.icmp.PjPing.COUNTS;
-import static my.harp07.icmp.PjPing.TIMEOUTS;
+//import static my.harp07.icmp.PjPing.COUNTS;
+//import static my.harp07.icmp.PjPing.TIMEOUTS;
 import static my.harp07.icmp.PjPingFlood.floodTIMEOUTS;
-import static my.harp07.icmp.PjPingScanner.arrayUpDown;
-import static my.harp07.icmp.PjPingScanner.scannerCIDRS_MASKS;
-import static my.harp07.icmp.PjPingScanner.scannerTIMEOUTS;
+//import static my.harp07.icmp.PjPingScanner.arrayUpDown;
+//import static my.harp07.icmp.PjPingScanner.scannerCIDRS_MASKS;
+//import static my.harp07.icmp.PjPingScanner.scannerTIMEOUTS;
 import my.harp07.tcp.FTPServer;
+import my.harp07.tcp.NetTcpScanner;
 import my.harp07.tcp.PingTCP;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -66,18 +67,25 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "/themes/Golden.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.98, build 09-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.99, build 09-12-2023";
 
     public PjFrame() {
         initComponents();
         this.setTitle(zagolovok);
-        this.comboPingCounts.setModel(new javax.swing.DefaultComboBoxModel(COUNTS));
-        this.comboPingTimeouts.setModel(new javax.swing.DefaultComboBoxModel(TIMEOUTS));
+        this.comboPingCounts.setModel(new javax.swing.DefaultComboBoxModel(PjPing.COUNTS));
+        this.comboPingTimeouts.setModel(new javax.swing.DefaultComboBoxModel(PjPing.TIMEOUTS));
+        //
         this.comboPingFloodTimeouts.setModel(new javax.swing.DefaultComboBoxModel(floodTIMEOUTS));
         this.comboCalcMasks.setModel(new javax.swing.DefaultComboBoxModel(CIDRS_MASKS));
-        this.comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(scannerTIMEOUTS));
-        this.comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(scannerCIDRS_MASKS));
-        this.comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel(arrayUpDown));
+        //
+        this.comboPingScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(PjPingScanner.scannerTIMEOUTS));
+        this.comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(PjPingScanner.scannerCIDRS_MASKS));
+        this.comboPingScannerShow.setModel(new javax.swing.DefaultComboBoxModel(PjPingScanner.arrayUpDown));
+        //
+        this.comboNetTcpScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel(NetTcpScanner.scannerTIMEOUTS));
+        this.comboNetTcpScannerMasks.setModel(new javax.swing.DefaultComboBoxModel(NetTcpScanner.scannerCIDRS_MASKS));
+        this.comboNetTcpScannerShow.setModel(new javax.swing.DefaultComboBoxModel(NetTcpScanner.arrayUpDown));  
+        //
         this.comboSnmpVersion.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1", "2c"}));
         ImageIcon icone = new ImageIcon(getClass().getResource("/FrameIcon-3.png"));
         this.setIconImage(icone.getImage());
@@ -275,7 +283,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator55 = new javax.swing.JToolBar.Separator();
         btnPingScannerSave = new javax.swing.JButton();
         jSeparator56 = new javax.swing.JToolBar.Separator();
-        btnPingScannerClear = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -313,6 +320,32 @@ public class PjFrame extends javax.swing.JFrame {
         btnSaveTcpPing = new javax.swing.JButton();
         jSeparator87 = new javax.swing.JToolBar.Separator();
         btnTcpPingClear = new javax.swing.JButton();
+        jScrollPane35 = new javax.swing.JScrollPane();
+        jPanel18 = new javax.swing.JPanel();
+        jScrollPane36 = new javax.swing.JScrollPane();
+        taNetTcpScannerResult = new javax.swing.JTextArea();
+        jToolBar30 = new javax.swing.JToolBar();
+        jLabel28 = new javax.swing.JLabel();
+        tfNetTcpScannerIP = new javax.swing.JTextField();
+        jSeparator76 = new javax.swing.JToolBar.Separator();
+        jLabel29 = new javax.swing.JLabel();
+        comboNetTcpScannerMasks = new javax.swing.JComboBox<>();
+        jSeparator92 = new javax.swing.JToolBar.Separator();
+        jLabel32 = new javax.swing.JLabel();
+        tfNetTcpScannerPort = new javax.swing.JTextField();
+        jSeparator33 = new javax.swing.JToolBar.Separator();
+        jLabel30 = new javax.swing.JLabel();
+        comboNetTcpScannerTimeouts = new javax.swing.JComboBox<>();
+        jSeparator93 = new javax.swing.JToolBar.Separator();
+        jLabel31 = new javax.swing.JLabel();
+        comboNetTcpScannerShow = new javax.swing.JComboBox<>();
+        jSeparator35 = new javax.swing.JToolBar.Separator();
+        jToolBar31 = new javax.swing.JToolBar();
+        jSeparator95 = new javax.swing.JToolBar.Separator();
+        btnNetTcpScannerRun = new javax.swing.JButton();
+        jSeparator96 = new javax.swing.JToolBar.Separator();
+        btnNetTcpScannerSave = new javax.swing.JButton();
+        jSeparator97 = new javax.swing.JToolBar.Separator();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -723,14 +756,8 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar19.setFloatable(false);
         jToolBar19.add(jSeparator51);
 
-        jLabel13.setText("Enter IP-address: ");
+        jLabel13.setText("Network IP-address: ");
         jToolBar19.add(jLabel13);
-
-        tfPingScannerInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfPingScannerInputKeyPressed(evt);
-            }
-        });
         jToolBar19.add(tfPingScannerInput);
         jToolBar19.add(jSeparator52);
 
@@ -791,18 +818,6 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar20.add(btnPingScannerSave);
         jToolBar20.add(jSeparator56);
-
-        btnPingScannerClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnPingScannerClear.setText("Clear ");
-        btnPingScannerClear.setFocusable(false);
-        btnPingScannerClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPingScannerClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPingScannerClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPingScannerClearActionPerformed(evt);
-            }
-        });
-        jToolBar20.add(btnPingScannerClear);
 
         jPanel10.add(jToolBar20, java.awt.BorderLayout.SOUTH);
 
@@ -962,6 +977,99 @@ public class PjFrame extends javax.swing.JFrame {
         jScrollPane31.setViewportView(jPanel16);
 
         jTabbedPane1.addTab("Host TCP-ping", new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ping-pong-16.png")), jScrollPane31); // NOI18N
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Network TCP-scanner"));
+        jPanel18.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane36.setBorder(javax.swing.BorderFactory.createTitledBorder("Result:"));
+
+        taNetTcpScannerResult.setEditable(false);
+        taNetTcpScannerResult.setColumns(20);
+        taNetTcpScannerResult.setRows(5);
+        jScrollPane36.setViewportView(taNetTcpScannerResult);
+
+        jPanel18.add(jScrollPane36, java.awt.BorderLayout.CENTER);
+
+        jToolBar30.setBorder(javax.swing.BorderFactory.createTitledBorder("Input:"));
+        jToolBar30.setFloatable(false);
+
+        jLabel28.setText(" Network IP: ");
+        jToolBar30.add(jLabel28);
+        jToolBar30.add(tfNetTcpScannerIP);
+        jToolBar30.add(jSeparator76);
+
+        jLabel29.setText("Prefix/Mask: ");
+        jToolBar30.add(jLabel29);
+
+        comboNetTcpScannerMasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jToolBar30.add(comboNetTcpScannerMasks);
+        jToolBar30.add(jSeparator92);
+
+        jLabel32.setText(" TCP-port: ");
+        jToolBar30.add(jLabel32);
+
+        tfNetTcpScannerPort.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tfNetTcpScannerPort.setText("80");
+        jToolBar30.add(tfNetTcpScannerPort);
+        jToolBar30.add(jSeparator33);
+
+        jLabel30.setText("TimeOut, ms: ");
+        jToolBar30.add(jLabel30);
+
+        comboNetTcpScannerTimeouts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "111", "222" }));
+        jToolBar30.add(comboNetTcpScannerTimeouts);
+        jToolBar30.add(jSeparator93);
+
+        jLabel31.setText("Show: ");
+        jToolBar30.add(jLabel31);
+
+        comboNetTcpScannerShow.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboNetTcpScannerShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNetTcpScannerShowActionPerformed(evt);
+            }
+        });
+        jToolBar30.add(comboNetTcpScannerShow);
+        jToolBar30.add(jSeparator35);
+
+        jPanel18.add(jToolBar30, java.awt.BorderLayout.NORTH);
+
+        jToolBar31.setBorder(javax.swing.BorderFactory.createTitledBorder("actions:"));
+        jToolBar31.setFloatable(false);
+        jToolBar31.add(jSeparator95);
+
+        btnNetTcpScannerRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/go-green-krug-16.png"))); // NOI18N
+        btnNetTcpScannerRun.setText("Run Network TCP-scanner");
+        btnNetTcpScannerRun.setActionCommand("Run Network TCP-scanner ");
+        btnNetTcpScannerRun.setFocusable(false);
+        btnNetTcpScannerRun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnNetTcpScannerRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNetTcpScannerRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNetTcpScannerRunActionPerformed(evt);
+            }
+        });
+        jToolBar31.add(btnNetTcpScannerRun);
+        jToolBar31.add(jSeparator96);
+
+        btnNetTcpScannerSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save-16.png"))); // NOI18N
+        btnNetTcpScannerSave.setText("Save Result ");
+        btnNetTcpScannerSave.setFocusable(false);
+        btnNetTcpScannerSave.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnNetTcpScannerSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNetTcpScannerSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNetTcpScannerSaveActionPerformed(evt);
+            }
+        });
+        jToolBar31.add(btnNetTcpScannerSave);
+        jToolBar31.add(jSeparator97);
+
+        jPanel18.add(jToolBar31, java.awt.BorderLayout.SOUTH);
+
+        jScrollPane35.setViewportView(jPanel18);
+
+        jTabbedPane1.addTab("Network TCP-scanner", new javax.swing.ImageIcon(getClass().getResource("/img/scan_16.png")), jScrollPane35); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("IP-calculator"));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -1878,13 +1986,6 @@ public class PjFrame extends javax.swing.JFrame {
         PjArp.runArpAll(taArpResult);
     }//GEN-LAST:event_btnArpALLActionPerformed
 
-    private void tfPingScannerInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPingScannerInputKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            //taPingScannerResult.setText("Please Wait !");
-            PjPingScanner.runGetResult(tfPingScannerInput, comboPingScannerMasks, taPingScannerResult);
-        }
-    }//GEN-LAST:event_tfPingScannerInputKeyPressed
-
     private void btnPingScannerRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPingScannerRunActionPerformed
         //taPingScannerResult.setText("Please Wait !");
         PjPingScanner.runGetResult(tfPingScannerInput, comboPingScannerMasks, taPingScannerResult);
@@ -1893,11 +1994,6 @@ public class PjFrame extends javax.swing.JFrame {
     private void btnPingScannerSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPingScannerSaveActionPerformed
         PjSaveResult.Save(taPingScannerResult);
     }//GEN-LAST:event_btnPingScannerSaveActionPerformed
-
-    private void btnPingScannerClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPingScannerClearActionPerformed
-        tfPingScannerInput.setText("");
-        taPingScannerResult.setText("");
-    }//GEN-LAST:event_btnPingScannerClearActionPerformed
 
     private void comboPingScannerShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPingScannerShowActionPerformed
         switch (comboPingScannerShow.getSelectedItem().toString()) {
@@ -2130,6 +2226,28 @@ public class PjFrame extends javax.swing.JFrame {
         }//switch
     }//GEN-LAST:event_btnFtpSaveActionPerformed
 
+    private void comboNetTcpScannerShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNetTcpScannerShowActionPerformed
+        switch (comboNetTcpScannerShow.getSelectedItem().toString()) {
+            case "ALL":
+                this.taNetTcpScannerResult.setText(NetTcpScanner.result);
+                break;
+            case "UP":
+                this.taNetTcpScannerResult.setText(NetTcpScanner.resultUP);
+                break;
+            case "DOWN":
+                this.taNetTcpScannerResult.setText(NetTcpScanner.resultDOWN);
+                break;
+        }        
+    }//GEN-LAST:event_comboNetTcpScannerShowActionPerformed
+
+    private void btnNetTcpScannerRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetTcpScannerRunActionPerformed
+        NetTcpScanner.runGetResult(tfNetTcpScannerIP, comboNetTcpScannerMasks, tfNetTcpScannerPort, taNetTcpScannerResult);
+    }//GEN-LAST:event_btnNetTcpScannerRunActionPerformed
+
+    private void btnNetTcpScannerSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetTcpScannerSaveActionPerformed
+        PjSaveResult.Save(taNetTcpScannerResult);
+    }//GEN-LAST:event_btnNetTcpScannerSaveActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             //FlatLightLaf.setup();
@@ -2174,9 +2292,10 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDnsRun;
     public static javax.swing.JButton btnFtpSave;
     private javax.swing.JButton btnMRTG;
+    public static javax.swing.JButton btnNetTcpScannerRun;
+    public static javax.swing.JButton btnNetTcpScannerSave;
     public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;
-    public static javax.swing.JButton btnPingScannerClear;
     public static javax.swing.JButton btnPingScannerRun;
     public static javax.swing.JButton btnPingScannerSave;
     private javax.swing.JButton btnSaveArp;
@@ -2202,6 +2321,9 @@ public class PjFrame extends javax.swing.JFrame {
     public javax.swing.JButton btnTraceRun;
     public static javax.swing.JButton btnUdpFlood;
     public static javax.swing.JComboBox<String> comboCalcMasks;
+    public static javax.swing.JComboBox<String> comboNetTcpScannerMasks;
+    public static javax.swing.JComboBox<String> comboNetTcpScannerShow;
+    public static javax.swing.JComboBox<String> comboNetTcpScannerTimeouts;
     public static javax.swing.JComboBox<String> comboPingCounts;
     public static javax.swing.JComboBox<String> comboPingFloodTimeouts;
     public static javax.swing.JComboBox<String> comboPingScannerMasks;
@@ -2230,7 +2352,12 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2246,6 +2373,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2282,6 +2410,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane32;
     private javax.swing.JScrollPane jScrollPane33;
     private javax.swing.JScrollPane jScrollPane34;
+    private javax.swing.JScrollPane jScrollPane35;
+    private javax.swing.JScrollPane jScrollPane36;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -2314,7 +2444,9 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator30;
     private javax.swing.JToolBar.Separator jSeparator31;
     private javax.swing.JToolBar.Separator jSeparator32;
+    private javax.swing.JToolBar.Separator jSeparator33;
     private javax.swing.JToolBar.Separator jSeparator34;
+    private javax.swing.JToolBar.Separator jSeparator35;
     private javax.swing.JToolBar.Separator jSeparator37;
     private javax.swing.JToolBar.Separator jSeparator38;
     private javax.swing.JToolBar.Separator jSeparator39;
@@ -2357,6 +2489,7 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator73;
     private javax.swing.JToolBar.Separator jSeparator74;
     private javax.swing.JToolBar.Separator jSeparator75;
+    private javax.swing.JToolBar.Separator jSeparator76;
     private javax.swing.JToolBar.Separator jSeparator77;
     private javax.swing.JToolBar.Separator jSeparator78;
     private javax.swing.JToolBar.Separator jSeparator79;
@@ -2374,6 +2507,11 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JToolBar.Separator jSeparator90;
     private javax.swing.JToolBar.Separator jSeparator91;
+    private javax.swing.JToolBar.Separator jSeparator92;
+    private javax.swing.JToolBar.Separator jSeparator93;
+    private javax.swing.JToolBar.Separator jSeparator95;
+    private javax.swing.JToolBar.Separator jSeparator96;
+    private javax.swing.JToolBar.Separator jSeparator97;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar10;
@@ -2398,6 +2536,8 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar28;
     private javax.swing.JToolBar jToolBar29;
     private javax.swing.JToolBar jToolBar3;
+    private javax.swing.JToolBar jToolBar30;
+    private javax.swing.JToolBar jToolBar31;
     private javax.swing.JToolBar jToolBar4;
     private javax.swing.JToolBar jToolBar5;
     private javax.swing.JToolBar jToolBar6;
@@ -2411,6 +2551,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextArea taDnsResult;
     public static javax.swing.JTextArea taFtpResult;
     public static javax.swing.JTextArea taLocalResult;
+    public static javax.swing.JTextArea taNetTcpScannerResult;
     public static javax.swing.JTextArea taNtpResult;
     public static javax.swing.JTextArea taPingFloodResult;
     public static javax.swing.JTextArea taPingResult;
@@ -2426,6 +2567,8 @@ public class PjFrame extends javax.swing.JFrame {
     public static javax.swing.JTextField tfCalcInput;
     public static javax.swing.JTextField tfDnsInput;
     public static javax.swing.JTextField tfFtpFolder;
+    public static javax.swing.JTextField tfNetTcpScannerIP;
+    public static javax.swing.JTextField tfNetTcpScannerPort;
     public static javax.swing.JTextField tfPingFloodIP;
     public static javax.swing.JTextField tfPingInput;
     public static javax.swing.JTextField tfPingScannerInput;

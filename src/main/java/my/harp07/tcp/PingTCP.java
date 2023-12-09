@@ -19,12 +19,12 @@ public class PingTCP {
     public static final int timeoutTCP = 500; // ms
     private static String scaner_txt = " ";
 
-    public static ModelPing pingTCP(String ip, int port) {
+    public static ModelPing pingTCP(String ip, int port, int timeout) {
         long start = System.currentTimeMillis();
         ModelPing mpt = new ModelPing();
         try (Socket scanTcpSocket = new Socket()) {
             SocketAddress sockaddr = new InetSocketAddress(ip, port);
-            scanTcpSocket.connect(sockaddr, timeoutTCP);
+            scanTcpSocket.connect(sockaddr, timeout);
             // try-with-resources !!!
             //scanTcpSocket.close(); 
             long end = System.currentTimeMillis();
@@ -34,7 +34,7 @@ public class PingTCP {
             return mpt; //new ModelPingTCP(0.0 + port, 0.0 + end-start, "UP");//0.0+port;
             // Strongly Exception !!!!! - Ð¸Ð¼ÐµÐ½Ð½Ð¾ ÑÐ°Ðº !!!
         } catch (Exception ex) {
-            System.out.println("scanTCP method Exception: " + ip + ":" + port + ", exception = " + ex.getMessage());
+            //System.out.println("scanTCP method Exception: " + ip + ":" + port + ", exception = " + ex.getMessage());
             //ex.printStackTrace();
         }
         mpt.setPort(0.0);
@@ -48,7 +48,7 @@ public class PingTCP {
         scaner_txt = "Please, wait !";
         scaner_txt = "TCP-timeout = " + timeoutTCP + " ms\nTCP-ping for " + tfIp.getText().trim() + ":\n-------------\n\n";
         Arrays.asList(tfPorts.getText().split(",")).forEach(buferPort -> {
-            ModelPing mts = pingTCP(tfIp.getText().trim(), Integer.parseInt(buferPort.trim()));
+            ModelPing mts = pingTCP(tfIp.getText().trim(), Integer.parseInt(buferPort.trim()), timeoutTCP);
             if (mts.getPort() > 0) {
                 scaner_txt = scaner_txt + buferPort + " = UP, response-time: " + mts.getTime() + " ms\n";
             } else {

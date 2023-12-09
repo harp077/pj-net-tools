@@ -1,25 +1,23 @@
-package my.harp07.icmp;
+package my.harp07.tcp;
 
 import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import my.harp07.PjFrame;
 import static my.harp07.GenericPJ.ipv;
-import static my.harp07.GenericPJ.pingIp;
-import static my.harp07.GenericPJ.ping_remark;
 import static my.harp07.GenericPJ.su;
 import static my.harp07.PjFrame.frame;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.net.util.SubnetUtils;
-import org.apache.commons.validator.routines.InetAddressValidator;
 
-public class PjPingScanner {
+public class NetTcpScanner {
 
-    private static int pingtimeout;
+    private static int timeoutTCP;
+    private static int port;
     public static volatile String result;
     public static volatile String resultUP;
     public static volatile String resultDOWN;
@@ -46,7 +44,10 @@ public class PjPingScanner {
     public static final String[] scannerTIMEOUTS = {
         "100",
         "200",
-        "300"
+        "300",
+        "400",
+        "500",
+        "900"
     };
 
     public static final String[] arrayUpDown = {
@@ -56,14 +57,13 @@ public class PjPingScanner {
     };
 
     public static void changeInterface(Boolean bbb) {
-        frame.btnPingScannerRun.setEnabled(bbb);
-        frame.btnPingScannerSave.setEnabled(bbb);
-        //frame.btnPingScannerClear.setEnabled(bbb);
-        //frame.taPingScannerResult.setEnabled(bbb);
-        frame.tfPingScannerInput.setEnabled(bbb);
-        frame.comboPingScannerShow.setEnabled(bbb);
-        frame.comboPingScannerMasks.setEnabled(bbb);
-        frame.comboPingScannerTimeouts.setEnabled(bbb);
+        frame.btnNetTcpScannerRun.setEnabled(bbb);
+        frame.btnNetTcpScannerSave.setEnabled(bbb);
+        frame.tfNetTcpScannerIP.setEnabled(bbb);
+        frame.comboNetTcpScannerShow.setEnabled(bbb);
+        frame.comboNetTcpScannerMasks.setEnabled(bbb);
+        frame.comboNetTcpScannerTimeouts.setEnabled(bbb);
+        frame.tfNetTcpScannerPort.setEnabled(bbb);
     }
 
     public static String getResult(String ipadr, JTextArea tap) {
@@ -71,7 +71,7 @@ public class PjPingScanner {
         su = new SubnetUtils(ipadr);
         //su=new SubnetUtils("10.73.2.111/23");
         //su=new SubnetUtils("10.73.2.111", "255.255.254.0");        
-        result = ping_remark + "\n Network IP-data:\n";
+        result = "\n Network IP-data:\n";
         result = result + "\n Low Address = " + su.getInfo().getLowAddress();
         result = result + "\n High Address = " + su.getInfo().getHighAddress();
         result = result + "\n Broadcast Address = " + su.getInfo().getBroadcastAddress();
@@ -80,35 +80,27 @@ public class PjPingScanner {
         result = result + "\n Host Addresses Count = " + su.getInfo().getAddressCountLong();
         result = result + "\n CIDR notation = " + su.getInfo().getCidrSignature();
         result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();
-        resultUP = result + "\n\n Ping-Scanner data for UP:\n\n";
-        resultDOWN = result + "\n\n Ping-Scanner data for DOWN:\n\n";
-        result = result + "\n\n Ping-Scanner data:\n\n";
-        pingtimeout = Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
-        //j = new AtomicInteger(1);
+        resultUP = result + "\n\n TCP-Scanner data for UP:\n\n";
+        resultDOWN = result + "\n\n TCP-Scanner data for DOWN:\n\n";
+        result = result + "\n\n TCP-Scanner data:\n\n";
+        timeoutTCP = Integer.parseInt(PjFrame.comboNetTcpScannerTimeouts.getSelectedItem().toString());
+        port = Integer.parseInt(PjFrame.tfNetTcpScannerPort.getText());
         hmresult.clear();
         hmresultUP.clear();
         hmresultDOWN.clear();
         Arrays.asList(su.getInfo().getAllAddresses())
                 .parallelStream()
-                //.stream()
                 .forEach(x -> {
-                    //synchronized (x) {
-                        if (pingIp(x, pingtimeout) || pingIp(x, pingtimeout)) {
-                            //result = result + j + ") " + x + " = UP\n";
-                            //resultUP = resultUP + j + ") " + x + " = UP\n";
-                            hmresult.put(x, "-> " + x + " = UP\n");
-                            hmresultUP.put(x, "-> " + x + " = UP\n");
-                            //j.getAndIncrement();//++;
-                        } else {
-                            //result = result + j + ") " + x + " = DOWN\n";
-                            //resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
-                            hmresult.put(x, "-> " + x + " = DOWN\n");
-                            hmresultDOWN.put(x, "-> " + x + " = DOWN\n");
-                            //j.getAndIncrement();//++;
-                        }
-                    //}
+                    ModelPing mp = PingTCP.pingTCP(x, port, timeoutTCP);
+                    if (mp.getPort() == port) {
+                        hmresult.put(x, "-> " + x + ", TCP-" + port + " = UP\n");
+                        hmresultUP.put(x, "-> " + x + ", TCP-" + port + " = UP\n");
+                    } else {
+                        hmresult.put(x, "-> " + x + ", TCP-" + port + " = DOWN\n");
+                        hmresultDOWN.put(x, "-> " + x + ", TCP-" + port + " = DOWN\n");
+                    }
                     synchronized (tap) {
-                        tap.setText("\nParallel check by small  2 ping for all IP.\n\n Please Wait !  ..........." + x);
+                        tap.setText("\nParallel check by TCP-ping for all IP.\n\n Please Wait !  ..........." + x);
                     }
                 });
         result = result + hmresult.values().toString();
@@ -118,17 +110,20 @@ public class PjPingScanner {
         return result;
     }
 
-    public static void runGetResult(JTextField ipq, JComboBox maskq, JTextArea ta) {
+    public static void runGetResult(JTextField ipq, JComboBox maskq, JTextField port, JTextArea ta) {
         String input = ipq.getText().trim() + maskq.getSelectedItem().toString().split("=")[0].trim();
-        //System.out.println(input);
         if (!ipv.isValid(ipq.getText().trim())) {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            //frame.taPingScannerResult.setText("Please Wait !");
-            frame.comboPingScannerShow.setSelectedItem("ALL");
-            ta.setText("\n Please Wait !");
-            new Thread(() -> ta.setText(getResult(input, ta))).start();
+            return;
         }
+        if (!NumberUtils.isParsable(port.getText())) {
+            JOptionPane.showMessageDialog(frame, "Wrong TCP-port !", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        frame.comboNetTcpScannerShow.setSelectedItem("ALL");
+        ta.setText("\n Please Wait !");
+        new Thread(() -> ta.setText(getResult(input, ta))).start();
+
     }
 
 }
