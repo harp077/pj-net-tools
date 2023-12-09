@@ -1,6 +1,8 @@
 package my.harp07.icmp;
 
 import java.util.Arrays;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -16,15 +18,21 @@ import org.apache.commons.net.util.SubnetUtils;
 import org.apache.commons.validator.routines.InetAddressValidator;
 
 public class PjPingScanner {
-    
+
     private static int pingtimeout;
-    public static String result;
-    public static String resultUP;
-    public static String resultDOWN;
-    private static int j=1;
+    public static volatile String result;
+    public static volatile String resultUP;
+    public static volatile String resultDOWN;
+    public static ConcurrentHashMap<String, String> hmresult = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, String> hmresultUP = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, String> hmresultDOWN = new ConcurrentHashMap<>();
+    //private static AtomicInteger j = new AtomicInteger(1);
 
     public static String[] scannerCIDRS_MASKS = {
-        //"/22=255.255.252.0",
+        "/19=255.255.224.0",
+        "/20=255.255.240.0",
+        "/21=255.255.248.0",
+        "/22=255.255.252.0",
         "/23=255.255.254.0",
         "/24=255.255.255.0",
         "/25=255.255.255.128",
@@ -34,23 +42,23 @@ public class PjPingScanner {
         "/29=255.255.255.248",
         "/30=255.255.255.252"
     };
-    
+
     public static final String[] scannerTIMEOUTS = {
         "100",
         "200",
         "300"
-    }; 
-    
+    };
+
     public static final String[] arrayUpDown = {
         "ALL",
         "UP",
         "DOWN"
-    };  
-    
+    };
+
     public static void changeInterface(Boolean bbb) {
         frame.btnPingScannerRun.setEnabled(bbb);
         frame.btnPingScannerSave.setEnabled(bbb);
-        frame.btnPingScannerClear.setEnabled(bbb);  
+        frame.btnPingScannerClear.setEnabled(bbb);
         //frame.taPingScannerResult.setEnabled(bbb);
         frame.tfPingScannerInput.setEnabled(bbb);
         frame.comboPingScannerShow.setEnabled(bbb);
@@ -65,33 +73,47 @@ public class PjPingScanner {
         //su=new SubnetUtils("10.73.2.111", "255.255.254.0");        
         result = ping_remark + "\n Network IP-data:\n";
         result = result + "\n Low Address = " + su.getInfo().getLowAddress();
-        result = result + "\n High Address = " + su.getInfo().getHighAddress();        
+        result = result + "\n High Address = " + su.getInfo().getHighAddress();
         result = result + "\n Broadcast Address = " + su.getInfo().getBroadcastAddress();
         //result = result + "\n Netmask = " + su.getInfo().getNetmask();
         result = result + "\n Network Address = " + su.getInfo().getNetworkAddress();
         result = result + "\n Host Addresses Count = " + su.getInfo().getAddressCountLong();
         result = result + "\n CIDR notation = " + su.getInfo().getCidrSignature();
-        result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();        
+        result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();
         resultUP = result + "\n\n Ping-Scanner data for UP:\n\n";
         resultDOWN = result + "\n\n Ping-Scanner data for DOWN:\n\n";
         result = result + "\n\n Ping-Scanner data:\n\n";
-        pingtimeout=Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
-        j=1;
+        pingtimeout = Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
+        //j = new AtomicInteger(1);
+        hmresult.clear();
+        hmresultUP.clear();
+        hmresultDOWN.clear();
         Arrays.asList(su.getInfo().getAllAddresses())
-                //.parallelStream()
-                .stream()
+                .parallelStream()
+                //.stream()
                 .forEach(x -> {
-                    if (pingIp(x, pingtimeout) || pingIp(x, pingtimeout)) {
-                        result = result + j + ") " + x + " = UP\n";
-                        resultUP = resultUP + j + ") " + x + " = UP\n";
-                        j++;
-                    } else {
-                        result = result + j + ") " + x + " = DOWN\n";
-                        resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
-                        j++;
+                    //synchronized (x) {
+                        if (pingIp(x, pingtimeout) || pingIp(x, pingtimeout)) {
+                            //result = result + j + ") " + x + " = UP\n";
+                            //resultUP = resultUP + j + ") " + x + " = UP\n";
+                            hmresult.put(x, "-> " + x + " = UP\n");
+                            hmresultUP.put(x, "-> " + x + " = UP\n");
+                            //j.getAndIncrement();//++;
+                        } else {
+                            //result = result + j + ") " + x + " = DOWN\n";
+                            //resultDOWN = resultDOWN + j +  ") " + x + " = DOWN\n";
+                            hmresult.put(x, "-> " + x + " = DOWN\n");
+                            hmresultDOWN.put(x, "-> " + x + " = DOWN\n");
+                            //j.getAndIncrement();//++;
+                        }
+                    //}
+                    synchronized (tap) {
+                        tap.setText("\nParallel check by small  2 ping for every IP.\n\n Please Wait !  ..........." + x);
                     }
-                    tap.setText(ping_remark + "\nCheck by small 2 ping for every IP.\n\n Please Wait !  ........" + j);
                 });
+        result = result + hmresult.values().toString();
+        resultUP = resultUP + hmresultUP.values().toString();
+        resultDOWN = resultDOWN + hmresultDOWN.values().toString();
         changeInterface(true);
         return result;
     }
@@ -105,7 +127,7 @@ public class PjPingScanner {
             //frame.taPingScannerResult.setText("Please Wait !");
             frame.comboPingScannerShow.setSelectedItem("ALL");
             ta.setText("\n Please Wait !");
-            new Thread(()->ta.setText(getResult(input,ta))).start();
+            new Thread(() -> ta.setText(getResult(input, ta))).start();
         }
     }
 

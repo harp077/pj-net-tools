@@ -66,7 +66,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "/themes/Golden.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.97, build 09-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.98, build 09-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -738,11 +738,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar19.add(jLabel14);
 
         comboPingScannerMasks.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboPingScannerMasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboPingScannerMasksActionPerformed(evt);
-            }
-        });
         jToolBar19.add(comboPingScannerMasks);
         jToolBar19.add(jSeparator53);
 
@@ -1889,10 +1884,6 @@ public class PjFrame extends javax.swing.JFrame {
             PjPingScanner.runGetResult(tfPingScannerInput, comboPingScannerMasks, taPingScannerResult);
         }
     }//GEN-LAST:event_tfPingScannerInputKeyPressed
-
-    private void comboPingScannerMasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPingScannerMasksActionPerformed
-        PjPingScanner.runGetResult(tfPingScannerInput, comboPingScannerMasks, taPingScannerResult);
-    }//GEN-LAST:event_comboPingScannerMasksActionPerformed
 
     private void btnPingScannerRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPingScannerRunActionPerformed
         //taPingScannerResult.setText("Please Wait !");
