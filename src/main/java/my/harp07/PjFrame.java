@@ -67,7 +67,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "/themes/Golden.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.99, build 09-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.100, build 09-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -229,7 +229,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JToolBar.Separator();
         btnSavePing = new javax.swing.JButton();
         jSeparator26 = new javax.swing.JToolBar.Separator();
-        btnPingReset = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -244,7 +243,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator39 = new javax.swing.JToolBar.Separator();
         btnSaveTrace = new javax.swing.JButton();
         jSeparator40 = new javax.swing.JToolBar.Separator();
-        btnTraceReset = new javax.swing.JButton();
         jScrollPane25 = new javax.swing.JScrollPane();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane26 = new javax.swing.JScrollPane();
@@ -299,7 +297,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JToolBar.Separator();
         btnSaveTcp = new javax.swing.JButton();
         jSeparator30 = new javax.swing.JToolBar.Separator();
-        btnTcpReset = new javax.swing.JButton();
         jScrollPane31 = new javax.swing.JScrollPane();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane32 = new javax.swing.JScrollPane();
@@ -319,7 +316,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator86 = new javax.swing.JToolBar.Separator();
         btnSaveTcpPing = new javax.swing.JButton();
         jSeparator87 = new javax.swing.JToolBar.Separator();
-        btnTcpPingClear = new javax.swing.JButton();
         jScrollPane35 = new javax.swing.JScrollPane();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane36 = new javax.swing.JScrollPane();
@@ -364,7 +360,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator16 = new javax.swing.JToolBar.Separator();
         btnSaveCalc = new javax.swing.JButton();
         jSeparator32 = new javax.swing.JToolBar.Separator();
-        btnCalcReset = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -381,7 +376,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator12 = new javax.swing.JToolBar.Separator();
         btnSaveDns = new javax.swing.JButton();
         jSeparator31 = new javax.swing.JToolBar.Separator();
-        btnDnsReset = new javax.swing.JButton();
         jScrollPane16 = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         jToolBar15 = new javax.swing.JToolBar();
@@ -415,7 +409,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator23 = new javax.swing.JToolBar.Separator();
         btnSaveArp = new javax.swing.JButton();
         jSeparator50 = new javax.swing.JToolBar.Separator();
-        btnArpReset = new javax.swing.JButton();
         jScrollPane21 = new javax.swing.JScrollPane();
         jPanel11 = new javax.swing.JPanel();
         jToolBar21 = new javax.swing.JToolBar();
@@ -436,8 +429,6 @@ public class PjFrame extends javax.swing.JFrame {
         jSeparator66 = new javax.swing.JToolBar.Separator();
         btnSnmpGet = new javax.swing.JButton();
         jSeparator69 = new javax.swing.JToolBar.Separator();
-        btnSnmpGetClear = new javax.swing.JButton();
-        jSeparator64 = new javax.swing.JToolBar.Separator();
         btnSnmpMibsAll = new javax.swing.JButton();
         jSeparator67 = new javax.swing.JToolBar.Separator();
         btnSnmpMibsStd = new javax.swing.JButton();
@@ -591,18 +582,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar3.add(btnSavePing);
         jToolBar3.add(jSeparator26);
 
-        btnPingReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnPingReset.setText("Clear ");
-        btnPingReset.setFocusable(false);
-        btnPingReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnPingReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPingReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPingResetActionPerformed(evt);
-            }
-        });
-        jToolBar3.add(btnPingReset);
-
         jPanel1.add(jToolBar3, java.awt.BorderLayout.SOUTH);
 
         jScrollPane1.setViewportView(jPanel1);
@@ -669,18 +648,6 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar14.add(btnSaveTrace);
         jToolBar14.add(jSeparator40);
-
-        btnTraceReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnTraceReset.setText("Clear  ");
-        btnTraceReset.setFocusable(false);
-        btnTraceReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnTraceReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnTraceReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTraceResetActionPerformed(evt);
-            }
-        });
-        jToolBar14.add(btnTraceReset);
 
         jPanel7.add(jToolBar14, java.awt.BorderLayout.SOUTH);
 
@@ -884,18 +851,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar6.add(btnSaveTcp);
         jToolBar6.add(jSeparator30);
 
-        btnTcpReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnTcpReset.setText("Clear ");
-        btnTcpReset.setFocusable(false);
-        btnTcpReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnTcpReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnTcpReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTcpResetActionPerformed(evt);
-            }
-        });
-        jToolBar6.add(btnTcpReset);
-
         jPanel2.add(jToolBar6, java.awt.BorderLayout.SOUTH);
 
         jScrollPane4.setViewportView(jPanel2);
@@ -959,18 +914,6 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar28.add(btnSaveTcpPing);
         jToolBar28.add(jSeparator87);
-
-        btnTcpPingClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnTcpPingClear.setText("Clear ");
-        btnTcpPingClear.setFocusable(false);
-        btnTcpPingClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnTcpPingClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnTcpPingClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTcpPingClearActionPerformed(evt);
-            }
-        });
-        jToolBar28.add(btnTcpPingClear);
 
         jPanel16.add(jToolBar28, java.awt.BorderLayout.SOUTH);
 
@@ -1069,7 +1012,7 @@ public class PjFrame extends javax.swing.JFrame {
 
         jScrollPane35.setViewportView(jPanel18);
 
-        jTabbedPane1.addTab("Network TCP-scanner", new javax.swing.ImageIcon(getClass().getResource("/img/scan_16.png")), jScrollPane35); // NOI18N
+        jTabbedPane1.addTab("Network TCP-scanner", new javax.swing.ImageIcon(getClass().getResource("/img/radar-16.png")), jScrollPane35); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("IP-calculator"));
         jPanel4.setLayout(new java.awt.BorderLayout());
@@ -1142,18 +1085,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar10.add(btnSaveCalc);
         jToolBar10.add(jSeparator32);
 
-        btnCalcReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnCalcReset.setText("Clear ");
-        btnCalcReset.setFocusable(false);
-        btnCalcReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnCalcReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnCalcReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcResetActionPerformed(evt);
-            }
-        });
-        jToolBar10.add(btnCalcReset);
-
         jPanel4.add(jToolBar10, java.awt.BorderLayout.SOUTH);
 
         jScrollPane3.setViewportView(jPanel4);
@@ -1219,18 +1150,6 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar8.add(btnSaveDns);
         jToolBar8.add(jSeparator31);
-
-        btnDnsReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnDnsReset.setText("Clear  ");
-        btnDnsReset.setFocusable(false);
-        btnDnsReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnDnsReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnDnsReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDnsResetActionPerformed(evt);
-            }
-        });
-        jToolBar8.add(btnDnsReset);
 
         jPanel3.add(jToolBar8, java.awt.BorderLayout.SOUTH);
 
@@ -1368,18 +1287,6 @@ public class PjFrame extends javax.swing.JFrame {
         jToolBar18.add(btnSaveArp);
         jToolBar18.add(jSeparator50);
 
-        btnArpReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnArpReset.setText("Clear  ");
-        btnArpReset.setFocusable(false);
-        btnArpReset.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnArpReset.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnArpReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnArpResetActionPerformed(evt);
-            }
-        });
-        jToolBar18.add(btnArpReset);
-
         jPanel9.add(jToolBar18, java.awt.BorderLayout.SOUTH);
 
         jScrollPane17.setViewportView(jPanel9);
@@ -1462,19 +1369,6 @@ public class PjFrame extends javax.swing.JFrame {
         });
         jToolBar22.add(btnSnmpGet);
         jToolBar22.add(jSeparator69);
-
-        btnSnmpGetClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/edit_clear-16.png"))); // NOI18N
-        btnSnmpGetClear.setText("Clear ");
-        btnSnmpGetClear.setFocusable(false);
-        btnSnmpGetClear.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSnmpGetClear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSnmpGetClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSnmpGetClearActionPerformed(evt);
-            }
-        });
-        jToolBar22.add(btnSnmpGetClear);
-        jToolBar22.add(jSeparator64);
 
         btnSnmpMibsAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info-16.png"))); // NOI18N
         btnSnmpMibsAll.setText("All Snmp-MIBs structure");
@@ -1825,16 +1719,6 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfPingInputKeyPressed
 
-    private void btnPingResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPingResetActionPerformed
-        tfPingInput.setText("");
-        taPingResult.setText("");
-    }//GEN-LAST:event_btnPingResetActionPerformed
-
-    private void btnCalcResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcResetActionPerformed
-        tfCalcInput.setText("");
-        taCalcResult.setText("");
-    }//GEN-LAST:event_btnCalcResetActionPerformed
-
     private void btnCalcRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcRunActionPerformed
         PjCalc.runGetResult(tfCalcInput, comboCalcMasks, taCalcResult);
     }//GEN-LAST:event_btnCalcRunActionPerformed
@@ -1861,11 +1745,6 @@ public class PjFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfDnsInputKeyPressed
 
-    private void btnDnsResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDnsResetActionPerformed
-        tfDnsInput.setText("");
-        taDnsResult.setText("");
-    }//GEN-LAST:event_btnDnsResetActionPerformed
-
     private void btnTcpRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTcpRunActionPerformed
         PjTcp.runGetResult(tfTcpInput, taTcpResult);
     }//GEN-LAST:event_btnTcpRunActionPerformed
@@ -1875,11 +1754,6 @@ public class PjFrame extends javax.swing.JFrame {
             PjTcp.runGetResult(tfTcpInput, taTcpResult);
         }
     }//GEN-LAST:event_tfTcpInputKeyPressed
-
-    private void btnTcpResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTcpResetActionPerformed
-        tfTcpInput.setText("");
-        taTcpResult.setText("");
-    }//GEN-LAST:event_btnTcpResetActionPerformed
 
     private void btnSyslogResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSyslogResetActionPerformed
         taSyslogResult.setText("");
@@ -1948,11 +1822,6 @@ public class PjFrame extends javax.swing.JFrame {
         PjSaveResult.Save(taTraceResult);
     }//GEN-LAST:event_btnSaveTraceActionPerformed
 
-    private void btnTraceResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraceResetActionPerformed
-        tfTraceInput.setText("");
-        taTraceResult.setText("");
-    }//GEN-LAST:event_btnTraceResetActionPerformed
-
     private void tfTelnetAdresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelnetAdresKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             telnetClientHandler();
@@ -1976,11 +1845,6 @@ public class PjFrame extends javax.swing.JFrame {
     private void btnSaveArpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveArpActionPerformed
         PjSaveResult.Save(taArpResult);
     }//GEN-LAST:event_btnSaveArpActionPerformed
-
-    private void btnArpResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpResetActionPerformed
-        tfArpInput.setText("");
-        taArpResult.setText("");
-    }//GEN-LAST:event_btnArpResetActionPerformed
 
     private void btnArpALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArpALLActionPerformed
         PjArp.runArpAll(taArpResult);
@@ -2030,13 +1894,6 @@ public class PjFrame extends javax.swing.JFrame {
     private void btnSnmpGetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpGetActionPerformed
         PjSnmpGet.runGetResult(tfSnmpGetIP, tfSnmpGetOID, tfSnmpGetCommunity, taSnmpGet);
     }//GEN-LAST:event_btnSnmpGetActionPerformed
-
-    private void btnSnmpGetClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSnmpGetClearActionPerformed
-        tfSnmpGetIP.setText("");
-        tfSnmpGetOID.setText("");
-        tfSnmpGetCommunity.setText("");
-        taSnmpGet.setText("");
-    }//GEN-LAST:event_btnSnmpGetClearActionPerformed
 
     private void tfSnmpGetOIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSnmpGetOIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -2190,12 +2047,6 @@ public class PjFrame extends javax.swing.JFrame {
         PjSaveResult.Save(taPingTCPout);
     }//GEN-LAST:event_btnSaveTcpPingActionPerformed
 
-    private void btnTcpPingClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTcpPingClearActionPerformed
-        tfPingTCPip.setText("");
-        tfPingTCPports.setText("");        
-        taPingTCPout.setText("");
-    }//GEN-LAST:event_btnTcpPingClearActionPerformed
-
     private void btnBooleanFtpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnBooleanFtpItemStateChanged
         //ImageIcon iconOn = new ImageIcon(getClass().getResource("/img/get-16.png"));
         //ImageIcon iconOf = new ImageIcon(getClass().getResource("/img/stop-16.png"));
@@ -2279,22 +2130,18 @@ public class PjFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btnArpALL;
-    private javax.swing.JButton btnArpReset;
     public javax.swing.JButton btnArpRun;
     public static javax.swing.JToggleButton btnBooleanFtp;
     public static javax.swing.JToggleButton btnBooleanNtp;
     public static javax.swing.JToggleButton btnBooleanPingFlood;
     public static javax.swing.JToggleButton btnBooleanSyslog;
     public static javax.swing.JToggleButton btnBooleanTftp;
-    private javax.swing.JButton btnCalcReset;
     private javax.swing.JButton btnCalcRun;
-    private javax.swing.JButton btnDnsReset;
     private javax.swing.JButton btnDnsRun;
     public static javax.swing.JButton btnFtpSave;
     private javax.swing.JButton btnMRTG;
     public static javax.swing.JButton btnNetTcpScannerRun;
     public static javax.swing.JButton btnNetTcpScannerSave;
-    public static javax.swing.JButton btnPingReset;
     public javax.swing.JButton btnPingRun;
     public static javax.swing.JButton btnPingScannerRun;
     public static javax.swing.JButton btnPingScannerSave;
@@ -2306,18 +2153,14 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveTcpPing;
     private javax.swing.JButton btnSaveTrace;
     public static javax.swing.JButton btnSnmpGet;
-    public static javax.swing.JButton btnSnmpGetClear;
     public static javax.swing.JButton btnSnmpMibsAll;
     public static javax.swing.JButton btnSnmpMibsStd;
     private javax.swing.JButton btnSyslogReset;
     private javax.swing.JButton btnSyslogSave;
-    private javax.swing.JButton btnTcpPingClear;
     public javax.swing.JButton btnTcpPingRun;
-    private javax.swing.JButton btnTcpReset;
     public javax.swing.JButton btnTcpRun;
     public static javax.swing.JButton btnTelnetRun;
     public static javax.swing.JButton btnTftpSave;
-    private javax.swing.JButton btnTraceReset;
     public javax.swing.JButton btnTraceRun;
     public static javax.swing.JButton btnUdpFlood;
     public static javax.swing.JComboBox<String> comboCalcMasks;
@@ -2477,7 +2320,6 @@ public class PjFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator61;
     private javax.swing.JToolBar.Separator jSeparator62;
     private javax.swing.JToolBar.Separator jSeparator63;
-    private javax.swing.JToolBar.Separator jSeparator64;
     private javax.swing.JToolBar.Separator jSeparator65;
     private javax.swing.JToolBar.Separator jSeparator66;
     private javax.swing.JToolBar.Separator jSeparator67;

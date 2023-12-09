@@ -228,23 +228,6 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator26">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnPingReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPingResetActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                      </AuxValues>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -399,20 +382,6 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator40">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnTraceReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear  "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTraceResetActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -944,20 +913,6 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator30">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnTcpReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTcpResetActionPerformed"/>
-                      </Events>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -1120,20 +1075,6 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator87">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnTcpPingClear">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTcpPingClearActionPerformed"/>
-                      </Events>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -1146,7 +1087,7 @@
               <JTabbedPaneConstraints tabName="Network TCP-scanner">
                 <Property name="tabTitle" type="java.lang.String" value="Network TCP-scanner"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/scan_16.png"/>
+                  <Image iconType="3" name="/img/radar-16.png"/>
                 </Property>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -1546,20 +1487,6 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator32">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnCalcReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcResetActionPerformed"/>
-                      </Events>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -1710,20 +1637,6 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator31">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnDnsReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear  "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDnsResetActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2025,20 +1938,6 @@
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator50">
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnArpReset">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear  "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArpResetActionPerformed"/>
-                      </Events>
-                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -2210,25 +2109,6 @@
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JToolBar$Separator" name="jSeparator69">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnSnmpGetClear">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/img/edit_clear-16.png"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Clear "/>
-                        <Property name="focusable" type="boolean" value="false"/>
-                        <Property name="horizontalTextPosition" type="int" value="4"/>
-                        <Property name="verticalTextPosition" type="int" value="3"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSnmpGetClearActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JToolBar$Separator" name="jSeparator64">
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSnmpMibsAll">
                       <Properties>

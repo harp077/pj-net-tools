@@ -29,18 +29,18 @@ public class PjPingScanner {
     //private static AtomicInteger j = new AtomicInteger(1);
 
     public static String[] scannerCIDRS_MASKS = {
-        "/19=255.255.224.0",
-        "/20=255.255.240.0",
-        "/21=255.255.248.0",
-        "/22=255.255.252.0",
-        "/23=255.255.254.0",
-        "/24=255.255.255.0",
-        "/25=255.255.255.128",
-        "/26=255.255.255.192",
-        "/27=255.255.255.224",
-        "/28=255.255.255.240",
+        "/30=255.255.255.252",
         "/29=255.255.255.248",
-        "/30=255.255.255.252"
+        "/28=255.255.255.240",
+        "/27=255.255.255.224",
+        "/26=255.255.255.192",
+        "/25=255.255.255.128",
+        "/24=255.255.255.0",
+        "/23=255.255.254.0",
+        "/22=255.255.252.0",
+        "/21=255.255.248.0",
+        "/20=255.255.240.0",
+        "/19=255.255.224.0"
     };
 
     public static final String[] scannerTIMEOUTS = {
@@ -80,9 +80,9 @@ public class PjPingScanner {
         result = result + "\n Host Addresses Count = " + su.getInfo().getAddressCountLong();
         result = result + "\n CIDR notation = " + su.getInfo().getCidrSignature();
         result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();
-        resultUP = result + "\n\n Ping-Scanner data for UP:\n\n";
-        resultDOWN = result + "\n\n Ping-Scanner data for DOWN:\n\n";
-        result = result + "\n\n Ping-Scanner data:\n\n";
+        resultUP = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n Ping-Scanner data for UP:\n\n";
+        resultDOWN = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n Ping-Scanner data for DOWN:\n\n";
+        result = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n Ping-Scanner data:\n\n";
         pingtimeout = Integer.parseInt(PjFrame.comboPingScannerTimeouts.getSelectedItem().toString());
         //j = new AtomicInteger(1);
         hmresult.clear();
