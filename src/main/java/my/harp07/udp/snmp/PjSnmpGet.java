@@ -44,7 +44,7 @@ public class PjSnmpGet {
         versionMap.put("3", SnmpConstants.version3);        
     }
 
-    public static String snmpGet(String ip, String oid, String comm, String port, String vers) {
+    /*public static String snmpGet(String ip, String oid, String comm, String port, String vers) {
         String str = "";
         Snmp snmpG = null;
         TransportMapping transportG = null;
@@ -98,7 +98,43 @@ public class PjSnmpGet {
             }
         }
         return str.trim();
-    }
+    }*/
+    
+    public static String snmpGet(String ip, String oid, String comm, String port, String vers, int timeout) {
+        String str = "";
+        try ( 
+                DefaultUdpTransportMappingMy tm = new DefaultUdpTransportMappingMy();
+                SnmpMy snmpG = new SnmpMy(tm);
+                ) {
+            CommunityTarget target = new CommunityTarget();
+            target.setCommunity(new OctetString(comm));
+            target.setVersion(versionMap.get(vers));
+            target.setAddress(new UdpAddress(ip + "/" + port));
+            target.setRetries(Retries);
+            target.setTimeout(timeout);
+            PDU pdu = new PDU();
+            pdu.add(new VariableBinding(new OID(oid)));
+            pdu.setType(PDU.GET);
+            snmpG.listen();
+            ResponseEvent response = snmpG.get(pdu, target);
+            if (response != null) {
+                if (response.getResponse().getErrorStatusText().equalsIgnoreCase("Success")) {
+                    PDU pduresponse = response.getResponse();
+                    str = pduresponse.getVariableBindings().firstElement().toString();
+                    if (str.contains("=")) {
+                        int len = str.indexOf("=");
+                        str = str.substring(len + 1, str.length());
+                    }
+                }
+            } else {
+                System.out.println("__snmpGet timeout, ip=" + ip);
+            }
+        } catch (Exception ex) {
+            System.out.println("__snmpGet exception: " + ex.getMessage() + ", ip=" + ip);
+            return "";
+        }
+        return str.trim();
+    }    
 
     public static void runGetResult(JTextField ips, JTextField oids, JTextField comm, JTextArea tas) {
         snmp_ip = frame.tfSnmpGetIP.getText().trim();
@@ -109,7 +145,7 @@ public class PjSnmpGet {
             JOptionPane.showMessageDialog(frame, "Wrong IP !", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        snmp_result = snmpGet(snmp_ip, snmp_oid, snmp_comm, snmp_port, snmp_vers);
+        snmp_result = snmpGet(snmp_ip, snmp_oid, snmp_comm, snmp_port, snmp_vers, Timeout);
         if (snmp_result != null && snmp_result.equals("")) {
             snmp_result = "no value";
         }

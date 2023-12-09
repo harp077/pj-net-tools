@@ -1,0 +1,109 @@
+#
+#  simply add your custom snmp-oid as:  <OID-NAME>=<OID-NUMBER>
+#    
+sys-name=1.3.6.1.2.1.1.5.0
+sys-uptime=1.3.6.1.2.1.1.3.0
+#    
+#  host-resources-mib
+host-system-processes=1.3.6.1.2.1.25.1.6.0
+host-memory-size=1.3.6.1.2.1.25.2.2.0
+#    
+#  IP-mib
+ip-routes=1.3.6.1.2.1.4.24.3.0
+ip-inet-routes=1.3.6.1.2.1.4.24.6.0
+ip-in-unknown-prot=1.3.6.1.2.1.4.7.0
+ip-in-discards=1.3.6.1.2.1.4.8.0
+ip-out-discards=1.3.6.1.2.1.4.11.0
+ip-out-no-routes=1.3.6.1.2.1.4.12.0
+ip-routing-discards=1.3.6.1.2.1.4.23.0
+#    
+#  ICMP-mib
+icmp-input-errors=1.3.6.1.2.1.5.2.0
+icmp-output-errors=1.3.6.1.2.1.5.15.0
+#    
+# UDP-mib
+udp-no-ports=1.3.6.1.2.1.7.2.0
+udp-input-errors=1.3.6.1.2.1.7.3.0
+udp-input-datagrams=1.3.6.1.2.1.7.1.0
+udp-output-datagrams=1.3.6.1.2.1.7.4.0
+#    
+#  SNMP-mib
+snmp-in-bad-versions=1.3.6.1.2.1.11.3.0
+snmp-in-bad-community-names=1.3.6.1.2.1.11.4.0
+#    
+#  TCP-mib
+tcp-active-opens=1.3.6.1.2.1.6.5.0
+tcp-passive-opens=1.3.6.1.2.1.6.6.0
+tcp-Attempt-Fails=1.3.6.1.2.1.6.7.0
+tcp-Estab-Resets=1.3.6.1.2.1.6.8.0
+tcp-Current-Established=1.3.6.1.2.1.6.9.0
+tcp-Inp-Segs=1.3.6.1.2.1.6.10.0
+tcp-Out-Segs=1.3.6.1.2.1.6.11.0
+tcp-Retrans-Segs=1.3.6.1.2.1.6.12.0
+tcp-input-errors=1.3.6.1.2.1.6.14.0
+tcp-Out-Rsts=1.3.6.1.2.1.6.15.0
+#    
+#  UPS-mib
+ups-input-freq=1.3.6.1.2.1.33.1.3.3.1.2.1
+ups-input-voltage=1.3.6.1.2.1.33.1.3.3.1.3.1
+ups-output-freq=1.3.6.1.2.1.33.1.4.2.0
+ups-output-voltage=1.3.6.1.2.1.33.1.4.4.1.2.1
+ups-output-load-percent=1.3.6.1.2.1.33.1.4.4.1.5.1
+ups-battery-temperature=1.3.6.1.2.1.33.1.2.7.0
+ups-minutes-remain=1.3.6.1.2.1.33.1.2.3.0
+ups-seconds-on-battery=1.3.6.1.2.1.33.1.2.2.0
+ups-battery-charge-percent=1.3.6.1.2.1.33.1.2.4.0
+ups-battery-current=1.3.6.1.2.1.33.1.2.6.0 
+#    
+#  STP-mib
+dot1d-Stp-Priority=1.3.6.1.2.1.17.2.2.0
+dot1d-Stp-Root-Port=1.3.6.1.2.1.17.2.7.0
+dot1d-Stp-Time-Since-Topology-Change=1.3.6.1.2.1.17.2.3.0
+dot1d-Stp-Designated-Root=1.3.6.1.2.1.17.2.5.0
+#    
+#  Printer-mib
+black-toner-info=1.3.6.1.2.1.43.11.1.1.6.1.1
+black-toner-max=1.3.6.1.2.1.43.11.1.1.8.1.1
+black-toner-current=1.3.6.1.2.1.43.11.1.1.9.1.1
+#    
+#  Huawei ar-1220
+huawei-temperature-celsius=1.3.6.1.4.1.2011.5.25.31.1.1.1.1.11.9
+huawei-cpu-load=1.3.6.1.4.1.2011.5.25.31.1.1.1.1.5.9
+huawei-ram-use-percent=1.3.6.1.4.1.2011.5.25.31.1.1.1.1.7.9
+#    
+# Extreme Summit x-440, x460
+extreme-ram-free-kb=1.3.6.1.4.1.1916.1.32.2.2.1.3.1
+extreme-cpu-load-1min=1.3.6.1.4.1.1916.1.32.1.4.1.8.1
+extreme-cpu-load-5min=1.3.6.1.4.1.1916.1.32.1.4.1.9.1
+extreme-temperature-celsius=1.3.6.1.4.1.1916.1.1.1.8.0
+#    
+# generic Cisco
+cisco-cpu-load-1min=1.3.6.1.4.1.9.2.1.57.0
+cisco-cpu-load-5min=1.3.6.1.4.1.9.2.1.58.0
+cisco-temperature-celsius=1.3.6.1.4.1.9.9.13.1.3.1.3.1008
+cisco-ram-free-byte=1.3.6.1.4.1.9.2.1.8.0
+cisco-flash-free-byte=1.3.6.1.4.1.9.2.10.2.0
+#    
+# Juniper SRX
+juniper-temperature-celsius=1.3.6.1.4.1.2636.3.1.13.1.7.9.1.0.0
+juniper-cpu-load-pfe=1.3.6.1.4.1.2636.3.39.1.12.1.1.1.4.0
+juniper-cpu-load-15min=1.3.6.1.4.1.2636.3.1.13.1.22.9.1.0.0
+juniper-ram-use-pfe-percent=1.3.6.1.4.1.2636.3.39.1.12.1.1.1.5.0
+juniper-sessions-number=1.3.6.1.4.1.2636.3.39.1.12.1.1.1.6.0
+juniper-cpu-load-5min=1.3.6.1.4.1.2636.3.1.13.1.21.9.1.0.0
+juniper-ram-use-re-percent=1.3.6.1.4.1.2636.3.1.13.1.11.9.1.0.0
+juniper-cpu-load-re=1.3.6.1.4.1.2636.3.1.13.1.8.9.1.0.0
+#
+# VipNet HW-1000 and Ubiquiti ER, usd-mib - also present in ubiquiti er-x !
+vipnet-hw1000-ram-all-kb=1.3.6.1.4.1.2021.4.5.0
+vipnet-hw1000-ram-free-kb=1.3.6.1.4.1.2021.4.6.0
+vipnet-hw1000-cpu-idle-%=1.3.6.1.4.1.2021.11.11.0
+#    
+# Mikrotik 
+mikrotik-cpu-1-core-load=1.3.6.1.2.1.25.3.3.1.2.1
+mikrotik-ram-all-kb=1.3.6.1.2.1.25.2.3.1.5.65536
+mikrotik-ram-used-kb=1.3.6.1.2.1.25.2.3.1.6.65536
+mikrotik-disk-used-kb=1.3.6.1.2.1.25.2.3.1.6.131072
+mikrotik-cpu-freq-MHz=1.3.6.1.4.1.14988.1.1.3.14.0
+
+

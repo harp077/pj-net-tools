@@ -22,6 +22,7 @@ Include:
 16) SNMP-MRTG traffic monitor.
 17) Anonymous FTP-server.
 18) Parallel Network TCP-scanner.
+19) Parallel Network SNMP-scanner.
 
 Need JRE-1.8:
 
