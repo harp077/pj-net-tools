@@ -67,7 +67,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static String currentLAF = "de.muntjak.tinylookandfeel.TinyLookAndFeel";
     public static String currentTheme = "/themes/Golden.theme";
     public static List<String> tinyTemes = new ArrayList<>();
-    public static String zagolovok = "Pure Java Network Tools,  v1.0.100, build 09-12-2023";
+    public static String zagolovok = "Pure Java Network Tools,  v1.0.101, build 09-12-2023";
 
     public PjFrame() {
         initComponents();
@@ -174,7 +174,7 @@ public class PjFrame extends javax.swing.JFrame {
     public static void setLF() {
         if (currentLAF.contains("tinyl")) {
             try {
-                de.muntjak.tinylookandfeel.Theme.loadTheme(new File(PjFrame.class.getResource(currentTheme).toURI()));
+                de.muntjak.tinylookandfeel.Theme.loadTheme(PjFrame.class.getResource(currentTheme));
             } catch (Exception ex) {
                 Logger.getLogger(PjFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
