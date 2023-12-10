@@ -9,8 +9,6 @@ import javax.swing.JTextField;
 import static my.harp07.GenericPJ.dnsv;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.PjFrame.frame;
-import org.apache.commons.validator.routines.DomainValidator;
-import org.apache.commons.validator.routines.InetAddressValidator;
 import org.xbill.DNS.ResolverConfig;
 
 public class PjDns {
@@ -23,9 +21,14 @@ public class PjDns {
     public static void check(JTextField tf, JTextArea ta) {
         name = tf.getText().trim();
         result = "System use DNS-servers:\n";
-        Arrays.asList(ResolverConfig.getCurrentConfig().servers())
+        // throw NullPointerException !!!
+        try {        
+            Arrays.asList(ResolverConfig.getCurrentConfig().servers())
                 .stream()
                 .forEach(x -> result = result + x + "\n");
+        } catch (Exception ee) {
+            result = result + "no DNS-servers\n";
+        }            
         result = result + "\nResult for " + name + ":\n\n";
         if (dnsv.isValid(name.trim())) {
             try {

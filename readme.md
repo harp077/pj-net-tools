@@ -23,6 +23,7 @@ Include:
 17) Anonymous FTP-server.
 18) Parallel Network TCP-scanner.
 19) Parallel Network SNMP-scanner.
+20) Parallel Network DNS-scanner.
 
 Need JRE-1.8:
 

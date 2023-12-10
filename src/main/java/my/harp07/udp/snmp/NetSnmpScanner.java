@@ -15,10 +15,7 @@ import my.harp07.PjFrame;
 import static my.harp07.GenericPJ.ipv;
 import static my.harp07.GenericPJ.su;
 import static my.harp07.PjFrame.frame;
-import my.harp07.tcp.ModelPing;
-import my.harp07.tcp.PingTCP;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.net.util.SubnetUtils;
 
 public class NetSnmpScanner {
@@ -35,10 +32,7 @@ public class NetSnmpScanner {
     public static ConcurrentHashMap<String, String> hmresult = new ConcurrentHashMap<>();
     public static ConcurrentHashMap<String, String> hmresultUP = new ConcurrentHashMap<>();
     public static ConcurrentHashMap<String, String> hmresultDOWN = new ConcurrentHashMap<>();
-    //private static AtomicInteger j = new AtomicInteger(1);
-    public static Map<String, String> mainMapSNMP_OIDS = new ConcurrentHashMap<>();
     public static List<String> mainListSNMP_OIDS;
-    //private static String snmp_OidTestValue;
 
     public static String[] scannerCIDRS_MASKS = {
         "/30=255.255.255.252",
@@ -80,13 +74,6 @@ public class NetSnmpScanner {
             for (String line : mainListSNMP_OIDS) {
                 System.out.println(line);
             }
-            mainListSNMP_OIDS
-                    .stream()
-                    .forEach(x -> {
-                        mainMapSNMP_OIDS.put(x.trim().split("=")[0], x.trim().split("=")[1]);
-                    }
-                    );
-            System.out.println(mainMapSNMP_OIDS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -100,6 +87,8 @@ public class NetSnmpScanner {
         frame.comboNetSnmpScannerMasks.setEnabled(bbb);
         frame.comboNetSnmpScannerTimeouts.setEnabled(bbb);
         frame.tfNetSnmpScannerCommunity.setEnabled(bbb);
+        frame.comboNetSnmpScannerOID.setEnabled(bbb);
+        frame.comboNetSnmpScannerVersion.setEnabled(bbb);
     }
 
     public static String getResult(String ipadr, JTextArea tap) {
@@ -116,9 +105,9 @@ public class NetSnmpScanner {
         result = result + "\n Host Addresses Count = " + su.getInfo().getAddressCountLong();
         result = result + "\n CIDR notation = " + su.getInfo().getCidrSignature();
         result = result + "\n MASK notation = " + StringUtils.substringBefore(ipadr, "/") + " " + su.getInfo().getNetmask();
-        resultUP = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n SNMP-scanner data for UP:\n\n";
-        resultDOWN = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n SNMP-scanner data for DOWN:\n\n";
-        result = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + "\n SNMP-scanner data:\n\n";
+        resultUP = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + ", UDP-port 161,\n SNMP-scanner data for UP:\n\n";
+        resultDOWN = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + ", UDP-port 161,\n SNMP-scanner data for DOWN:\n\n";
+        result = result + "\n\n Use parallel streams, CPU cores = " + Runtime.getRuntime().availableProcessors() + ", UDP-port 161,\n SNMP-scanner data:\n\n";
         snmp_community = PjFrame.tfNetSnmpScannerCommunity.getText().trim();
         snmp_version = PjFrame.comboNetSnmpScannerVersion.getSelectedItem().toString();
         snmp_oid = PjFrame.comboNetSnmpScannerOID.getSelectedItem().toString().split("=")[1];

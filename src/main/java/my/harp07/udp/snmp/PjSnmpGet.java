@@ -130,7 +130,7 @@ public class PjSnmpGet {
                 System.out.println("__snmpGet timeout, ip=" + ip);
             }
         } catch (Exception ex) {
-            System.out.println("__snmpGet exception: " + ex.getMessage() + ", ip=" + ip);
+            //System.out.println("__snmpGet exception: " + ex.getMessage() + ", ip=" + ip);
             return "";
         }
         return str.trim();
@@ -149,7 +149,7 @@ public class PjSnmpGet {
         if (snmp_result != null && snmp_result.equals("")) {
             snmp_result = "no value";
         }
-        tas.setText("\nSnmp version = " + snmp_vers + "\n\nSnmp result value = " + snmp_result);
+        tas.setText("\nSnmp version = " + snmp_vers + ", UDP-port = 161\n\nSnmp result value = " + snmp_result);
     }
 
 }
