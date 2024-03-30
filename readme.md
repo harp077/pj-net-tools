@@ -1,3 +1,5 @@
+![Total downloads](https://img.shields.io/github/downloads/harp077/pj-net-tools/total.svg)
+
 Pure Java Network Tools. Free portable cross-platform. 
 ICMP-ping works well only when run as Admin in Windows or Root in Linux ! 
 You can check this by iptraf linux utility. 
