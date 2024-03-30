@@ -1,7 +1,7 @@
 [![Total downloads](https://img.shields.io/github/downloads/harp077/pj-net-tools/total.svg)](https://github.com/harp077/pj-net-tools/releases)
 [![Latest downloads](https://img.shields.io/github/downloads/harp077/pj-net-tools/latest/total.svg)](https://github.com/harp077/pj-net-tools/releases)
 [![Release](https://img.shields.io/github/release/harp077/pj-net-tools)](https://github.com/harp077/pj-net-tools/releases)
-![Java 11+](https://img.shields.io/badge/Java-8%2B-blue)
+[![Java 8+](https://img.shields.io/badge/Java-8%2B-blue)](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
 
 Pure Java Network Tools. Free portable cross-platform. 
 ICMP-ping works well only when run as Admin in Windows or Root in Linux ! 
