@@ -3,6 +3,7 @@
 [![Release](https://img.shields.io/github/release/harp077/pj-net-tools)](https://github.com/harp077/pj-net-tools/releases)
 [![Java 8+](https://img.shields.io/badge/Java-8%2B-teal)](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
 ![Free](https://img.shields.io/badge/free-open--source-green.svg)
+[![HitCount](http://hits.dwyl.com/harp077/pj-net-tools.svg?style=flat)](http://hits.dwyl.com/harp077/pj-net-tools)
 <a href="https://github.com/harp077/pj-net-tools/stargazers"><img src="https://img.shields.io/github/stars/harp077/pj-net-tools?style=flat" alt="GitHub stars" /></a>
 
 Pure Java Network Tools. Free portable cross-platform. 
