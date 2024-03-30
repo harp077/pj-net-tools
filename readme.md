@@ -4,12 +4,12 @@
 [![Java 8+](https://img.shields.io/badge/Java-8%2B-teal)](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
 ![Free](https://img.shields.io/badge/free-open--source-green.svg)
 [![HitCount](http://hits.dwyl.com/harp077/pj-net-tools.svg?style=flat)](http://hits.dwyl.com/harp077/pj-net-tools)
-[![GitHub followers](https://img.shields.io/github/followers/harp077?label=Follow&style=social)](https://github.com/harp077)
+[![GitHub followers](https://img.shields.io/github/followers/harp077?label=Follow&style=flat)](https://github.com/harp077)
 <a target="_blank" href="https://docs.oracle.com/javase/8/docs/api"><img src="https://img.shields.io/badge/API-8-violet.svg"></a>
 <a href="https://github.com/harp077/pj-net-tools/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/harp077/pj-net-tools?style=flat"></a>
 <a href="https://github.com/harp077/pj-net-tools/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/harp077/pj-net-tools?style=flat"></a>
 <a href="https://github.com/harp077/pj-net-tools/stargazers"><img src="https://img.shields.io/github/stars/harp077/pj-net-tools?style=flat" alt="GitHub stars" /></a>
-
+<!-- styles = flat, flat-square, social  -->
 Pure Java Network Tools. Free portable cross-platform. 
 ICMP-ping works well only when run as Admin in Windows or Root in Linux ! 
 You can check this by iptraf linux utility. 
