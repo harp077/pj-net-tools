@@ -39,7 +39,8 @@ Include:
 18) Parallel Network TCP-scanner.
 19) Parallel Network SNMP-scanner.
 20) Parallel Network DNS-scanner.
-21) Parallel SNMP-DDOS.
+21) Parallel SNMP-DoS.
+22) Parallel HTTP/HTTPS-DoS.
 
 Need JRE-1.8:
 
