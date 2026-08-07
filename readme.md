@@ -25,22 +25,21 @@ Include:
 04) Host TCP-scanner, 
 05) IP-calculator, 
 06) Syslog-server,  
-07) Telnet-client, 
-08) Local ARP-cache request,
-09) Parallel Network Ping-Scanner,
-10) Snmp-Get concrete value utility.
-11) ICMP flood utility. 
-12) UDP  flood utility. 
-13) TFTP-server.
-14) NTP-server.
-15) Host TCP-ping.
-16) SNMP-MRTG traffic monitor.
-17) Anonymous FTP-server.
-18) Parallel Network TCP-scanner.
-19) Parallel Network SNMP-scanner.
-20) Parallel Network DNS-scanner.
-21) Parallel SNMP-DoS.
-22) Parallel HTTP/HTTPS-DoS.
+07) Local ARP-cache request,
+08) Parallel Network Ping-Scanner,
+09) Snmp-Get concrete value utility.
+10) ICMP flood utility. 
+11) UDP  flood utility. 
+12) TFTP-server.
+13) NTP-server.
+14) Host TCP-ping.
+15) SNMP-MRTG traffic monitor.
+16) Anonymous FTP-server.
+17) Parallel Network TCP-scanner.
+18) Parallel Network SNMP-scanner.
+19) Parallel Network DNS-scanner.
+20) Parallel SNMP-DoS.
+21) Parallel HTTP/HTTPS-DoS.
 
 Need JRE-1.8:
 
